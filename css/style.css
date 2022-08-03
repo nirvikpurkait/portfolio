@@ -25,7 +25,7 @@ button{
 body{
   background-color: var(--dark-bg-color);
   color: var(--dark-text-color);
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   transition: all 0.3s linear;
   /* overflow: visible !important; */
 }
@@ -70,7 +70,7 @@ nav{
   transition: all 0.3s linear;
 }
 
-#theme-button{
+.theme-button{
   position: relative;
   font-size: 26px;
   background: transparent;
@@ -82,22 +82,32 @@ nav{
   overflow: hidden;
 }
 
-#theme-button i{
+.theme-button i{
   position: absolute;
   top: 50%;
   left: 50%;
 }
 
-#theme-button .moon{
+.theme-button .moon{
   transform: translateX(-50%) translateY(-50%) scale(0);
   transition: all 0.3s linear;
 }
 
-#theme-button .sun{
+.theme-button .sun{
   transform: translateX(-50%) translateY(-50%) scale(1);
   transition: all 0.3s linear;
 }
 
+.hamburger{
+  position: relative;
+  background: transparent;
+  border: none;
+  z-index: 1;
+}
+.hamburger img{
+  width: 40px;
+  height: auto;
+}
 
 
 /* ___________________________________________content section___________________________________________ */
