@@ -23,9 +23,40 @@
 }
 
 
+
+/* applies exceeding the limits */
+/* min-width have to be ordered from smallest to largest to work properly */
+/* __________________________________________________________________________________________________ */
+@media screen and (min-width:768px){
+  .hamburger{
+    display: none;
+  }
+  .template:last-child{
+    grid-column-start: span 2;
+  }
+
+}
+
+@media screen and (min-width:1200px) {
+  .template:last-child{
+    grid-column-start: span 1;
+  }
+}
+
+
 /* applies upto the limit  */
 /* max-width have to be ordered from largest to smallest to work properly */
 /* __________________________________________________________________________________________________ */
+
+@media screen and (max-width:1200px){
+  .projet-template{
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .template:last-child{
+    grid-column-start: span 2;
+  }
+}
+
 
 @media screen and (max-width:768px){
   .nav-item{
@@ -68,6 +99,7 @@
     width: 100%;
     text-align: left;
   }
+
   .details:nth-child(n) .stream{
     left: 5%;
     background-image: linear-gradient(to left, transparent, #FFE87C  80%);
@@ -79,19 +111,22 @@
     padding: 0 0 0 34px;
   }
 
-
-
-}
-
-
-/* applies exceeding the limits */
-/* min-width have to be ordered from smallest to largest to work properly */
-/* __________________________________________________________________________________________________ */
-@media screen and (min-width:768px){
-  .hamburger{
-    display: none;
+  .project-details {
+    padding: 30% 0 0; 
   }
 
+  .projet-template{
+    grid-template-columns: 1fr;
+  }
+
+  .template:last-child{
+    grid-column-start: span 1;
+  }
+
+
 }
+
+
+
 
 

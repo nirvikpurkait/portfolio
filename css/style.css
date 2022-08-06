@@ -235,15 +235,15 @@ nav{
 }
 
 .projet-template{
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
   padding: 8% 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
 }
 
 .template{
   position: relative;
-  display: flex;
+  margin: auto auto 10%;
   align-items: end;
   justify-content: space-evenly;
   background-color: #212529;
@@ -257,11 +257,15 @@ nav{
   transition: all 0.3s linear
 }
 
-/* .template:hover{
+.template:last-child{
+  grid-column-start: span 1;
+}
+
+.template:hover{
   opacity: 1;
   transform: scale(1.1);
   box-shadow: 15px 15px 15px #7462e1;
-} */
+}
 
 .template-1::before{
   content: '';
