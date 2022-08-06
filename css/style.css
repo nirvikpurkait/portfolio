@@ -100,14 +100,22 @@ nav{
 
 .hamburger{
   position: relative;
+  width: 40px;
+  height: 40px;
   background: transparent;
   border: none;
   z-index: 1;
 }
-.hamburger img{
-  width: 40px;
-  height: auto;
+
+#hamburger{
+  fill: #7462E1;
 }
+
+/* .hamburger svg{
+  max-width: 100%;
+  max-height: 100%;
+} */
+
 
 
 /* ___________________________________________content section___________________________________________ */
