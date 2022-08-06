@@ -61,34 +61,46 @@
 @media screen and (max-width:768px){
   .nav-item{
     position: absolute;
+    width: 100%;
     top: 0;
-    left: 100%;
-    width: 100vw;
+    left: 0;
     height: 100vh;
+    z-index: 1;
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     flex-direction: column;
-    justify-content: space-evenly;
     background: var(--dark-bg-color);
     color: var(--dark-text-color);
+    clip-path: circle(0px at 100% 0%);
+    opacity: 0;
+    pointer-events: none;
     transition: all 0.3s linear;
+  }
+  
+  .nav-item.open-navbar{
+    opacity: 1;
+    pointer-events: all;
+    clip-path: circle(120% at 80% 0%);
   }
   
   .theme-button{
     position: absolute;
     top: 0;
-    left: 100%;
-    transition: all 0.3s linear;
-  }
-  
-  .nav-item.open-navbar{
-    left: 0%;
+    left: 0;
     z-index: 1;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s cubic-bezier(0,0,1,1.72);
   }
-  
+
   .theme-button.open-navbar{
+    opacity: 1;
+    left: 5%;
     top: 30%;
-    left: 10%;
-    z-index: 1;
+    pointer-events: all;
+    transform: translate(0,0);
   }
 
   .main-stream{
