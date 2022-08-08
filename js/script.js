@@ -37,6 +37,7 @@ hamburgerButton.addEventListener('click', openNavbar)
 function openNavbar() {
   navItem.classList.toggle('open-navbar');
   themeButton.classList.toggle('open-navbar');
+  // hamburgerButton.classList.toggle('toggled-button')
 }
 
 

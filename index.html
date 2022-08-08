@@ -55,11 +55,11 @@
           <i class="fa-solid fa-moon moon"></i>
         </button>
 
-        <!-- <div> -->
-          <button class="hamburger">
-            <svg><use href="#hamburger"></use></svg>
-          </button>
-        <!-- </div> -->
+        <button class="hamburger toggled-button">
+          <svg>
+            <use href="#hamburger-icon"></use>
+          </svg>
+        </button>
 
 
       </nav>
@@ -119,24 +119,30 @@
         <div class="template-hover-effect">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, praesentium?
         </div>
-        <a href='#'><button>View code</button></a>
-        <a href='#'><button>Learn more</button></a>
+        <div class="buttons">
+          <a href='#'><button>View code <i class="fa-solid fa-code"></i></button></a>
+          <a href='#'><button>Learn more <i class="fa-solid fa-ellipsis"></i></button></a>
+        </div>
       </div>
       
       <div class="template template-2">
         <div class="template-hover-effect">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, praesentium?
         </div>
-        <a href='#'><button>View code</button></a>
-        <a href='#'><button>Learn more</button></a>
+        <div class="buttons">
+          <a href='#'><button>View code <i class="fa-solid fa-code"></i></button></a>
+          <a href='#'><button>Learn more <i class="fa-solid fa-ellipsis"></i></button></a>
+        </div>
       </div>
       
       <div class="template template-3">
         <div class="template-hover-effect">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus, praesentium?
         </div>
-        <a href='#'><button>View code</button></a>
-        <a href='#'><button>Learn more</button></a>
+        <div class="buttons">
+          <a href='#'><button>View code <i class="fa-solid fa-code"></i></button></a>
+          <a href='#'><button>Learn more <i class="fa-solid fa-ellipsis"></i></button></a>
+        </div>
       </div>
 
     </div>
@@ -147,7 +153,7 @@
 
 
   <!-- svg section -->
-  <section style="position: absolute; display: none; bottom: 0; z-index: -999999999999;">
+  <section style="position: absolute; display: none; bottom: 0; z-index: -999999999999; pointer-events: none; opacity: 0;">
     <!-- logo svg -->
     <svg>
       <symbol id="nirvik-logo" viewBox="0 0 1706 393">
@@ -168,11 +174,11 @@
 
     <!-- hanburger to cross svg -->
     <svg>
-      <symbol id="hamburger" viewBox="0 0 448 512">
+      <symbol id="hamburger-icon" viewBox="0 0 600 423">
         <g id="hamburger">
-          <rect id="Rectangle 3" width="599.371" height="115.72" rx="57.8601" fill="#D9D9D9"/>
-          <rect id="Rectangle 6" y="153.383" width="599.371" height="115.72" rx="57.8601" fill="#D9D9D9"/>
-          <rect id="Rectangle 5" y="306.766" width="599.371" height="115.72" rx="57.8601" fill="#D9D9D9"/>
+          <rect class="toggled-button" id="Rectangle-3" y="306.766" width="599.371" height="90" rx="57.8601"/>
+          <rect id="Rectangle-2" y="153.383" width="599.371" height="90" rx="57.8601"/>
+          <rect id="Rectangle-1" width="599.371" height="90" rx="57.8601"/>
           </g>
       </symbol>
     </svg>
