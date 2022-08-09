@@ -17,13 +17,23 @@ function changeTheme() {
 // ______________________________________________________________________
 
 
-const educationDetailsHeight = document.getElementById('education-details').clientHeight;
+const diplomaDetailsHeights = document.querySelector('.diploma-details').clientHeight;
+const diplomaSectionHeight = document.querySelector('.diploma');
+const higherSecondaryDetailsHeights = document.querySelector('.higher-secondary-details').clientHeight;
+const higherSecondarySectionHeight = document.querySelector('.higher-secondary');
+const secondaryDetailsHeights = document.querySelector('.secondary-details').clientHeight;
+const secondarySectionHeight = document.querySelector('.secondary');
 
+
+diplomaSectionHeight.style.height = `${diplomaDetailsHeights}px`
+higherSecondarySectionHeight.style.height = `${higherSecondaryDetailsHeights}px`
+secondarySectionHeight.style.height = `${secondaryDetailsHeights}px`
+
+const educationDetailsHeight = document.getElementById('education-details').clientHeight;
 const mainStream = document.getElementById('main-stream');
 
-mainStream.style.height = `${educationDetailsHeight / 16}rem`
-console.log(`${educationDetailsHeight}`);
-
+mainStream.style.height = `${educationDetailsHeight}px`
+console.log(educationDetailsHeight);
 
 // ____________________________________________________________________
 
@@ -37,8 +47,9 @@ hamburgerButton.addEventListener('click', openNavbar)
 function openNavbar() {
   navItem.classList.toggle('open-navbar');
   themeButton.classList.toggle('open-navbar');
-  // hamburgerButton.classList.toggle('toggled-button')
+  hamburgerButton.classList.toggle('toggled-button')
 }
 
 
 // ____________________________________________________________________
+

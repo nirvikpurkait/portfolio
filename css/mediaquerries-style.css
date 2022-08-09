@@ -110,6 +110,7 @@
   .details:nth-child(n){
     width: 100%;
     text-align: left;
+    /* height: max-content; */
   }
 
   .details:nth-child(n) .stream{
