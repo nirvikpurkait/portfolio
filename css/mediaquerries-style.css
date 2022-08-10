@@ -35,6 +35,16 @@
     grid-column-start: span 2;
   }
 
+  .reviewSection{
+    padding-right: 30px;
+}
+.resumeSection{
+    padding-left: 30px;
+}
+.textSection{
+    flex-direction: column;
+}
+
 }
 
 @media screen and (min-width:1200px) {
@@ -44,9 +54,16 @@
 }
 
 
+@media screen and (min-width: 1280px) {
+  .textSection{
+      flex-direction: row;
+  }
+}
+
 /* applies upto the limit  */
 /* max-width have to be ordered from largest to smallest to work properly */
 /* __________________________________________________________________________________________________ */
+
 
 @media screen and (max-width:1200px){
   .projet-template{
@@ -54,6 +71,17 @@
   }
   .template:last-child{
     grid-column-start: span 2;
+  }
+}
+
+
+
+@media screen and (max-width: 1080px) {
+  .forNameSection label, .forNameSection input,
+  .forEmailSection label, .forEmailSection input,
+  .forMessageSection label, .forMessageSection textarea{
+    display: block;
+    width: 100%;
   }
 }
 
@@ -140,6 +168,10 @@
 }
 
 
-
+@media screen and (max-width: 650px) {
+  .textSection{
+      flex-direction: column;
+  }
+}
 
 
