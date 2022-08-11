@@ -400,194 +400,121 @@ nav{
 
 /* ___________________________________________footer section___________________________________________ */
 
-
-
-.footer{
-  color: #F0F8FF;
-  padding: 5% 5% 5%;
+#footer{
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
 }
 
-/* footer > reviewSection */
-.reviewSection{
-  /* background-color: #1E90FF; */
-  color: #F0F8FF;
+.review-section form{
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
   font-family: 'Bree Serif', serif;
-  margin: 40px auto;
 }
 
-/* footer > reviewSection > form > forNameSection */
-/* footer > reviewSection > form > forEmailSection */
-/* footer > reviewSection > form > forMessageSection */
-.forNameSection,
-.forEmailSection{
-  align-items: center;
+.review-section div{
+  display: grid;
+  grid-template-columns: 20% 80%;
 }
 
-
-.forNameSection input,
-.forEmailSection input,
-.forMessageSection textarea{
-  border-radius: 16px;
-  border: 2px solid #84888c;
-  margin: 4px 0 10px;
-  padding: 8px 12px;
+input.name, input.email, textarea.message{
+  padding: 0.25rem;
+  border-radius: 10px;
+  font-family: inherit;
+  border: none;
   outline: none;
 }
 
-.forNameSection input::placeholder,
-.forEmailSection input::placeholder,
-.forMessageSection textarea::placeholder{
-  color: #545759;
+input.name:active, input.name:focus,
+input.email:active, input.email:focus,
+textarea.message:active, textarea.message:focus{
+  outline: 2px solid var(--blue);
 }
 
-.forNameSection input:focus,
-.forEmailSection input:focus,
-.forMessageSection textarea:focus{
-  border: 2px solid #545759;
-  outline: none;
+input.name::placeholder, input.email::placeholder, textarea.message::placeholder{
+  color: #212529ae;
 }
 
-/* footer > reviewSection > form > submit */
-.submitButton{
-  background-color: #00ffff;
-  margin-left: auto;
-  margin-top: 12px;
-  display: block;
-  border: none;
-  padding: 8px 40px;
-  border-radius: 60px;
-  font-size: 24px;
-}
-
-/* footer > resumeSection */
-.resumeSection{
+.review-section .submit{
   display: flex;
-  flex-direction: column;
+  justify-content: end;
   align-items: center;
-  margin: 40px auto;
+  margin-top: 30px;
 }
 
-/* footer > resumeSection > textSection */
-.textSection{
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 32px;
-  text-align: center;
-  font-family: 'Rajdhani', sans-serif;
-  margin: 0 0 60px;
-  font-weight: 1000;
-}
-
-/* footer > resumeSection > resumeButton */
-.resumeButton{
-  position: relative;
-  border-radius: 50%;
-  box-shadow: 21px 10px 15px #000;
-}
-
-.resumeButton button{
-  position: relative;
+.submit-button{
+  padding: 10px 30px;
+  font-size: 20px;
   border: none;
-  border-radius: 50px;
-  padding: 8px 18px;
+  border-radius: 30px;
+  box-shadow: 16px 20px 30px black;
+}
+
+.resume-section{
   font-family: 'Rajdhani', sans-serif;
-  font-weight: 900;
-  z-index: 1;
-  color: #F0F8FF;
-  background-color: #4169E1;
-  transition: all 0.3s linear;
 }
 
-.resumeButton button::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: #F0F8FF;
-  border-radius: 50px;
-  z-index: -1;
-  transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.3s linear;
-}
-
-.resumeButton button:hover{
-  color: black;
-}
-
-.resumeButton button:hover::before{
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* footer > resumeSection > connectionSection */
-.connectionSection{
-  margin: 50px 0 0;
-  width: 100%;
-}
-
-.facebook, .twitter, .instagram, .linkedin, .whatsapp, .github{
-  justify-content: space-around;
-  display: flex;
-  margin: 12px 0 12px;
-}
-
-/* footer > resumeSection > connectionSection > row > col > social */
-.social{
-  width: 60px;
-  height: 60px;
-  background-color: #6f6f6f;
+.text-section{
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 2rem;
+  font-size: 28px;
+  text-align: center;
+  /* flex-direction: column; */
+}
+
+.resume-button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.resume-button button{
+  font-size: 20px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 30px;
+  box-shadow: 20px 20px 20px black;
+  font-family: inherit;
+  font-weight: 900;
+}
+
+.connection-section{
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+}
+
+.facebook a, .twitter a, .instagram a, .linkedin a, .whatsapp a, .github a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: aqua;
+  width: 60px;
+  height: 60px;
+  border-radius: 30px;
   text-decoration: none;
-  border-radius: 50%;
-  transition: all 0.3s linear;
-  box-shadow: 9px 4px 21px #000000;
+  text-align: center;
+  margin: 10px auto;
 }
 
-.social:hover{
-  background-color: #F0F8FF;
-}
-
-/* footer > resumeSection > connectionSection > row > col > social > i */
-.social i{
+.fa-brands{
   font-size: 40px;
-  color: #F0F8FF;
-  transition: all 0.3s linear;
+  color: #f8f9fa;
 }
 
-.social:hover > i{
-  font-size: 45px;
-}
-.facebook .social:hover > i{
-  color: #4267B2;
-}
-.twitter .social:hover > i{
-  color: #1DA1F2;
-}
-.instagram .social:hover > i{
-  background: radial-gradient(circle at 33% 100%, #fed373 4%, #f15245 30%, #d92e7f 62%,
-  #9b36b7 85%, #515ecf);
-  background-clip:text;
-  -webkit-background-clip: text;
-  color: transparent;
-}
-.linkedin .social:hover > i{
-  color: #0077b5;
-}
-.whatsapp .social:hover > i{
-  color: #25D366;
-}
-.github .social:hover > i{
-  color: #333333;
-}
 
-/* footer > copyright */
+
+
+
+
+
+
 .copyright{
+  grid-column: 1 /3;
   text-align: center;
 }
