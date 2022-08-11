@@ -27,38 +27,38 @@
 /* applies exceeding the limits */
 /* min-width have to be ordered from smallest to largest to work properly */
 /* __________________________________________________________________________________________________ */
+
 @media screen and (min-width:768px){
+
   .hamburger{
     display: none;
   }
   .template:last-child{
     grid-column-start: span 2;
   }
-
-  .reviewSection{
-    padding-right: 30px;
-}
-.resumeSection{
-    padding-left: 30px;
-}
-.textSection{
+  .text-section{
     flex-direction: column;
+  }
+
 }
 
+
+@media screen and (min-width:992px) {
+  .text-section{
+    flex-direction: row;
+  }
 }
 
 @media screen and (min-width:1200px) {
   .template:last-child{
     grid-column-start: span 1;
   }
+  
 }
 
 
-@media screen and (min-width: 1280px) {
-  .textSection{
-      flex-direction: row;
-  }
-}
+
+
 
 /* applies upto the limit  */
 /* max-width have to be ordered from largest to smallest to work properly */
@@ -74,16 +74,16 @@
   }
 }
 
-
-
-@media screen and (max-width: 1080px) {
-  .forNameSection label, .forNameSection input,
-  .forEmailSection label, .forEmailSection input,
-  .forMessageSection label, .forMessageSection textarea{
-    display: block;
-    width: 100%;
+@media screen and (max-width:1080px){
+  .review-section div {
+    display: grid;
+    gap: 0.25rem;
+    grid-template-columns: 100%;
   }
+
 }
+
+
 
 
 @media screen and (max-width:768px){
@@ -165,13 +165,26 @@
   }
 
 
+  #footer{
+    grid-template-columns: 1fr;
+  }
+
+
+
+  .copyright{
+    grid-column: 1 / 2;
+  }
+
 }
 
 
-@media screen and (max-width: 650px) {
-  .textSection{
-      flex-direction: column;
+@media screen and (max-width:500px) {
+  .text-section{
+    flex-direction: column;
   }
 }
+
+
+
 
 
