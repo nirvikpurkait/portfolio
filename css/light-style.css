@@ -34,8 +34,39 @@ body.light{
   transform: translateX(-50%) translateY(-50%) scale(0);
 }
 
+.light #footer{
+  color: var(--light--text-color);
+}
+
+.light input.name,
+.light input.email,
+.light textarea.message{
+  background: #c0c2c4;
+}
+
+.light .submit-button, .light .resume-button button{
+  background: var(--dark-bg-color);
+  color: var(--dark-text-color);
+}
+
+.light .resume-button button:hover{
+  color: var(--dark-text-color);
+}
 
 
+.light .social a{
+  background: #c0c2c4;
+  box-shadow: 6px 10px 12px var(--dark-bg-color);
+}
+.light .social a:hover{
+  background: #f8f9fa;
+  box-shadow: 9px 12px 24px var(--dark-bg-color);
+  
+}
+
+.light .social i {
+  color: #6f6f6f;
+}
 
 
 

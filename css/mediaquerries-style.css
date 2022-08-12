@@ -39,6 +39,9 @@
   .text-section{
     flex-direction: column;
   }
+  .connection-section{
+    grid-template-columns: repeat(3, 1fr);
+  }
 
 }
 
@@ -46,6 +49,9 @@
 @media screen and (min-width:992px) {
   .text-section{
     flex-direction: row;
+  }
+  .connection-section{
+    grid-template-columns: repeat(6, 1fr);
   }
 }
 
@@ -181,6 +187,10 @@
 @media screen and (max-width:500px) {
   .text-section{
     flex-direction: column;
+  }
+
+  .connection-section{
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
