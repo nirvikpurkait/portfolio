@@ -1,5 +1,5 @@
 :root{
-  --default-padding: 0 5%;
+  --default-padding: 1% 5%;
 
   --dark-bg-color: #212529;
   --dark-text-color: #f8f9fa;
@@ -16,7 +16,6 @@ body.light{
   background-color: var(--light-bg-color);
   color: var(--light--text-color);
 }
-
 
 .light .nav-item button{
   color: var(--light--text-color);
@@ -53,11 +52,11 @@ body.light{
   color: var(--dark-text-color);
 }
 
-
 .light .social a{
   background: #c0c2c4;
   box-shadow: 6px 10px 12px var(--dark-bg-color);
 }
+
 .light .social a:hover{
   background: #f8f9fa;
   box-shadow: 9px 12px 24px var(--dark-bg-color);
@@ -68,7 +67,9 @@ body.light{
   color: #6f6f6f;
 }
 
-
+.light .project::after{
+  background-color: var(--light-bg-color);
+}
 
 /* ____________________________________________________________________________________________________ */
 

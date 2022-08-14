@@ -1,5 +1,5 @@
 :root{
-  --default-padding: 0 5%;
+  --default-padding: 1% 5%;
 
   --dark-bg-color: #212529;
   --dark-text-color: #f8f9fa;
@@ -36,6 +36,7 @@ body{
   padding: var(--default-padding);
 }
 /* ___________________________________________header section___________________________________________ */
+
 header{
   position: relative;
 }
@@ -51,7 +52,6 @@ header::after{
   transform-origin: right;
   z-index: -1;
 }
-
 
 nav{
   display: flex;
@@ -99,10 +99,10 @@ nav{
 }
 
 .theme-button{
-  position: relative;
-  /* position: fixed;
+  /* position: relative; */
+  position: fixed;
   bottom: 0%;
-  left: 0; */
+  left: 0;
 
   font-size: 26px;
   background: transparent;
@@ -181,8 +181,8 @@ nav{
 
 }
 
-
 /* ___________________________________________content section___________________________________________ */
+
 .education{
   --color: #f8f9fa;
 
@@ -298,11 +298,11 @@ nav{
   height: 8vw;
   min-height: 80px;
   max-height: 100px;
-  background: #212529;
+  background: var(--dark-bg-color);
   transform: rotate(0deg) scaleX(1);
   transform-origin: bottom;
   clip-path: path("M0,10L48,21.7C96,33,192,57,288,63.3C384,70,480,60,576,53.3C672,47,768,43,864,36.7C960,30,1056,20,1152,28.3C1248,37,1344,63,1440,65C1536,67,1632,43,1728,33.3C1824,23,1920,27,2016,30C2112,33,2208,37,2304,43.3C2400,50,2496,60,2592,63.3C2688,67,2784,63,2880,60C2976,57,3072,53,3168,51.7C3264,50,3360,50,3456,46.7C3552,43,3648,37,3744,30C3840,23,3936,17,4032,25C4128,33,4224,57,4320,65C4416,73,4512,67,4608,53.3C4704,40,4800,20,4896,20C4992,20,5088,40,5184,43.3C5280,47,5376,33,5472,26.7C5568,20,5664,20,5760,28.3C5856,37,5952,53,6048,65C6144,77,6240,83,6336,76.7C6432,70,6528,50,6624,41.7C6720,33,6816,37,6864,38.3L6912,40L6912,100L6864,100C6816,100,6720,100,6624,100C6528,100,6432,100,6336,100C6240,100,6144,100,6048,100C5952,100,5856,100,5760,100C5664,100,5568,100,5472,100C5376,100,5280,100,5184,100C5088,100,4992,100,4896,100C4800,100,4704,100,4608,100C4512,100,4416,100,4320,100C4224,100,4128,100,4032,100C3936,100,3840,100,3744,100C3648,100,3552,100,3456,100C3360,100,3264,100,3168,100C3072,100,2976,100,2880,100C2784,100,2688,100,2592,100C2496,100,2400,100,2304,100C2208,100,2112,100,2016,100C1920,100,1824,100,1728,100C1632,100,1536,100,1440,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z");
-  
+  transition: all 0.3s linear;
 }
 
 .project-details{
@@ -329,7 +329,7 @@ nav{
   height: 300px;
   border-radius: 10px;
   /* opacity: 0.8; */
-  box-shadow: 10px 10px 10px #7462E1;
+  box-shadow: 10px 15px 20px 10px #7462E1B5;;
   cursor: pointer;
   overflow: hidden;
   transition: all 0.3s linear
@@ -341,8 +341,8 @@ nav{
 
 .template:hover{
   opacity: 1;
-  transform: scale(1.1);
-  box-shadow: 15px 15px 15px #7462e1;
+  transform: scale(1.05);
+  box-shadow: 10px 15px 20px 20px #7462E18A;
 }
 
 .template-1::before{
@@ -356,6 +356,7 @@ nav{
   background: url('../images/project-template-1.jpg');
   background-size: cover
 }
+
 .template-2::before{
   content: '';
   position: absolute;
@@ -367,6 +368,7 @@ nav{
   background: url('../images/project-template-2.jpg');
   background-size: cover
 }
+
 .template-3::before{
   content: '';
   position: absolute;
@@ -383,11 +385,12 @@ nav{
   position: absolute;
   top: 50%;
   left: 0;
-  transform: translateY(50%);
   width: 100%;
   height: 100%;
   padding: 5px 8px;
   background: #21252977;
+  color: var(--color);
+  transform: translateY(50%);
   transition: all 0.3s linear;
 }
 
@@ -416,9 +419,6 @@ nav{
   border-radius: 10px;
   z-index: 1;
 }
-
-
-
 
 /* ___________________________________________footer section___________________________________________ */
 
@@ -557,7 +557,6 @@ input.name::placeholder, input.email::placeholder, textarea.message::placeholder
   transform-origin: left;
 }
 
-
 .connection-section{
   margin-top: 2rem;
   display: grid;
@@ -626,13 +625,6 @@ input.name::placeholder, input.email::placeholder, textarea.message::placeholder
   font-size: 40px;
   color: #f8f9fa;
 }
-
-
-
-
-
-
-
 
 .copyright{
   margin: 1rem 0 3rem;

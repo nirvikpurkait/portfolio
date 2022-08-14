@@ -7,3 +7,5 @@ ebare hamburgur button niye kaj korte hobe.
 hamburger niye kaj kore otake apatoto complete kore diyechi.
 
 ebare notun element add korte hobe.
+
+etodin dhore bivinno element improve korlam.
