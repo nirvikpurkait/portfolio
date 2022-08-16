@@ -5,7 +5,7 @@
   --dark-text-color: #f8f9fa;
 
   --light-bg-color: #f8f9fa;
-  --light--text-color: #212539;
+  --light-text-color: #212539;
 
   --blue:#7462E1;
   --yellow:#FCDA68;
@@ -14,15 +14,15 @@
 
 body.light{
   background-color: var(--light-bg-color);
-  color: var(--light--text-color);
+  color: var(--light-text-color);
 }
 
 .light .nav-item button{
-  color: var(--light--text-color);
+  color: var(--light-text-color);
 }
 
 .light .theme-button{
-  color: var(--light--text-color);
+  color: var(--light-text-color);
 }
 
 .light .theme-button .moon{
@@ -34,7 +34,7 @@ body.light{
 }
 
 .light #footer{
-  color: var(--light--text-color);
+  color: var(--light-text-color);
 }
 
 .light input.name,
@@ -80,4 +80,10 @@ body.light{
     background: var(--light-bg-color);
     color: var(--light-text-color);
   }
+}
+
+
+
+body.light > section > svg > symbol#godown > g#go-down-arrow > g#arrow-1{
+  fill: var(--light-text-color);
 }
