@@ -33,14 +33,29 @@
   .hamburger{
     display: none;
   }
+
   .template:last-child{
     grid-column-start: span 2;
   }
+
   .text-section{
     flex-direction: column;
   }
+
   .connection-section{
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .dropdown-content{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: max-content;
+  }
+  
+  .dropdown:hover > .dropdown-content{
+    pointer-events: all;
+    max-height: 500px;
   }
 
 }
@@ -97,27 +112,38 @@
 
   .nav-item{
     position: absolute;
-    width: 100%;
+    width: 50%;
     top: 0;
-    left: 0;
+    left: 100%;
+    padding: 10rem 0;
     height: 100vh;
     z-index: 1;
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    gap: 2rem;
+    justify-content: start;
+    align-items: start;
     flex-direction: column;
-    background: var(--dark-bg-color);
+    background: var(--blue);
     color: var(--dark-text-color);
-    clip-path: circle(0px at 100% 0%);
+    /* clip-path: circle(0px at 100% 0%); */
     opacity: 0;
     pointer-events: none;
     transition: all 0.3s linear;
   }
   
   .nav-item.open-navbar{
+    left: 50%;
     opacity: 1;
     pointer-events: all;
-    clip-path: circle(120% at 80% 0%);
+    /* clip-path: circle(120% at 80% 0%); */
+  }
+
+  .nav-item button{
+    padding: 0;
+  }
+
+  .dropdown{
+    width: 100%;
   }
   
   .theme-button{

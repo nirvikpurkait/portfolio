@@ -80,14 +80,14 @@ body.light{
 
 
 @media screen and (max-width:768px){
-  .light .nav-item{
-    background: var(--light-bg-color);
-    color: var(--light-text-color);
+  .light .nav-item button {
+    color: var(--dark-text-color);
   }
 }
 
 
-
-body.light > section > svg > symbol#godown > g#go-down-arrow > g#arrow-1{
-  fill: var(--light-text-color);
+@media screen and (min-width:768px) {
+  .light .dropdown-content a{
+    color: var(--light-text-color);
+  }
 }

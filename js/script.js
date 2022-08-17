@@ -1,8 +1,46 @@
+
+// __________________________________________________________________
+
 document.getElementsByClassName('theme-button')[0].addEventListener('click', changeTheme)
 
 function changeTheme() {
   document.body.classList.toggle('light');
 }
+
+// ______________________________________________________________________
+
+const dropdownButton = document.querySelectorAll('.dropdown-button')
+const dropdownContent = document.querySelectorAll('.dropdown-content')
+
+const dropdownContentHeight_1 = dropdownContent[0].clientHeight
+const dropdownContentHeight_2 = dropdownContent[1].clientHeight
+const dropdownContentHeight_3 = dropdownContent[2].clientHeight
+
+dropdownButton[0].addEventListener('click', function () {
+  // remove other dropdown
+  dropdownContent[1].classList.remove('dropdown-open')
+  dropdownContent[2].classList.remove('dropdown-open')
+  //toggle for the selected dropdown
+  dropdownContent[0].classList.toggle('dropdown-open')
+})
+
+dropdownButton[1].addEventListener('click', function () {
+  // remove other dropdown
+  dropdownContent[0].classList.remove('dropdown-open')
+  dropdownContent[2].classList.remove('dropdown-open')
+  //toggle for the selected dropdown
+  dropdownContent[1].classList.toggle('dropdown-open')
+})
+
+dropdownButton[2].addEventListener('click', function () {
+  // remove other dropdown
+  dropdownContent[0].classList.remove('dropdown-open')
+  dropdownContent[1].classList.remove('dropdown-open')
+  //toggle for the selected dropdown
+  dropdownContent[2].classList.toggle('dropdown-open')
+})
+
+
 
 // ______________________________________________________________________
 
