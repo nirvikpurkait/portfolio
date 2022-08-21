@@ -129,7 +129,6 @@
     flex-direction: column;
     background: var(--blue);
     color: var(--dark-text-color);
-    /* clip-path: circle(0px at 100% 0%); */
     opacity: 0;
     transform: scaleX(0);
     pointer-events: none;
@@ -141,6 +140,7 @@
     opacity: 1;
     transform: scaleX(1);
     pointer-events: all;
+    z-index: 2;
   }
 
   .nav-item button{
@@ -153,8 +153,8 @@
   
   .theme-button{
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 3.7%;
+    left: 92.5%;
     z-index: 1;
     opacity: 0;
     pointer-events: none;
@@ -164,10 +164,11 @@
 
   .theme-button.open-navbar{
     opacity: 1;
-    left: 5%;
-    top: 30%;
+    left: 53%;
+    top: 1%;
     pointer-events: all;
     transform: translate(0,0);
+    z-index: 3;
   }
 
   .main-stream{

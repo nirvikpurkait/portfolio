@@ -23,6 +23,7 @@ html{
   padding: 0;
   box-sizing: border-box;
   /* outline: 1px solid red !important; */
+  transition: all 300ms linear;
 }
 
 button{
@@ -33,10 +34,8 @@ body{
   background-color: var(--dark-bg-color);
   color: var(--dark-text-color);
   overflow-x: hidden !important;
-  transition: all 0.3s linear;
   /* overflow: visible !important; */
 }
-
 
 .section{
   padding: var(--default-padding);
@@ -87,7 +86,7 @@ nav{
     transform: scaleX(1) scaleY(1);
   }
   100%{
-    transform: scaleX(0) scaleY(0);
+    transform: scaleX(2) scaleY(2);
   }
 }
 
@@ -96,6 +95,7 @@ nav{
   gap: 2rem;
   justify-content: space-between;
   align-items: center;
+  transition: all 0ms linear;
 }
 
 .nav-item .dropdown{
@@ -110,7 +110,6 @@ nav{
   border: 0;
   background: transparent;
   color: var(--dark-text-color);
-  transition: all 0.3s linear;
 }
 
 .nav-item button::before{
@@ -122,7 +121,6 @@ nav{
   height: 2px;
   background: #af2828;
   transform: scaleX(0);
-  transition: all 300ms linear;
 }
 .nav-item button:hover::before{
   transform: scaleX(1.2);
@@ -138,7 +136,6 @@ nav{
   max-height: 0;
   overflow: hidden;
   pointer-events: none;
-  transition: all 300ms linear;
 }
 
 .dropdown-content.dropdown-open{
@@ -151,9 +148,7 @@ nav{
   padding: 1rem;
   text-decoration: none;
   color: var(--dark-text-color);
-  transition: all 300ms linear;
   z-index: 1;
-  transition: all 300ms linear;
 }
 
 .dropdown-content a::before{
@@ -166,7 +161,6 @@ nav{
   background: #8c8f92;
   transform-origin: left;
   z-index: -1;
-  transition: all 300ms linear;
 }
 .dropdown-content a:hover::before, .dropdown-content a:focus::before{
   width: 100%;
@@ -182,7 +176,6 @@ nav{
   background: transparent;
   border: none;
   color: #FFE87C;
-  transition: all 0.3s linear;
   width: 40px;
   height: 40px;
   overflow: hidden;
@@ -196,12 +189,10 @@ nav{
 
 .theme-button .moon{
   transform: translateX(-50%) translateY(-50%) scale(0);
-  transition: all 0.3s linear;
 }
 
 .theme-button .sun{
   transform: translateX(-50%) translateY(-50%) scale(1);
-  transition: all 0.3s linear;
 }
 
 .hamburger{
@@ -210,7 +201,7 @@ nav{
   height: 40px;
   background: transparent;
   border: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 .hamburger-line{
@@ -299,20 +290,75 @@ nav{
 }
 
 .heading-text span:nth-child(5){
-  padding-top: 1vh;
-  display: flex;
+  padding-top: 4vh;
+  display: inline-block;
   gap: 2rem;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
 .heading-text button{
-  margin-top: 30px;
+  position: relative;
   padding: 10px 20px;
+  margin: 0 1rem 1rem 0;
   border-radius: 50px;
   font-size: 20px;
   border: none;
+  background: transparent;
   outline: none;
+  z-index: 1;
+}
+
+.heading-text button a{
+  text-decoration: none;
+  color: var(--dark-text-color);
+}
+
+.heading-text .contact{
+  color: var(--dark-text-color);
+}
+
+.heading-text .contact::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--blue);
+  border-radius: 50px;
+  z-index: -1;
+  opacity: 1;
+}
+
+.heading-text .contact:hover::before,
+.heading-text .contact:active::before,
+.heading-text .contact:focus::before{
+  opacity: 0.8;
+}
+
+.heading-text .download-cv{
+  position: relative;
+}
+
+.heading-text .download-cv::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid var(--light-bg-color);
+  border-radius: 50px;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+.heading-text .download-cv:hover::before,
+.heading-text .download-cv:active::before,
+.heading-text .download-cv:focus::before{
+  opacity: 1;
 }
 
 .go-down-section{
@@ -473,7 +519,6 @@ nav{
   transform: rotate(0deg) scaleX(1);
   transform-origin: bottom;
   clip-path: path("M0,10L48,21.7C96,33,192,57,288,63.3C384,70,480,60,576,53.3C672,47,768,43,864,36.7C960,30,1056,20,1152,28.3C1248,37,1344,63,1440,65C1536,67,1632,43,1728,33.3C1824,23,1920,27,2016,30C2112,33,2208,37,2304,43.3C2400,50,2496,60,2592,63.3C2688,67,2784,63,2880,60C2976,57,3072,53,3168,51.7C3264,50,3360,50,3456,46.7C3552,43,3648,37,3744,30C3840,23,3936,17,4032,25C4128,33,4224,57,4320,65C4416,73,4512,67,4608,53.3C4704,40,4800,20,4896,20C4992,20,5088,40,5184,43.3C5280,47,5376,33,5472,26.7C5568,20,5664,20,5760,28.3C5856,37,5952,53,6048,65C6144,77,6240,83,6336,76.7C6432,70,6528,50,6624,41.7C6720,33,6816,37,6864,38.3L6912,40L6912,100L6864,100C6816,100,6720,100,6624,100C6528,100,6432,100,6336,100C6240,100,6144,100,6048,100C5952,100,5856,100,5760,100C5664,100,5568,100,5472,100C5376,100,5280,100,5184,100C5088,100,4992,100,4896,100C4800,100,4704,100,4608,100C4512,100,4416,100,4320,100C4224,100,4128,100,4032,100C3936,100,3840,100,3744,100C3648,100,3552,100,3456,100C3360,100,3264,100,3168,100C3072,100,2976,100,2880,100C2784,100,2688,100,2592,100C2496,100,2400,100,2304,100C2208,100,2112,100,2016,100C1920,100,1824,100,1728,100C1632,100,1536,100,1440,100C1344,100,1248,100,1152,100C1056,100,960,100,864,100C768,100,672,100,576,100C480,100,384,100,288,100C192,100,96,100,48,100L0,100Z");
-  transition: all 0.3s linear;
 }
 
 .project-details{
@@ -501,7 +546,6 @@ nav{
   box-shadow: 10px 15px 20px 10px #7462E1B5;
   cursor: pointer;
   overflow: hidden;
-  transition: all 0.3s linear;
 }
 
 .template:last-child{
@@ -560,7 +604,6 @@ nav{
   background: #21252977;
   color: var(--color);
   transform: translateY(50%);
-  transition: all 0.3s linear;
 }
 
 .template:hover .template-hover-effect{
@@ -640,7 +683,6 @@ nav{
   max-width: 100%;
   transform: scale(0.7) skewX(6deg) skewY(-6deg);
   box-shadow: 10px 8px 10px 5px #0000007d;
-  transition: all 0.3s linear;
 }
 
 .working-template img:hover {
@@ -756,7 +798,6 @@ nav{
   color: var(--dark-text-color);
   grid-template-columns: 1fr 1fr;
   color: var(--dark-text-color);
-  transition: all 0.3s linear;
 }
 
 .review-section form{
@@ -778,7 +819,6 @@ input.name, input.email, textarea.message{
   font-family: inherit;
   border: none;
   outline: none;
-  transition: all 0.3s linear;
   resize: vertical;
 }
 
@@ -807,8 +847,7 @@ input.name::placeholder, input.email::placeholder, textarea.message::placeholder
   font-size: 2.0rem;
   color: var(--light-text-color);
   font-family: inherit;
-  box-shadow: 16px 20px 30px black;
-  transition: all 0.3s linear;
+  box-shadow: 10px 7px 10px 3px #0000003d;
 }
 
 .resume-section{
@@ -842,7 +881,7 @@ input.name::placeholder, input.email::placeholder, textarea.message::placeholder
   color: var(--light-text-color);
   font-family: 'Rajdhani', sans-serif;
   font-weight: 900;
-  box-shadow: 10px 10px 20px black;
+  box-shadow: 6px 6px 5px 3px #0000003d;
   z-index: 1;
   overflow: hidden;
   transition: all 0.5s linear;
@@ -877,7 +916,7 @@ input.name::placeholder, input.email::placeholder, textarea.message::placeholder
   z-index: -1;    
   transform: scaleX(0);
   transform-origin: right;
-  transition: transform 0.3s linear;
+  transition: transform 300ms linear;
 }
 
 .resume-button button:hover::before{
