@@ -1,4 +1,10 @@
+:root{
+  --blue:#7462E1;
+  --yellow:#FCDA68;
+  --acent-blue: #4169E1;
+}
+
 /* nirvik-logo.svg */
 .logo{
-  fill: #7462E1;
+  fill: var(--acent-blue);
 }

@@ -9,7 +9,7 @@
 
   --blue:#7462E1;
   --yellow:#FCDA68;
-
+  --acent-blue: #4169E1;
 }
 
 body.light{
@@ -48,6 +48,10 @@ body.light{
 
 .light .arrow-bg{
   fill: var(--light-text-color);
+}
+
+.light .education-section-devider .shape-fill {
+  fill: var(--light-bg-color);
 }
 
 .light #footer{

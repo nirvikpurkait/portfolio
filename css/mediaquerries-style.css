@@ -19,7 +19,7 @@
 
   --blue:#7462E1;
   --yellow:#FCDA68;
-
+  --acent-blue: #4169E1;
 }
 
 
@@ -102,15 +102,14 @@
 }
 
 @media screen and (max-width:1080px){
-
+  
   .review-section div {
     display: grid;
     gap: 0.25rem;
     grid-template-columns: 100%;
   }
-
+  
 }
-
 
 @media screen and (max-width:768px){
 
@@ -196,13 +195,14 @@
     padding: 30% 0 0; 
   }
 
-  .projet-template{
+  .project-template{
     grid-template-columns: 1fr;
   }
 
+/* 
   .template:last-child{
     grid-column-start: span 1;
-  }
+  } */
 
   #footer{
     grid-template-columns: 1fr;
