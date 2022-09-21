@@ -1,3 +1,6 @@
+// ___________________________________________________________________________
+// carousel
+
 const carousel = document.querySelector('.carousel');
 const button = carousel.querySelectorAll('button');
 const slide = carousel.querySelector('.slide')
@@ -23,7 +26,7 @@ button.forEach(btn => {
   })
 })
 
-setInterval(autoSlide, 5000)
+setInterval(autoSlide, 2000)
 
 function autoSlide() {
   let allSlide = [...slide.children]
@@ -42,6 +45,7 @@ function autoSlide() {
 
 
 // __________________________________________________________________
+// theme changing button
 
 document.getElementsByClassName('theme-button')[0].addEventListener('click', changeTheme)
 
@@ -50,6 +54,7 @@ function changeTheme() {
 }
 
 // ______________________________________________________________________
+// heading dropdown button
 
 const dropdownButton = document.querySelectorAll('.dropdown-button')
 const dropdownContent = document.querySelectorAll('.dropdown-content')
@@ -79,7 +84,7 @@ dropdownButton[2].addEventListener('click', function () {
 })
 
 // ______________________________________________________________________
-
+// education details
 
 const diplomaDetailsHeights = document.querySelector('.diploma-details').clientHeight;
 const diplomaSectionHeight = document.querySelector('.diploma');
@@ -97,10 +102,10 @@ const educationDetailsHeight = document.getElementById('education-details').clie
 const mainStream = document.getElementById('main-stream');
 
 mainStream.style.height = `${educationDetailsHeight}px`
-console.log(educationDetailsHeight);
+// console.log(educationDetailsHeight);
 
 // ____________________________________________________________________
-
+// hamburger for smaller device
 
 const hamburgerButton = document.querySelector('.hamburger');
 const navItem = document.querySelector('.nav-item');

@@ -11,3 +11,7 @@ ebare notun element add korte hobe.
 etodin dhore bivinno element improve korlam.
 
 mediaquerries and theme css e html er section hisabe style in order sajate hobe.
+
+html file e header e ekta carousel bosalam
+
+js file e js function add korlam carousel er

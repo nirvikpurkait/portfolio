@@ -13,6 +13,8 @@
   --yellow:#FCDA68;
   --acent-blue: #4169E1;
 
+  scroll-behavior: smooth;
+
 }
 
 html{
@@ -100,29 +102,7 @@ header::after{
   overflow: hidden;
 }
 
-button{
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 0;
-  font-size: 3rem;
-  padding: 2rem 1.2rem;
-  line-height: 0;
-  z-index: 2;
-  background: hsla(0, 0%, 0%, 0.5);
-  cursor: pointer;
-  color: hsla(0, 0%, 100%, 0.5);
-}
-
-.prev{
-  left: 0;
-}
-
-.next{
-  right: 0;
-}
-
-img{
+.carousel img{
   position: absolute;
   width: 100%;
   height: 100%;
@@ -133,8 +113,8 @@ img{
   transition: all 500ms linear;
 }
 
-[data-active = "true"]{
-  opacity: 1;
+.carousel [data-active = "true"]{
+  opacity: 0.5;
 }
 
 
