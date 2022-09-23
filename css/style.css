@@ -37,6 +37,7 @@ body{
   background-color: var(--dark-bg-color);
   color: var(--dark-text-color);
   overflow-x: hidden !important;
+  font-size: 1.6rem;
   /* overflow: visible !important; */
 }
 
@@ -83,7 +84,7 @@ header::after{
   height: 100vh;
 }
 
-.container{
+.carousel-container{
   position: absolute;
   top: 0%;
   left: 0%;
@@ -314,7 +315,7 @@ nav{
   height: auto;
 }
 
-.heading-text span:nth-child(1){
+.heading-text .intro{
   padding-top: 1vh;
   display: block;
   font-size: 2.0rem;
@@ -324,26 +325,73 @@ nav{
   text-transform: uppercase;
 }
 
-.heading-text span:nth-child(2){
+.typing-text-container{
+  position: relative;
+  display: flex;
+}
+
+.first-text{
   padding-top: 2vh;
-  display: block;
   font-size: 5.6rem;
   line-height: 6rem;
   font-family: 'Poppins', sans-serif;
 }
 
-.heading-text span:nth-child(3){
+.second-text{
+  position: relative;
   padding-top: 1vh;
-  display: block;
   font-size: 3.0rem;
+  font-family: monospace;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-.heading-text span:nth-child(4){
+@keyframes text {
+  0%{
+    width: 0%;
+  }
+  50%{
+    width: 100%;
+  }
+  90%{
+    width: 100%;
+  }
+  100%{
+    width: 0%;
+  }
+}
+
+.second-text::after{
+  content: '';
+  position: absolute;
+  top: 5px;
+  bottom: 5px;
+  left: calc(100% - 2px);
+  width: 5px;
+  background: currentColor;
+  animation: cursor 1000ms ease infinite;
+  overflow: visible;
+  z-index: 2;
+}
+
+@keyframes cursor {
+  0%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+.heading-text .explain{
   padding-top: 4vh;
   display: block;
 }
 
-.heading-text span:nth-child(5){
+.heading-text .buttons{
   padding-top: 4vh;
   display: inline-block;
   gap: 2rem;
@@ -414,6 +462,27 @@ nav{
 .heading-text .download-cv:focus::before{
   opacity: 1;
 }
+
+.heading-images{
+  position: relative;
+}
+
+.heading-images img{
+  position: absolute;
+  object-fit: cover;
+  object-position: 20%;
+  /* mix-blend-mode: ; */
+}
+
+.heading-images .pp-image{
+  width: 100%;
+  height: 100%;
+}
+
+/* .heading-images .bg-image{ */
+  /* width: min-content; */
+  /* height: 100%; */
+/* } */
 
 .go-down-section{
   position: absolute;
