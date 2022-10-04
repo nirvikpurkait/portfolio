@@ -170,6 +170,14 @@
     z-index: 3;
   }
 
+  .heading-text{
+    padding-block: 2rem;
+  }
+
+  .go-down-text {
+    font-size: 1.5rem;
+  }
+
   .main-stream{
     left: 5%;
   }
@@ -186,17 +194,22 @@
   }
 
   .details:nth-child(n) .institute-details{
-    left: 50%;
+    left: 40%;
     right: 0;
-    padding: 0 0 0 34px;
+    padding: 0 0 0 0;
   }
 
   .project-details {
-    padding: 30% 0 0; 
+    padding: 30% 0 0;
+    font-size: 2.5rem;
   }
 
   .project-template{
     grid-template-columns: 1fr;
+  }
+
+  .certification-text{
+    font-size: 1.8rem;
   }
 
 /* 

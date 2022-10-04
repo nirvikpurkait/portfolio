@@ -1,5 +1,5 @@
 // ___________________________________________________________________________
-// carousel
+// carousel to automatically loop through image or slide
 
 const carousel = document.querySelector('.carousel');
 const button = carousel.querySelectorAll('button');
@@ -43,40 +43,16 @@ function autoSlide() {
 
 }
 
-// _____________________________
+// __________________________________________________________________
+// typing animation
 
-const textToShow =
-  [
-    'fron end developer',
-    'back end developer',
-    'full-stack developer',
-    'UI/UX developer'
-  ]
-const secondText = document.querySelector('.second-text')
-
-secondText.textContent = textToShow[0]
-secondText.style.animation = `text 10000ms linear infinite`
-secondText.style.animationTimingFunction = `steps(${textToShow[0].length})`
-
-
-
-setInterval(showText, 10000);
-
-
-function showText() {
-  let currentText = secondText.textContent
-  let currentTextIndex = textToShow.indexOf(currentText)
-  
-  let nextIndex = currentTextIndex + 1
-  
-  if (nextIndex >= textToShow.length) nextIndex = 0
-  
-  let nextIndexLength = textToShow[nextIndex].length
-
-  secondText.textContent = textToShow[nextIndex]
-  secondText.style.animationTimingFunction = `steps(${nextIndexLength})`
+let option = {
+  strings: ['Front-end Developer^2000', 'Back-end Developer^2000','Full-stack Developer^2000', 'UI/UX developer^2000'],
+  typeSpeed: 40,
+  backSpeed: 40,
+  loop: true
 }
-
+let typed = new Typed('.heading-typing-text', option)
 
 // __________________________________________________________________
 // theme changing button
@@ -153,6 +129,14 @@ function openNavbar() {
   hamburgerButton.classList.toggle('toggled-button')
 }
 
-
 // ____________________________________________________________________
+
+
+
+
+
+
+
+
+
 

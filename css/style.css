@@ -325,11 +325,6 @@ nav{
   text-transform: uppercase;
 }
 
-.typing-text-container{
-  position: relative;
-  display: flex;
-}
-
 .first-text{
   padding-top: 2vh;
   font-size: 5.6rem;
@@ -337,53 +332,12 @@ nav{
   font-family: 'Poppins', sans-serif;
 }
 
-.second-text{
-  position: relative;
-  padding-top: 1vh;
-  font-size: 3.0rem;
-  font-family: monospace;
-  overflow: hidden;
-  white-space: nowrap;
+.heading-typing-text{
+  font-size: 3rem;
 }
 
-@keyframes text {
-  0%{
-    width: 0%;
-  }
-  50%{
-    width: 100%;
-  }
-  90%{
-    width: 100%;
-  }
-  100%{
-    width: 0%;
-  }
-}
-
-.second-text::after{
-  content: '';
-  position: absolute;
-  top: 5px;
-  bottom: 5px;
-  left: calc(100% - 2px);
-  width: 5px;
-  background: currentColor;
-  animation: cursor 1000ms ease infinite;
-  overflow: visible;
-  z-index: 2;
-}
-
-@keyframes cursor {
-  0%{
-    opacity: 1;
-  }
-  50%{
-    opacity: 0;
-  }
-  100%{
-    opacity: 1;
-  }
+.typed-cursor{
+  font-size: 3rem;
 }
 
 .heading-text .explain{
@@ -787,7 +741,7 @@ nav{
 .working-template img{
   object-fit: cover;
   max-width: 100%;
-  transform: scale(0.7) skewX(6deg) skewY(-6deg);
+  transform: scale(0.9) skewX(6deg) skewY(-6deg);
   box-shadow: 10px 8px 10px 5px #0000007d;
 }
 
