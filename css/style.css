@@ -50,6 +50,9 @@ body{
 
 header{
   position: relative;
+  background: url('../images/header-background.svg');
+  background-size: cover;
+  background-position: center;
 }
 
 header::before{
@@ -276,10 +279,14 @@ nav{
 
 .line-2{
   top: 50%;
+  transform: translate(-50%, -50%) scaleX(0.7);
+  transform-origin: right;
 }
 
 .line-3{
   top: 75%;
+  transform: translate(-50%, -50%) scaleX(0.5);
+  transform-origin: right;
 }
 
 .toggled-button .line-1{
@@ -418,25 +425,15 @@ nav{
 }
 
 .heading-images{
-  position: relative;
+  grid-column: 1 / 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .heading-images img{
-  position: absolute;
-  object-fit: cover;
-  object-position: 20%;
-  /* mix-blend-mode: ; */
-}
-
-.heading-images .pp-image{
   width: 100%;
-  height: 100%;
 }
-
-/* .heading-images .bg-image{ */
-  /* width: min-content; */
-  /* height: 100%; */
-/* } */
 
 .go-down-section{
   position: absolute;

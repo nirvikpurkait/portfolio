@@ -1,47 +1,47 @@
 // ___________________________________________________________________________
 // carousel to automatically loop through image or slide
 
-const carousel = document.querySelector('.carousel');
-const button = carousel.querySelectorAll('button');
-const slide = carousel.querySelector('.slide')
+// const carousel = document.querySelector('.carousel');
+// const button = carousel.querySelectorAll('button');
+// const slide = carousel.querySelector('.slide')
 
-button.forEach(btn => {
-  btn.addEventListener('click', () => {
-    let allSlide = [...slide.children]
-    let activeIndex = [...slide.children].indexOf(slide.querySelector('[data-active = true]'))
-    let buttonType = btn.className
-    let nextIndex = activeIndex
+// button.forEach(btn => {
+//   btn.addEventListener('click', () => {
+//     let allSlide = [...slide.children]
+//     let activeIndex = [...slide.children].indexOf(slide.querySelector('[data-active = true]'))
+//     let buttonType = btn.className
+//     let nextIndex = activeIndex
     
-    if (buttonType == 'next') {
-      nextIndex = activeIndex + 1
-    }
-    else nextIndex = activeIndex - 1
+//     if (buttonType == 'next') {
+//       nextIndex = activeIndex + 1
+//     }
+//     else nextIndex = activeIndex - 1
     
-    if (nextIndex < 0) nextIndex = slide.children.length - 1
-    if (nextIndex >= slide.children.length) nextIndex = 0
+//     if (nextIndex < 0) nextIndex = slide.children.length - 1
+//     if (nextIndex >= slide.children.length) nextIndex = 0
     
-    allSlide[nextIndex].dataset.active = true
-    delete allSlide[activeIndex].dataset.active
+//     allSlide[nextIndex].dataset.active = true
+//     delete allSlide[activeIndex].dataset.active
     
-  })
-})
+//   })
+// })
 
-setInterval(autoSlide, 10000)
+// setInterval(autoSlide, 10000)
 
-function autoSlide() {
-  let allSlide = [...slide.children]
-  let activeIndex = [...slide.children].indexOf(slide.querySelector('[data-active = true]'))
-  let nextIndex = activeIndex + 1
+// function autoSlide() {
+//   let allSlide = [...slide.children]
+//   let activeIndex = [...slide.children].indexOf(slide.querySelector('[data-active = true]'))
+//   let nextIndex = activeIndex + 1
 
-  if (nextIndex > activeIndex) {
-    if (nextIndex < 0) nextIndex = slide.children.length - 1
-    if (nextIndex >= slide.children.length) nextIndex = 0
+//   if (nextIndex > activeIndex) {
+//     if (nextIndex < 0) nextIndex = slide.children.length - 1
+//     if (nextIndex >= slide.children.length) nextIndex = 0
 
-    allSlide[nextIndex].dataset.active = true
-    delete allSlide[activeIndex].dataset.active
-  }
+//     allSlide[nextIndex].dataset.active = true
+//     delete allSlide[activeIndex].dataset.active
+//   }
 
-}
+// }
 
 // __________________________________________________________________
 // typing animation
