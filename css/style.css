@@ -584,96 +584,25 @@ nav{
 }
 
 .project-details{
-  padding: 10% 0 0;
+  padding: 8% 0 5%;
   text-align: center;
   color: #7462E1;
   font-size: 4rem;
 }
 
 .project-template{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding: 8% 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 .card{
-  position: relative;
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 1;
-  margin: auto;
-  border-radius: 10px;
-}
-
-.card-content{
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  padding: 100px;
-  background: var(--blue);
-  border-radius: 10px;
-  transition: transform 1000ms;
-  transform-style: preserve-3d;
-}
-
-.card:hover .card-content{
-  transform: rotateY(0.5turn);
-}
-
-.card-front,
-.card-back{
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0 ;
-  bottom: 0;
-  padding: 2em;
-  backface-visibility: hidden;
-}
-
-.card-front{
-  transform-style: preserve-3d;
-}
-
-.card-front::before{
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-size: cover;
-  border-radius: 10px;
-}
-
-.card:nth-child(1) .card-front::before{
-  background-image: url(../images/project-template-1.jpg);
-}
-
-.card:nth-child(2) .card-front::before{
-  background-image: url(../images/project-template-2.jpg);
-}
-.card:nth-child(3) .card-front::before{
-  background-image: url(../images/project-template-3.jpg);
-}
-
-.front-heading{
-  transform: translateZ(100px)
-}
-
-.front-text{
-  font-size: 2rem;
-  transform: translateZ(200px)
-}
-
-.card-back{
-  transform-style: preserve-3d;
-}
-
-.back-text{
-  transform: rotateY(0.5turn) translateZ(100px);
+  background: white;
+  min-width: 220px;
+  width: 280px;
+  aspect-ratio: 0.8;
+  display: inline-block;
 }
 
 .project-section-devider {
@@ -1092,3 +1021,12 @@ input.name::placeholder, input.email::placeholder, textarea.message::placeholder
   grid-column: 1 /3;
   text-align: center;
 }
+
+
+
+
+
+/* ____________________________________________________________________________________________ */
+
+/* experiment purpose */
+

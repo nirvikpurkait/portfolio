@@ -1,5 +1,5 @@
 /* typical break points are
-768px, 992px, 1200px */
+480px, 768px, 992px, 1200px */
 
 /* colors used in the css
 #F0F8FF; #1E90FF; #ADD8E6; #84888c; #545759; #00ffff; #8a2be2; #ffffff; #ff0000; #004cff; #4267B2; #fed373; #f15245; #d92e7f; #9b36b7; #515ecf; #1DA1F2; #25D366; #0077b5; #333333
@@ -200,12 +200,8 @@
   }
 
   .project-details {
-    padding: 30% 0 0;
+    padding: 8% 0 5%;
     font-size: 2.5rem;
-  }
-
-  .project-template{
-    grid-template-columns: 1fr;
   }
 
   .certification-text{
