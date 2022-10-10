@@ -598,11 +598,84 @@ nav{
 }
 
 .card{
-  background: white;
+  background: transparent;
   min-width: 220px;
   width: 280px;
   aspect-ratio: 0.8;
   display: inline-block;
+}
+.card-content{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding: 100px;
+  background: var(--blue);
+  border-radius: 10px;
+  transition: transform 1000ms;
+  transform-style: preserve-3d;
+}
+
+.card:hover .card-content{
+  transform: rotateY(0.5turn);
+}
+
+.card-front,
+.card-back{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0 ;
+  bottom: 0;
+  padding: 2em;
+  backface-visibility: hidden;
+}
+
+.card-front{
+  transform-style: preserve-3d;
+}
+
+.card-front::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+  border-radius: 10px;
+}
+
+.card:nth-child(1) .card-front::before{
+  background-image: url(../images/project-template-1.jpg);
+}
+
+.card:nth-child(2) .card-front::before{
+  background-image: url(../images/project-template-2.jpg);
+}
+.card:nth-child(3) .card-front::before{
+  background-image: url(../images/project-template-3.jpg);
+}
+.card:nth-child(4) .card-front::before{
+  background-image: url(../images/project-template-4.jpg);
+}
+
+
+.front-heading{
+  transform: translateZ(100px)
+}
+
+.front-text{
+  font-size: 2rem;
+  transform: translateZ(200px)
+}
+
+.card-back{
+  transform-style: preserve-3d;
+}
+
+.back-text{
+  transform: rotateY(0.5turn) translateZ(100px);
 }
 
 .project-section-devider {
@@ -670,13 +743,13 @@ nav{
 .working-template img{
   object-fit: cover;
   max-width: 100%;
-  transform: scale(0.9) skewX(6deg) skewY(-6deg);
-  box-shadow: 10px 8px 10px 5px #0000007d;
+  transform: scale(0.8) skewX(6deg) skewY(-6deg);
+  box-shadow: 10px 8px 10px 5px #00000030;
 }
 
 .working-template img:hover {
-  transform: scale(0.73) skewX(5deg) skewY(-5deg);
-  box-shadow: 13px 10px 15px 7px #0000006b;
+  transform: scale(0.82) skewX(5deg) skewY(-5deg);
+  box-shadow: 10px 8px 10px 5px #00000036;
 }
 
 .working-progress-devider {

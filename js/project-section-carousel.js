@@ -1,8 +1,10 @@
-
 const projectTemplate = document.querySelector('.project-template')
 const card = [...(projectTemplate.children)]
 const timeBetweenEachSlide = 5000
 
+card.forEach(ele => {
+  ele.dataset.card = ''
+})
 card[0].dataset.card = 'active'
 card[1].dataset.card = 'next'
 card[card.length - 1].dataset.card = 'prev'
