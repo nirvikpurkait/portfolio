@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { cls } from "@/utils/tailwind/cls";
+import Navbar from "@/components/nav/Navbar";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,7 +18,13 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className={cls(inter.className, `text-text bg-background`)}>
+			<body
+				className={cls(
+					inter.className,
+					`text-text bg-background p-2 pb-16 pl-2 sm:pb-2 sm:pl-16`
+				)}
+			>
+				<Navbar />
 				{children}
 			</body>
 		</html>
