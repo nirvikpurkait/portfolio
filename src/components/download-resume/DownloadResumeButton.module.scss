@@ -1,0 +1,22 @@
+.btn {
+	border-width: 2px;
+	overflow: hidden;
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) rotate(-6deg) scaleY(0);
+		width: 200%;
+		height: 100%;
+		z-index: -1;
+		transition: all 150ms linear;
+	}
+
+	&:hover {
+		&::after {
+			transform: translate(-50%, -50%) rotate(-6deg) scaleY(1);
+		}
+	}
+}

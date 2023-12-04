@@ -15,7 +15,7 @@ export default function NavUl() {
 	return (
 		<nav
 			className={cls(
-				`fixed w-screen h-14 left-0 bottom-0 bg-red-500 sm:w-14 sm:h-screen bg-accent after:bg-accent text-white`,
+				`fixed w-screen h-14 left-0 bottom-0 bg-red-500 sm:w-14 sm:h-screen bg-accent after:bg-accent text-white z-[999999]`,
 				style.nav
 			)}
 		>
