@@ -11,6 +11,11 @@ const config: Config = {
 				secondary: "var(--secondary)",
 				accent: "var(--accent)",
 			},
+			maxWidth: {
+				"2xs": "16rem",
+				xs: "20rem",
+			},
+			
 		},
 	},
 	plugins: [require("@tailwindcss/container-queries")],

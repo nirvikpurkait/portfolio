@@ -1,6 +1,7 @@
 .btn {
 	border-width: 2px;
 	overflow: hidden;
+	transition: all 150ms linear;
 
 	&::after {
 		content: "";

@@ -21,11 +21,14 @@ export default function RootLayout({
 			<body
 				className={cls(
 					inter.className,
-					`text-text bg-background p-2 pb-16 pl-2 sm:pb-2 sm:pl-16 `
+					`text-text bg-background p-2 pb-16 pl-2 sm:pb-2 sm:pl-16 md:px-32 min-h-screen`
 				)}
 			>
-				<Navbar />
-				{children}
+				<header>
+					<Navbar />
+				</header>
+				<main className={cls(``)}>{children}</main>
+				<footer></footer>
 			</body>
 		</html>
 	);

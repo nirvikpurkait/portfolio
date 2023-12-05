@@ -8,7 +8,7 @@ export default function DownloadResumeButton(props: ButtonProps) {
 	return (
 		<button
 			className={cls(
-				`border-accent px-4 py-2 relative after:bg-accent text-lg font-bold hover:text-white`,
+				`border-accent px-4 py-2 relative after:bg-accent text-lg font-bold hover:text-gray-800`,
 				style.btn,
 				props.className
 			)}
