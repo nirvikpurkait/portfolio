@@ -27,7 +27,7 @@ export default function RootLayout({
 				<header>
 					<Navbar />
 				</header>
-				<main className={cls(``)}>{children}</main>
+				<main className={cls(`pb-4`)}>{children}</main>
 				<footer></footer>
 			</body>
 		</html>
