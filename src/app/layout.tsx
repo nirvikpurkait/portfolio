@@ -21,7 +21,7 @@ export default function RootLayout({
 			<body
 				className={cls(
 					inter.className,
-					`text-text bg-background p-2 pb-16 pl-2 sm:pb-2 sm:pl-16 md:px-32 min-h-screen`
+					`text-text bg-background p-2 pb-16 pl-2 sm:pb-2 sm:pl-16 md:pr-20 md:pl-32 min-h-screen`
 				)}
 			>
 				<header>
