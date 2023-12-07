@@ -1,5 +1,4 @@
-$gap: 1rem;
-$item-size: 50px;
+$gap: 3rem;
 $time: 80s;
 
 .scroller {
@@ -14,13 +13,9 @@ $time: 80s;
 
 	ul {
 		display: flex;
-		gap: 1rem;
-		padding-block: $gap;
+		gap: $gap;
+		padding-block: 1rem;
 		width: max-content;
-
-		li {
-			max-width: $item-size;
-		}
 	}
 }
 

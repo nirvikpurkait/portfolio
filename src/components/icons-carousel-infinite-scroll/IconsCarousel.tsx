@@ -33,7 +33,7 @@ export default function IconsCarousel(props: IconsCarouselProps) {
 	return (
 		<div
 			className={cls(
-				`max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg m-auto mt-8`,
+				`max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl m-auto mt-8`,
 				style.scroller
 			)}
 		>
@@ -44,7 +44,12 @@ export default function IconsCarousel(props: IconsCarouselProps) {
 						background: "white",
 					};
 					return (
-						<li key={icon.key}>
+						<li
+							key={icon.key}
+							className={cls(
+								`max-w-[40px] sm:max-w-[45px] md:max-w-[50px] lg:max-w-[55px]`
+							)}
+						>
 							{
 								<img
 									src={icon.link}
