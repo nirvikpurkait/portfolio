@@ -21,7 +21,7 @@ export default function Heading() {
 						amaranthFont
 					)}
 				>
-					Hi!,&#x1F44B; I'm
+					Hi!,&#x1F44B; I&apos;m
 				</span>{" "}
 				<span
 					className={cls(
@@ -43,7 +43,7 @@ export default function Heading() {
 
 			<h3 className={cls(`text-lg max-w-lg sm:text-xl`)}>
 				I am a full-stack developer, based in India. My main interest
-				lies on back-end development. Currently, I'm living in West
+				lies on back-end development. Currently, I&apos;m living in West
 				Bengal, India.
 			</h3>
 			<div

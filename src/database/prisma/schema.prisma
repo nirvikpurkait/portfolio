@@ -9,3 +9,11 @@ datasource db {
   provider = "mongodb"
   url      = env("DATABASE_URL")
 }
+
+model Icon {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  link         String
+  special      Boolean?
+  icon_details String?
+  key          String
+}
