@@ -1,8 +1,12 @@
 import { cls } from "@/utils/tailwind/cls";
 import React from "react";
-import { Rajdhani } from "next/font/google";
+import { Rajdhani } from "@next/font/google";
 
-const rajdhaniFont = Rajdhani({ weight: "700", subsets: ["devanagari"] });
+const rajdhaniFont = Rajdhani({
+	weight: "700",
+	subsets: ["devanagari"],
+	display: "swap",
+});
 
 export default function Heading() {
 	return (

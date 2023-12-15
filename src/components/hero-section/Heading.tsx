@@ -1,10 +1,14 @@
 import { cls } from "@/utils/tailwind/cls";
 import React from "react";
-import { Amaranth } from "next/font/google";
+import { Amaranth } from "@next/font/google";
 import { DownloadResumeButton, LetsConnect } from "../custom-components";
 
-const amaranth = Amaranth({ weight: "400", subsets: ["latin"] });
-const amaranthFont = amaranth.className;
+const amaranth = Amaranth({
+	weight: "400",
+	subsets: ["latin"],
+	display: "swap",
+});
+const amaranthFont = amaranth;
 
 export default function Heading() {
 	return (
@@ -26,7 +30,7 @@ export default function Heading() {
 				<span
 					className={cls(
 						`text-accent text-4xl sm:text-5xl`,
-						amaranthFont
+						amaranthFont.className
 					)}
 				>
 					Nirvik Purkait
