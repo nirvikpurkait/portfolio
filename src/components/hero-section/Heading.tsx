@@ -6,7 +6,6 @@ import { DownloadResumeButton, LetsConnect } from "../custom-components";
 const amaranth = Amaranth({
 	weight: "400",
 	subsets: ["latin"],
-	display: "swap",
 });
 const amaranthFont = amaranth;
 

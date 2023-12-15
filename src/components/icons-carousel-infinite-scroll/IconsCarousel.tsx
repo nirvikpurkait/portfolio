@@ -3,16 +3,13 @@
 import React, { useEffect, useRef } from "react";
 import { cls } from "@/utils/tailwind/cls";
 import style from "./IconsCarousel.module.scss";
+import IconsList from "./IconsList";
 
-type IconsCarouselProps = {
-	icons: {
-		link: string;
-		special?: boolean;
-		key: string;
-	}[];
-};
-
-export default function IconsCarousel(props: IconsCarouselProps) {
+export default function IconsCarousel({
+	children,
+}: {
+	children: React.ReactNode;
+}) {
 	const scrollerRef = useRef<HTMLUListElement>(null);
 
 	useEffect(() => {
@@ -38,28 +35,7 @@ export default function IconsCarousel(props: IconsCarouselProps) {
 			)}
 		>
 			<ul className={cls(``)} ref={scrollerRef}>
-				{props.icons?.map((icon) => {
-					const style: React.CSSProperties = {
-						borderRadius: "50%",
-						background: "white",
-					};
-					return (
-						<li
-							key={icon.key}
-							className={cls(
-								`max-w-[40px] sm:max-w-[45px] md:max-w-[50px] lg:max-w-[55px]`
-							)}
-						>
-							{
-								<img
-									src={icon.link}
-									alt="icon"
-									style={icon.special ? style : {}}
-								/>
-							}
-						</li>
-					);
-				})}
+				{children}
 			</ul>
 		</div>
 	);
