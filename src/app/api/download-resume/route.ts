@@ -1,13 +1,10 @@
-import fs from "node:fs/promises";
-import path from "node:path";
+import { renderToBuffer } from "@react-pdf/renderer";
+import { NextResponse } from "next/server";
+
+// import { MyResumePdf } from "./Resume.react-pdf";
+import { MyPDFDocument } from "./Resume.react-pdf";
 
 export async function GET() {
-	const filepath = path.join(
-		__dirname,
-		"../../../../../src/database/static/curriculum-vitae.pdf"
-	);
-	const buffer = await fs.readFile(filepath);
-
 	const headers = new Headers();
 	headers.append(
 		"Content-Disposition",
@@ -15,7 +12,7 @@ export async function GET() {
 	);
 	headers.append("Content-Type", "application/pdf");
 
-	return new Response(buffer, {
-		headers,
-	});
+	const buffer = await renderToBuffer(MyPDFDocument());
+
+	return new NextResponse(buffer, { headers });
 }
