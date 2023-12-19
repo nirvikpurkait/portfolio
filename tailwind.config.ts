@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const defaultTheme = require("tailwindcss/defaultTheme");
 
 const config: Config = {
 	content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
@@ -15,7 +16,10 @@ const config: Config = {
 				"2xs": "16rem",
 				xs: "20rem",
 			},
-			
+			fontFamily: {
+				amaranth: ["Amaranth", ...defaultTheme.fontFamily.sans],
+				rajdhani: ["Rajdhani", ...defaultTheme.fontFamily.sans],
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/container-queries")],

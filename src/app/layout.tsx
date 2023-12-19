@@ -18,6 +18,12 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
+			<head>
+				<link
+					href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Rajdhani:wght@400;700&display=swap"
+					rel="stylesheet"
+				></link>
+			</head>
 			<body
 				className={cls(
 					inter.className,

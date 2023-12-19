@@ -3,12 +3,6 @@ import React from "react";
 import { Amaranth } from "@next/font/google";
 import { DownloadResumeButton, LetsConnect } from "../custom-components";
 
-const amaranth = Amaranth({
-	weight: "400",
-	subsets: ["latin"],
-});
-const amaranthFont = amaranth;
-
 export default function Heading() {
 	return (
 		<div
@@ -20,27 +14,20 @@ export default function Heading() {
 			<h1>
 				<span
 					className={cls(
-						`text-gray-500 dark:text-gray-400 text-3xl sm:text-4xl`,
-						amaranthFont
+						`text-gray-500 dark:text-gray-400 text-3xl sm:text-4xl font-amaranth`
 					)}
 				>
 					Hi!,&#x1F44B; I&apos;m
 				</span>{" "}
 				<span
 					className={cls(
-						`text-accent text-4xl sm:text-5xl`,
-						amaranthFont.className
+						`text-accent text-4xl sm:text-5xl font-amaranth`
 					)}
 				>
 					Nirvik Purkait
 				</span>
 			</h1>
-			<h2
-				className={cls(
-					`text-2xl text-accent sm:text-3xl`,
-					amaranthFont
-				)}
-			>
+			<h2 className={cls(`text-2xl text-accent sm:text-3xl`)}>
 				Full-stack developer
 			</h2>
 
