@@ -54,13 +54,15 @@ export async function generatePdfFrom(urlOrigin: string) {
 		const data: TEducationTableDataRes = await educationTableDataRes.json();
 
 		// format the response data to desire type
-		const newData: EducationTableData = data.map((eachItem) => [
-			eachItem.course,
-			eachItem.institute,
-			eachItem.yearOfPassing,
-			eachItem.percentage || eachItem.GPA || 0,
-			Boolean(eachItem.special),
-		]);
+		const newData: EducationTableData = data.map(
+			(eachItem: TEducationTableDataRes[number]) => [
+				eachItem.course,
+				eachItem.institute,
+				eachItem.yearOfPassing,
+				eachItem.percentage || eachItem.GPA || 0,
+				Boolean(eachItem.special),
+			]
+		);
 
 		// merge both data for using later
 		educationTableData = [...educationTableData, ...newData];
