@@ -15,7 +15,7 @@ import {
 import { prisma } from "@/database/prisma";
 
 type ToolsAndTechData = { skill: string; special: boolean; id: string }[];
-type EducationTableData = [string, string, number, number, boolean?][];
+type EducationTableData = [string, string, number, string, boolean?][];
 
 const timeZone = "Asia/Kolkata";
 
@@ -61,7 +61,9 @@ export async function generatePdfFrom(urlOrigin: string) {
 				eachItem.course,
 				eachItem.institute,
 				eachItem.yearOfPassing,
-				eachItem.percentage || eachItem.GPA || 0,
+				(eachItem.percentage && `${eachItem.percentage}%`) ||
+					(eachItem.GPA && `${eachItem.GPA.toFixed(1)}`) ||
+					`unvailable`,
 				Boolean(eachItem.special),
 			]
 		);
@@ -147,7 +149,9 @@ export async function generatePdfFrom(urlOrigin: string) {
 
 						{/* career objective start */}
 						<View style={{ marginBottom: 0 }}>
-							<Heading>Career objective</Heading>
+							<HeadingBackground>
+								Career objective
+							</HeadingBackground>
 							<Details>
 								Secure a responsible career opportunity to fully
 								utilize my skills, while making a significant
@@ -158,21 +162,27 @@ export async function generatePdfFrom(urlOrigin: string) {
 
 						{/* profile summary start */}
 						<View style={{ marginTop: -6 }}>
-							<Heading>Profile summary</Heading>
+							<HeadingBackground>
+								Profile summary
+							</HeadingBackground>
 							<ProfileSummaryItemList />
 						</View>
 						{/* profile summary end */}
 
 						{/* education profile start */}
 						<View style={{ marginTop: -6 }}>
-							<Heading>Education profile</Heading>
+							<HeadingBackground>
+								Education profile
+							</HeadingBackground>
 							<EducationTable />
 						</View>
 						{/* education profile end */}
 
 						{/* tools-technologies start */}
 						<View style={{ marginTop: 4 }}>
-							<Heading>Tools / Technologies</Heading>
+							<HeadingBackground>
+								Tools / Technologies
+							</HeadingBackground>
 							<ToolsTechnologies />
 							<Text
 								style={{
@@ -190,7 +200,9 @@ export async function generatePdfFrom(urlOrigin: string) {
 
 						{/* language start */}
 						<View style={{ marginTop: 4 }}>
-							<Heading>Languages known</Heading>
+							<HeadingBackground>
+								Languages known
+							</HeadingBackground>
 							<View
 								style={{
 									flexDirection: "row",
@@ -214,7 +226,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 
 						{/* hobbies start */}
 						<View style={{ marginTop: 4 }}>
-							<Heading>Hobbies</Heading>
+							<HeadingBackground>Hobbies</HeadingBackground>
 							<View
 								style={{
 									flexDirection: "row",
@@ -238,7 +250,9 @@ export async function generatePdfFrom(urlOrigin: string) {
 
 						{/* perosnal details start */}
 						<View style={{ marginTop: 4 }}>
-							<Heading>Personal details</Heading>
+							<HeadingBackground>
+								Personal details
+							</HeadingBackground>
 							<PersonalDetails />
 						</View>
 						{/* perosnal details end */}
@@ -264,6 +278,26 @@ export async function generatePdfFrom(urlOrigin: string) {
 							</Text>
 						</View>
 						{/* time-stamp */}
+
+						{/* water mark start */}
+						<View
+							style={{
+								position: "absolute",
+								top: "44%",
+								left: "-10%",
+								transform:
+									"translateX(-50%) translateY(-50%) rotate(-60 deg)",
+								// backgroundColor: "blue",
+								fontSize: 100,
+								width: 800,
+								opacity: 0.03,
+								// opacity: 1,
+								letterSpacing: 10,
+							}}
+						>
+							<Text>Nirvik Purkait</Text>
+						</View>
+						{/* water mark end */}
 					</View>
 				</Page>
 			</Document>
@@ -271,7 +305,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 	};
 
 	// heading compopnent for pdf
-	function Heading({ children }: { children: string }) {
+	function HeadingBackground({ children }: { children: string }) {
 		return (
 			<View style={{ position: "relative" }}>
 				<Svg viewBox="0 0 150 8">
@@ -427,7 +461,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 						style={{
 							textAlign: "right",
 							fontSize: 12,
-							width: 150,
+							width: 160,
 							lineHeight: 1.3,
 							// border: "1px solid red",
 						}}
@@ -547,16 +581,15 @@ export async function generatePdfFrom(urlOrigin: string) {
 												style={colStyle}
 												key={colIndex}
 											>
-												{colIndex !== 2 &&
-													colIndex !== 3 && (
-														<Text
-															style={{
-																width: "100%",
-															}}
-														>
-															{eachColl}
-														</Text>
-													)}
+												{colIndex !== 2 && (
+													<Text
+														style={{
+															width: "100%",
+														}}
+													>
+														{eachColl}
+													</Text>
+												)}
 												{colIndex === 2 && (
 													<Text
 														style={{
@@ -567,15 +600,13 @@ export async function generatePdfFrom(urlOrigin: string) {
 														{eachRow[4] && <Star />}
 													</Text>
 												)}
-												{colIndex === 3 && (
+												{/* {colIndex === 3 && (
 													<Text
-														style={{
-															width: "100%",
-														}}
+														style={{ fontSize: 10 }}
 													>
-														{eachRow[3]}
+														{`(${eachRow[colIndex]})`}
 													</Text>
-												)}
+												)} */}
 											</View>
 										);
 									}
@@ -597,8 +628,8 @@ export async function generatePdfFrom(urlOrigin: string) {
 					display: "flex",
 					flexWrap: "wrap",
 					flexDirection: "row",
-					marginLeft: 1,
-					marginRight: 0,
+					marginLeft: 6,
+					marginRight: 6,
 					marginTop: 14,
 					gap: 2,
 					// border: "1 solid blue",
@@ -667,7 +698,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 					>
 						<Text>Vill - Mankhand, P.O - Mathur,</Text>
 						<Text>P.S - Ramnagar, </Text>
-						<Text> South 24 Parganas, 743368 </Text>
+						<Text>South 24 Parganas, 743368 </Text>
 						<Text>West Bengal</Text>
 					</View>
 				</View>
@@ -678,7 +709,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 						width: "50%",
 					}}
 				>
-					<Text>Date of birth - 24/08/1998</Text>
+					<Text> Date of birth - 24/08/1998</Text>
 					<Text> Sex - Male</Text>
 					<Text> Nationality - Indian</Text>
 					<Text> Marital Status - Unmarried</Text>
