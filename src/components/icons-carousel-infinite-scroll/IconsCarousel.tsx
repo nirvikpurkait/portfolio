@@ -3,7 +3,6 @@
 import React, { useEffect, useRef } from "react";
 import { cls } from "@/utils/tailwind/cls";
 import style from "./IconsCarousel.module.scss";
-import IconsList from "./IconsList";
 
 export default function IconsCarousel({
 	children,
