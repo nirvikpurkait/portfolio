@@ -4,6 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "next dev",
+		"postinstall": "prisma generate --schema=./src/database/prisma/schema.prisma",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
