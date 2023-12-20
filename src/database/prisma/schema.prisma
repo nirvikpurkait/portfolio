@@ -17,3 +17,20 @@ model Icon {
   icon_details String?
   key          String
 }
+
+model ToolsTechnologies {
+  id      String  @id @default(auto()) @map("_id") @db.ObjectId
+  skill   String
+  special Boolean @default(false)
+}
+
+model Education {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  course        String
+  institute     String
+  yearOfPassing Int
+  percentage    Float?
+  GPA           Float?
+  special       Boolean? @default(false)
+  data          String?
+}

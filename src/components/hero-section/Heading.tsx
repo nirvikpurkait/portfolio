@@ -1,6 +1,5 @@
 import { cls } from "@/utils/tailwind/cls";
 import React from "react";
-import { Amaranth } from "@next/font/google";
 import { DownloadResumeButton, LetsConnect } from "../custom-components";
 
 export default function Heading() {

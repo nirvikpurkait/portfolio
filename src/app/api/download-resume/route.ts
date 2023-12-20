@@ -1,10 +1,10 @@
 import { renderToBuffer } from "@react-pdf/renderer";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 // import { MyResumePdf } from "./Resume.react-pdf";
-import { MyPDFDocument } from "./Resume.react-pdf";
+import { generatePdfFrom } from "./Resume.react-pdf";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
 	const headers = new Headers();
 	headers.append(
 		"Content-Disposition",
@@ -12,7 +12,11 @@ export async function GET() {
 	);
 	headers.append("Content-Type", "application/pdf");
 
-	const buffer = await renderToBuffer(MyPDFDocument());
+	const pdf = await generatePdfFrom(req.nextUrl.origin);
+
+	const buffer = await renderToBuffer(pdf());
 
 	return new NextResponse(buffer, { headers });
 }
+
+export const dynamic = "force-dynamic";
