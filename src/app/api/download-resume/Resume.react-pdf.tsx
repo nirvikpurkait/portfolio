@@ -197,7 +197,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 									fontSize: 12,
 								}}
 							>
-								{languages.map((lang, index) => {
+								{languages.map((lang: string, index) => {
 									return (
 										<Text key={lang}>
 											{languages.length === index + 1
@@ -221,7 +221,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 									marginTop: 4,
 								}}
 							>
-								{hobbies.map((hobbie, index) => {
+								{hobbies.map((hobbie: string, index) => {
 									return (
 										<Text key={hobbie}>
 											{hobbies.length === index + 1
@@ -501,60 +501,86 @@ export async function generatePdfFrom(urlOrigin: string) {
 					marginTop: "1",
 				}}
 			>
-				{educationTableData.map((eachRow, rowIndex) => {
-					const rowStyle = rowIndex === 0 ? styles.th : {};
-					return (
-						<View style={{ flexDirection: "row" }} key={rowIndex}>
-							{eachRow.map((eachColl, colIndex) => {
-								let colStyle = {};
-								if (colIndex === 0)
-									colStyle = {
-										...styles.col1,
-										...styles.colCommon,
-										...rowStyle,
-									};
-								if (colIndex === 1)
-									colStyle = {
-										...styles.col2,
-										...styles.colCommon,
-										...rowStyle,
-									};
-								if (colIndex === 2)
-									colStyle = {
-										...styles.col3,
-										...styles.colCommon,
-										...rowStyle,
-									};
-								if (colIndex === 3)
-									colStyle = {
-										...styles.col4,
-										...styles.colCommon,
-										...rowStyle,
-									};
-								return (
-									<View style={colStyle} key={colIndex}>
-										{colIndex !== 2 && colIndex !== 3 && (
-											<Text style={{ width: "100%" }}>
-												{eachColl}
-											</Text>
-										)}
-										{colIndex === 2 && (
-											<Text style={{ width: "100%" }}>
-												{eachColl}
-												{eachRow[4] && <Star />}
-											</Text>
-										)}
-										{colIndex === 3 && (
-											<Text style={{ width: "100%" }}>
-												{eachRow[3]}
-											</Text>
-										)}
-									</View>
-								);
-							})}
-						</View>
-					);
-				})}
+				{educationTableData.map(
+					(eachRow: EducationTableData[number], rowIndex) => {
+						const rowStyle = rowIndex === 0 ? styles.th : {};
+						return (
+							<View
+								style={{ flexDirection: "row" }}
+								key={rowIndex}
+							>
+								{eachRow.map(
+									(
+										eachColl: EducationTableData[number][number],
+										colIndex
+									) => {
+										let colStyle = {};
+										if (colIndex === 0)
+											colStyle = {
+												...styles.col1,
+												...styles.colCommon,
+												...rowStyle,
+											};
+										if (colIndex === 1)
+											colStyle = {
+												...styles.col2,
+												...styles.colCommon,
+												...rowStyle,
+											};
+										if (colIndex === 2)
+											colStyle = {
+												...styles.col3,
+												...styles.colCommon,
+												...rowStyle,
+											};
+										if (colIndex === 3)
+											colStyle = {
+												...styles.col4,
+												...styles.colCommon,
+												...rowStyle,
+											};
+										return (
+											<View
+												style={colStyle}
+												key={colIndex}
+											>
+												{colIndex !== 2 &&
+													colIndex !== 3 && (
+														<Text
+															style={{
+																width: "100%",
+															}}
+														>
+															{eachColl}
+														</Text>
+													)}
+												{colIndex === 2 && (
+													<Text
+														style={{
+															width: "100%",
+														}}
+													>
+														{eachColl}
+														{eachRow[4] && <Star />}
+													</Text>
+												)}
+												{colIndex === 3 && (
+													<Text
+														style={{
+															width: "100%",
+														}}
+													>
+														{eachRow[3]}
+													</Text>
+												)}
+											</View>
+										);
+									}
+								)}
+							</View>
+						);
+					}
+				)}
 			</View>
 		);
 	}
@@ -575,7 +601,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 					// border: "1 solid blue",
 				}}
 			>
-				{toolsAndTechData.map((eachItem) => {
+				{toolsAndTechData.map((eachItem: ToolsAndTechData[number]) => {
 					return (
 						<View style={styles.toolsAndTech} key={eachItem.id}>
 							<View>

@@ -12,7 +12,7 @@ export default function ProjectCardList(props: ProjectCardListProps) {
 					`grid gap-4 grid-cols-1 @lg:grid-cols-2 @3xl:grid-cols-3 @6xl:grid-cols-4`
 				)}
 			>
-				{props.map((card) => {
+				{props.map((card: ProjectCardListProps[number]) => {
 					return (
 						<Card
 							key={card.heading}
