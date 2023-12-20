@@ -17,6 +17,8 @@ import { prisma } from "@/database/prisma";
 type ToolsAndTechData = { skill: string; special: boolean; id: string }[];
 type EducationTableData = [string, string, number, number, boolean?][];
 
+const timeZone = "Asia/Kolkata";
+
 export async function generatePdfFrom(urlOrigin: string) {
 	// tools and tech data type assign
 	let toolsAndTechData: ToolsAndTechData;
@@ -248,7 +250,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 								top: "100%",
 								left: "100%",
 								fontSize: 7,
-								transform: "translateX(-168%)",
+								transform: "translateX(-175%)",
 								// border: "1px solid red",
 							}}
 						>
@@ -257,6 +259,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 								{new Intl.DateTimeFormat("en-IN", {
 									dateStyle: "full",
 									timeStyle: "long",
+									timeZone: timeZone,
 								}).format(Date.now())}
 							</Text>
 						</View>

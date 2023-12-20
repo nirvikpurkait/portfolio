@@ -16,7 +16,7 @@ export async function GET(req: NextRequest) {
 
 	const buffer = await renderToBuffer(pdf());
 
-	return new NextResponse(buffer, { headers });
+	return new NextResponse(buffer, {});
 }
 
 export const dynamic = "force-dynamic";
