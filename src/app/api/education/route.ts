@@ -7,7 +7,14 @@ export async function GET(req: NextRequest) {
 
 	headers.append("Content-Type", "application/json");
 
-	const educationDetailsList = await prisma.education.findMany();
+	const educationDetailsList = await prisma.education.findMany({
+		orderBy: [
+			{
+				yearOfPassing: "desc",
+			},
+		],
+	});
+	// educationDetailsList = educationDetailsList.sort()
 
 	return new NextResponse(JSON.stringify(educationDetailsList), { headers });
 }
