@@ -23,7 +23,7 @@ export default function RootLayout({
 			</head>
 			<body
 				className={cls(
-					`text-text bg-background p-2 pb-16 pl-2 sm:pb-2 sm:pl-16 md:pr-20 md:pl-32 min-h-screen flex flex-col`
+					`text-text bg-background min-h-screen flex flex-col pl-0 pb-14 sm:pl-14 sm:pb-0`
 				)}
 			>
 				<header>

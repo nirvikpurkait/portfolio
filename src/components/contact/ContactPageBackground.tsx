@@ -18,7 +18,7 @@ export default function ContactPageBackground(
 				width={1000}
 				height={1000}
 				className={cls(
-					`absolute w-[200rem] top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 right-0 bottom-0 -z-10 dark:opacity-50 hidden lg:block `,
+					`absolute w-[200rem] top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 right-0 bottom-0 -z-10 dark:opacity-50 hidden md:block`,
 					props.className
 				)}
 			/>
@@ -28,7 +28,7 @@ export default function ContactPageBackground(
 				width={1000}
 				height={1000}
 				className={cls(
-					`absolute w-[200rem] top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 right-0 bottom-0 -z-10 dark:opacity-50 block lg:hidden`,
+					`absolute w-[200rem] top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 right-0 bottom-0 -z-10 dark:opacity-50 block md:hidden`,
 					props.className
 				)}
 			/>
