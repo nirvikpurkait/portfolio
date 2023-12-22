@@ -1,0 +1,46 @@
+.rating {
+	display: flex;
+	flex-direction: row-reverse;
+	gap: 0.2rem;
+	cursor: pointer;
+
+	input[type="radio"] {
+		display: none;
+	}
+
+	label {
+		cursor: pointer;
+		&:hover {
+			scale: 1.2;
+		}
+	}
+
+	input[type="radio"]:checked ~ label {
+		color: #faaf00;
+	}
+}
+
+.ratingOutput {
+	display: flex;
+	gap: 0.35rem;
+	position: relative;
+	width: max-content;
+	overflow: hidden;
+	// background: black;
+
+	&::before {
+		position: absolute;
+		content: "";
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: -2;
+		// background: blue;
+	}
+
+	.fontawesome {
+		position: relative;
+		z-index: -1;
+	}
+}

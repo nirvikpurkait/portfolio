@@ -1,0 +1,32 @@
+$gap: 3rem;
+$time: 80s;
+
+.scroller {
+	mask: linear-gradient(
+		90deg,
+		transparent,
+		white 20%,
+		white 80%,
+		transparent
+	);
+	overflow: hidden;
+
+	ul {
+		display: flex;
+		gap: $gap;
+		padding-block: 1rem;
+		width: max-content;
+	}
+}
+
+.scroller[data-animate="true"] {
+	ul {
+		animation: scroll $time linear infinite;
+	}
+}
+
+@keyframes scroll {
+	to {
+		transform: translateX(calc(-50% - calc($gap / 2)));
+	}
+}
