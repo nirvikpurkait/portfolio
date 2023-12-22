@@ -8,6 +8,10 @@ const nextConfig = {
 			{
 				hostname: "img.icons8.com",
 			},
+			{
+				hostname: "res.cloudinary.com",
+				pathname: "/dpohasqoa/image/upload/**",
+			},
 		],
 	},
 };

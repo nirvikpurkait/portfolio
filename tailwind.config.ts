@@ -20,6 +20,11 @@ const config: Config = {
 				amaranth: ["Amaranth", ...defaultTheme.fontFamily.sans],
 				rajdhani: ["Rajdhani", ...defaultTheme.fontFamily.sans],
 			},
+			screens: {
+				"3xs": "340px",
+				"2xs": "480px",
+				xs: "540px",
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/container-queries")],
