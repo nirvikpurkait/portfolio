@@ -1,14 +1,6 @@
-import IconsCarousel from "@/components/icons-carousel-infinite-scroll/IconsCarousel";
-import Heading from "@/components/hero-section/Heading";
-import IconsList from "@/components/icons-carousel-infinite-scroll/IconsList";
+import Home from "@/components/home-page/Home";
+import React from "react";
 
-export default function Home() {
-	return (
-		<>
-			<Heading />
-			<IconsCarousel>
-				<IconsList />
-			</IconsCarousel>
-		</>
-	);
+export default function HomePage() {
+	return <Home />;
 }

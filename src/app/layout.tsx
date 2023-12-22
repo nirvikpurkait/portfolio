@@ -29,7 +29,7 @@ export default function RootLayout({
 				<header>
 					<Navbar />
 				</header>
-				<main className={cls(`pb-8 flex-grow`)}>{children}</main>
+				<main className={cls(`flex-grow`)}>{children}</main>
 				<footer></footer>
 			</body>
 		</html>
