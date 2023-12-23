@@ -61,7 +61,7 @@ export default function ContactForm() {
 						className={cls(
 							`text-black px-3 py-1 text-base sm:text-lg lg:text-xl rounded-md placeholder:text-base`
 						)}
-						{...register("name", { ...validate("name") })}
+						{...register("name", validate("name"))}
 					/>
 					<p className={cls(`relative left-2 text-red-500 text-xs`)}>
 						{errors.name?.message}
@@ -81,7 +81,7 @@ export default function ContactForm() {
 						className={cls(
 							`text-black px-3 py-1 text-base sm:text-lg lg:text-xl rounded-md placeholder:text-base`
 						)}
-						{...register("email", { ...validate("email") })}
+						{...register("email", validate("email"))}
 					/>
 					<p className={cls(`relative left-2 text-red-500 text-xs`)}>
 						{errors.email?.message}
@@ -101,7 +101,7 @@ export default function ContactForm() {
 						className={cls(
 							`text-black px-3 py-1 text-base sm:text-lg lg:text-xl rounded-md placeholder:text-base`
 						)}
-						{...register("message", { ...validate("message") })}
+						{...register("message", validate("message"))}
 					/>
 					<p className={cls(`relative left-2 text-red-500 text-xs`)}>
 						{errors.message?.message}

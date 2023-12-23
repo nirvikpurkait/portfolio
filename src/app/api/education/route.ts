@@ -14,7 +14,6 @@ export async function GET(req: NextRequest) {
 			},
 		],
 	});
-	// educationDetailsList = educationDetailsList.sort()
 
 	return new NextResponse(JSON.stringify(educationDetailsList), { headers });
 }

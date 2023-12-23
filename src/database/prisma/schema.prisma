@@ -34,3 +34,11 @@ model Education {
   special       Boolean? @default(false)
   data          String?
 }
+
+model Rating {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  email     String    @unique
+  rating    Int
+  createdAt DateTime? @default(now())
+  updatedAt DateTime?
+}

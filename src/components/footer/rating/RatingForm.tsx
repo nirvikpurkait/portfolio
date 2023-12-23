@@ -1,9 +1,11 @@
 "use client";
 
 import React from "react";
-import { useForm } from "react-hook-form";
+import { FieldErrors, useForm } from "react-hook-form";
 import style from "./Rating.module.scss";
 import { cls } from "@/utils/tailwind/cls";
+import { RatingSchema, validateRatingForm } from "./RatingForm.utils";
+import toast, { Toaster } from "react-hot-toast";
 
 export default function RatingForm({
 	starAsLabel,
@@ -13,19 +15,48 @@ export default function RatingForm({
 	const {
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState: { errors, isValid, isSubmitting },
 		reset,
-	} = useForm();
-	const onSubmit = (data: any) => {
-		console.log(data);
-		reset();
+	} = useForm<RatingSchema>();
+
+	// function to run when the form submits
+	const onSubmit = async (formData: RatingSchema) => {
+		// change the data type for storing the data
+		formData.rating = Number(formData.rating);
+
+		// send data to backend
+		const res = await fetch("/api/rating", {
+			method: "POST",
+			body: JSON.stringify(formData),
+			headers: {
+				"content-type": "application/json",
+			},
+		});
+
+		if (res.status >= 200 && res.status < 300) {
+			// rest form after saving data and push toast notification
+			reset();
+			toast.success(`Rating stored successfully`);
+		} else if (res.status >= 400 && res.status < 500) {
+			const err = await res.json();
+			console.error(err.message);
+
+			toast.error(err.message);
+		}
+	};
+
+	// function to run when the form has errors
+	const onError = (errorObj: FieldErrors<RatingSchema>) => {
+		if (errorObj.email?.message) toast.error(errorObj.email.message);
+		else if (errorObj.rating?.message) toast.error(errorObj.rating.message);
 	};
 
 	return (
 		<>
 			<form
-				onSubmit={handleSubmit(onSubmit)}
+				onSubmit={handleSubmit(onSubmit, onError)}
 				className={cls(`w-full max-w-2xs flex flex-col gap-3`)}
+				noValidate
 			>
 				{/* email field start */}
 				<div className={cls(`flex gap-0.5 flex-col`)}>
@@ -35,7 +66,7 @@ export default function RatingForm({
 					<input
 						type="email"
 						id="rating-email"
-						{...register("email")}
+						{...register("email", validateRatingForm("email"))}
 						className={cls(
 							`px-4 py-2 bg-black/10 dark:bg-white/20 rounded-md focus:outline-none`
 						)}
@@ -46,14 +77,17 @@ export default function RatingForm({
 
 				<div className={cls(`flex items-center`)}>
 					{/* ########## DO NOT CHANGE ID AND VALUE ########## */}
-					{/* id and value are different intentionally in field below because of css `~` selector and 
-						css `flex direction` combination */}
+					{/* id and value are different intentionally in field below,
+					because of css `~` selector and css `flex direction` combination */}
 					<div className="max-w-max">
 						<div className={style.rating}>
 							<input
 								type="radio"
 								id="1"
-								{...register("rating")}
+								{...register(
+									"rating",
+									validateRatingForm("rating")
+								)}
 								value={5}
 							/>
 							<label
@@ -65,7 +99,10 @@ export default function RatingForm({
 							<input
 								type="radio"
 								id="2"
-								{...register("rating")}
+								{...register(
+									"rating",
+									validateRatingForm("rating")
+								)}
 								value={4}
 							/>
 							<label
@@ -77,7 +114,10 @@ export default function RatingForm({
 							<input
 								type="radio"
 								id="3"
-								{...register("rating")}
+								{...register(
+									"rating",
+									validateRatingForm("rating")
+								)}
 								value={3}
 							/>
 							<label
@@ -89,7 +129,10 @@ export default function RatingForm({
 							<input
 								type="radio"
 								id="4"
-								{...register("rating")}
+								{...register(
+									"rating",
+									validateRatingForm("rating")
+								)}
 								value={2}
 							/>
 							<label
@@ -101,7 +144,10 @@ export default function RatingForm({
 							<input
 								type="radio"
 								id="5"
-								{...register("rating")}
+								{...register(
+									"rating",
+									validateRatingForm("rating")
+								)}
 								value={1}
 							/>
 							<label
@@ -113,16 +159,17 @@ export default function RatingForm({
 						</div>
 					</div>
 					{/* ########## DO NOT CHANGE ID AND VALUE ########## */}
-					{/* id and value are different intentionally in upper field because of css `~` selector and 
-						css `flex direction` combination */}
+					{/* id and value are different intentionally in upper field,
+					because of css `~` selector and css `flex direction` combination */}
 
 					<button
 						type="submit"
 						className={cls(
 							`bg-purple-500 ml-auto px-4 py-2 rounded-md text-lg text-white transition shadow-md shadow-black/30 dark:shadow-white/20`,
 							{
-								"opacity-20 cursor-not-allowed": true,
-								"active:scale-95": true,
+								"opacity-20 cursor-not-allowed":
+									!isValid || isSubmitting,
+								"active:scale-95": isValid,
 							}
 						)}
 					>
@@ -130,6 +177,7 @@ export default function RatingForm({
 					</button>
 				</div>
 			</form>
+			<Toaster />
 		</>
 	);
 }
