@@ -117,7 +117,7 @@ export default function ContactForm() {
 				<div className={cls(`relative flex flex-col gap-1`)}>
 					<button
 						type="submit"
-						disabled={isSubmitting || !isValid}
+						disabled={isSubmitting}
 						className={cls(
 							`bg-purple-500 px-4 py-2 text-base sm:text-lg lg:text-xl rounded-md ml-auto mt-2 transform duration-150`,
 							{
