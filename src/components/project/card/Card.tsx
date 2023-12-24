@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { cls } from "@/utils/tailwind/cls";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";

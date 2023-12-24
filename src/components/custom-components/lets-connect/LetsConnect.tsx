@@ -18,12 +18,15 @@ export default function LetsConnect(props: LetsConnectProps) {
 		<button
 			{...props}
 			className={cls(
-				`border-accent px-4 pl-6 py-2 relative after:bg-accent text-lg font-bold hover:text-gray-800 tracking-wider`,
+				`border-accent px-4 py-2 pl-6 relative after:bg-accent text-lg font-bold text-accent dark:text-white hover:text-white tracking-wider`,
 				style.btn
 			)}
 			onClick={goToChatPage}
 		>
-			Lets connect <sup aria-hidden>↗️</sup>
+			Lets connect{" "}
+			<sup aria-hidden className={cls(``)}>
+				<sup>↗️</sup>
+			</sup>
 		</button>
 	);
 }

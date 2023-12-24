@@ -7,8 +7,8 @@
 		--text: #12130b;
 		--background: #fbfbf9;
 		--primary: #4c5138;
-		--secondary: #7611d4;
-		--accent: #8d88fe;
+		--secondary: #f77d6a;
+		--accent: #9c1ddc;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -16,8 +16,8 @@
 			--text: #f1f3ea;
 			--background: #070704;
 			--primary: #c1c6ad;
-			--secondary: #7611d4;
-			--accent: #8d88fe;
+			--secondary: #f77d6a;
+			--accent: #9c1ddc;
 		}
 	}
 }

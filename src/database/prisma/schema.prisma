@@ -11,9 +11,9 @@ datasource db {
 }
 
 model Icon {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  id           String  @id @default(auto()) @map("_id") @db.ObjectId
   link         String
-  special      Boolean?
+  special      Boolean @default(false)
   icon_details String?
   key          String
 }

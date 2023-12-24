@@ -1,15 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { cls } from "@/utils/tailwind/cls";
-import {
-	faBriefcase,
-	faHouseChimney,
-	faAddressCard,
-	faSun,
-	faCircleInfo,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import style from "./Nav.module.scss";
 import { Li } from "./NavLi";
+import ThemeButton from "./ThemeButton";
 
 export default function NavUl() {
 	return (
@@ -29,9 +24,9 @@ export default function NavUl() {
 						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
 					)}
 					icon={
-						<FontAwesomeIcon
-							className={cls(`w-full`)}
-							icon={faHouseChimney}
+						<img
+							src="https://img.icons8.com/dusk/64/home--v1.png"
+							alt="home-icon"
 						/>
 					}
 					text={`Home`}
@@ -42,9 +37,9 @@ export default function NavUl() {
 						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
 					)}
 					icon={
-						<FontAwesomeIcon
-							className={cls(`w-full`)}
-							icon={faCircleInfo}
+						<img
+							src="https://img.icons8.com/avantgarde/100/about.png"
+							alt="about-icon"
 						/>
 					}
 					text={`About`}
@@ -55,9 +50,9 @@ export default function NavUl() {
 						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
 					)}
 					icon={
-						<FontAwesomeIcon
-							className={cls(`w-full`)}
-							icon={faBriefcase}
+						<img
+							src="https://img.icons8.com/arcade/100/briefcase-settings.png"
+							alt="project-icon"
 						/>
 					}
 					text={`Project`}
@@ -68,9 +63,9 @@ export default function NavUl() {
 						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
 					)}
 					icon={
-						<FontAwesomeIcon
-							className={cls(`w-full`)}
-							icon={faAddressCard}
+						<img
+							src="https://img.icons8.com/color/100/contact-card.png"
+							alt="contact-icon"
 						/>
 					}
 					text={`Contact`}
@@ -81,19 +76,7 @@ export default function NavUl() {
 						`mt-auto bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
 					)}
 				>
-					<button className={cls(`block w-8`)}>
-						<FontAwesomeIcon
-							className={cls(`w-full`)}
-							icon={faSun}
-						/>
-						<span
-							className={cls(
-								`absolute top-2/4 left-full -translate-y-2/4 text-2xl hidden sm:inline sm:pl-1`
-							)}
-						>
-							Theme
-						</span>
-					</button>
+					<ThemeButton />
 				</li>
 			</ul>
 		</nav>

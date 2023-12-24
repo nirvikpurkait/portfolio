@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+
 import { prisma } from "@/database/prisma";
 import { cls } from "@/utils/tailwind/cls";
 import React from "react";
