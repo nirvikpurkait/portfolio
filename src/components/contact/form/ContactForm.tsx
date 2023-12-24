@@ -10,23 +10,29 @@ export default function ContactForm() {
 	const {
 		register,
 		handleSubmit,
-		formState: { errors, isValid },
+		formState: { errors, isValid, isSubmitting },
 		reset,
 	} = useForm<ContactFormSchema>();
 
 	const onSubmit = async (formData: ContactFormSchema) => {
-		// console.log(formData);
 		// do task for submitiing the form data
-		// try {
-		// 	const res = await fetch("/api/contact/send-message", {
-		// 		method: "POST",
-		// 	});
-		// 	if (res.status >= 400 && res.status < 500) {
-		// 		console.log(res);
-		// 	}
-		// 	reset();
-		// } catch (error) {}
-		// clear form after submission
+		try {
+			const res = await fetch("/api/contact/send-message", {
+				method: "POST",
+				body: JSON.stringify(formData),
+			});
+
+			//
+			if (res.status >= 400 && res.status < 500) {
+				const errObj = await res.json();
+				throw new Error(errObj.message);
+			} else if (res.status >= 200 && res.status < 300) {
+				toast.success(`Message sent successfully`);
+				reset();
+			}
+		} catch (error: any) {
+			toast.error(error.message);
+		}
 	};
 
 	const onError = async (fieldError: FieldErrors<ContactFormSchema>) => {
@@ -111,13 +117,14 @@ export default function ContactForm() {
 				<div className={cls(`relative flex flex-col gap-1`)}>
 					<button
 						type="submit"
+						disabled={isSubmitting || !isValid}
 						className={cls(
 							`bg-purple-500 px-4 py-2 text-base sm:text-lg lg:text-xl rounded-md ml-auto mt-2 transform duration-150`,
 							{
 								"bg-purple-500 cursor-not-allowed opacity-25":
-									!isValid,
+									!isValid || isSubmitting,
 								"active:scale-95 shadow-md shadow-black/20 dark:shadow-white/20 text-white":
-									isValid,
+									isValid && !isSubmitting,
 							}
 						)}
 					>
