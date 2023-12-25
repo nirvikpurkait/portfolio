@@ -3,6 +3,7 @@
 import { cls } from "@/utils/tailwind/cls";
 import React from "react";
 import style from "./LetsConnect.module.scss";
+import OpenInNewTab from "../open-in-new-tab/OpenInNewTab";
 
 type LetsConnectProps = React.ComponentProps<"button">;
 
@@ -18,15 +19,12 @@ export default function LetsConnect(props: LetsConnectProps) {
 		<button
 			{...props}
 			className={cls(
-				`border-accent px-4 py-2 pl-6 relative after:bg-accent text-lg font-bold text-accent dark:text-white hover:text-white tracking-wider`,
+				`border-accent px-4 py-2 pl-6 relative after:bg-accent text-lg font-bold text-accent dark:text-white hover:text-white tracking-wider flex`,
 				style.btn
 			)}
 			onClick={goToChatPage}
 		>
-			Lets connect{" "}
-			<sup aria-hidden className={cls(``)}>
-				<sup>↗️</sup>
-			</sup>
+			Lets connect <OpenInNewTab />
 		</button>
 	);
 }
