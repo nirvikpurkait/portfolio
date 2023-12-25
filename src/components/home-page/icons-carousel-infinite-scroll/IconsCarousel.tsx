@@ -33,6 +33,13 @@ export default function IconsCarousel({
 				style.scroller
 			)}
 		>
+			<div
+				className={cls(
+					`text-center text-lg pb-2 underline decoration-purple-500 decoration-wavy`
+				)}
+			>
+				Experience in
+			</div>
 			<ul className={cls(``)} ref={scrollerRef}>
 				{children}
 			</ul>

@@ -51,7 +51,7 @@ export default function ContactForm() {
 			<form
 				onSubmit={handleSubmit(onSubmit, onError)}
 				className={cls(
-					`relative font-amaranth w-full max-w-sm dark:bg-white/20 bg-black/10 px-8 py-10 rounded-md flex flex-col gap-3 backdrop-blur-sm`
+					`relative font-amaranth w-full max-w-sm dark:bg-white/20 bg-black/10 px-8 py-10 rounded-md flex flex-col gap-3.5 backdrop-blur-sm`
 				)}
 				noValidate
 			>
@@ -69,7 +69,11 @@ export default function ContactForm() {
 						)}
 						{...register("name", validate("name"))}
 					/>
-					<p className={cls(`relative left-2 text-red-500 text-xs`)}>
+					<p
+						className={cls(
+							`absolute top-full left-2 text-red-500 text-xs pt-0.5`
+						)}
+					>
 						{errors.name?.message}
 					</p>
 				</div>
@@ -89,7 +93,11 @@ export default function ContactForm() {
 						)}
 						{...register("email", validate("email"))}
 					/>
-					<p className={cls(`relative left-2 text-red-500 text-xs`)}>
+					<p
+						className={cls(
+							`absolute top-full left-2 text-red-500 text-xs pt-0.5`
+						)}
+					>
 						{errors.email?.message}
 					</p>
 				</div>
@@ -109,7 +117,11 @@ export default function ContactForm() {
 						)}
 						{...register("message", validate("message"))}
 					/>
-					<p className={cls(`relative left-2 text-red-500 text-xs`)}>
+					<p
+						className={cls(
+							`absolute top-full left-2 text-red-500 text-xs pt-0.5`
+						)}
+					>
 						{errors.message?.message}
 					</p>
 				</div>
