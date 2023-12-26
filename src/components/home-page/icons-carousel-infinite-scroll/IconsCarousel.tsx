@@ -35,7 +35,7 @@ export default function IconsCarousel({
 		>
 			<div
 				className={cls(
-					`text-center text-lg pb-2 underline decoration-purple-500 decoration-wavy`
+					`text-center pb-2 underline decoration-purple-500 decoration-4 underline-offset-8 text-2xl px-3`
 				)}
 			>
 				Experience in

@@ -1,84 +1,149 @@
-/* eslint-disable @next/next/no-img-element */
+"use client";
 
 import { cls } from "@/utils/tailwind/cls";
 import React from "react";
 import style from "./Nav.module.scss";
-import { Li } from "./NavLi";
-import ThemeButton from "./ThemeButton";
+import Image from "next/image";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 export default function NavUl() {
+	const pathname = usePathname();
+	const firstUrlSegment = pathname.split("/")[1];
+
 	return (
 		<nav
 			className={cls(
-				`fixed w-screen h-14 left-0 bottom-0 bg-red-500 sm:w-14 sm:h-screen bg-accent after:bg-accent text-white z-[999999]`,
+				`fixed w-screen h-14 left-0 bottom-0 bg-red-500 sm:w-14 sm:h-screen bg-accent text-white z-[999999] font-rajdhani font-semibold`,
 				style.nav
 			)}
 		>
-			<ul
+			<div
 				className={cls(
-					`flex gap-4 group-ul justify-between items-center sm:flex-col sm:justify-start w-full h-full px-4 py-0 sm:py-4 sm:px-0`
+					`flex gap-4 group-ul justify-between items-center sm:flex-col sm:justify-start w-full h-full px-4 py-0 sm:py-4 sm:px-0`,
+					style.navIcon
 				)}
 			>
-				<Li
-					className={cls(
-						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
-					)}
-					icon={
-						<img
-							src="https://img.icons8.com/dusk/64/home--v1.png"
+				<Link href={`/`}>
+					<button
+						className={cls(
+							`relative flex items-center justify-center`
+						)}
+					>
+						<Image
+							src={`icons/nav/home.svg`}
 							alt="home-icon"
+							width={100}
+							height={100}
+							className={cls(
+								`bg-accent w-auto sm:w-full px-3 py-1 sm:py-2 h-full sm:h-auto relative`,
+								{ "bg-white": firstUrlSegment === "" }
+							)}
 						/>
-					}
-					text={`Home`}
-				></Li>
+						<span
+							className={cls(
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								{ "bg-purple-500": firstUrlSegment === "" }
+							)}
+						>
+							Home
+						</span>
+					</button>
+				</Link>
 
-				<Li
-					className={cls(
-						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
-					)}
-					icon={
-						<img
-							src="https://img.icons8.com/avantgarde/100/about.png"
+				<Link href={`/about`}>
+					<button
+						className={cls(
+							`relative flex items-center justify-center`
+						)}
+					>
+						<Image
+							src={`icons/nav/about.svg`}
 							alt="about-icon"
+							width={100}
+							height={100}
+							className={cls(
+								`bg-accent w-auto sm:w-full px-3 py-1 sm:py-2 h-full sm:h-auto relative`,
+								{ "bg-white": firstUrlSegment === "about" }
+							)}
 						/>
-					}
-					text={`About`}
-				></Li>
+						<span
+							className={cls(
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								{ "bg-purple-500": firstUrlSegment === "about" }
+							)}
+						>
+							About
+						</span>
+					</button>
+				</Link>
 
-				<Li
-					className={cls(
-						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
-					)}
-					icon={
-						<img
-							src="https://img.icons8.com/arcade/100/briefcase-settings.png"
-							alt="project-icon"
+				<Link href={`/project`}>
+					<button
+						className={cls(
+							`relative flex items-center justify-center`
+						)}
+					>
+						<Image
+							src={`icons/nav/experience.svg`}
+							alt="experience-icon"
+							width={100}
+							height={100}
+							className={cls(
+								`bg-accent w-auto sm:w-full px-3 py-1 sm:py-2 h-full sm:h-auto relative`,
+								{ "bg-white": firstUrlSegment === "project" }
+							)}
 						/>
-					}
-					text={`Project`}
-				></Li>
+						<span
+							className={cls(
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								{
+									"bg-purple-500":
+										firstUrlSegment === "project",
+								}
+							)}
+						>
+							Project
+						</span>
+					</button>
+				</Link>
 
-				<Li
-					className={cls(
-						`bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
-					)}
-					icon={
-						<img
-							src="https://img.icons8.com/color/100/contact-card.png"
+				<Link href={`/contact`}>
+					<button
+						className={cls(
+							`relative flex items-center justify-center`
+						)}
+					>
+						<Image
+							src={`icons/nav/contact.svg`}
 							alt="contact-icon"
+							width={100}
+							height={100}
+							className={cls(
+								`bg-accent w-auto sm:w-full px-3 py-1 sm:py-2 h-full sm:h-auto relative`,
+								{ "bg-white": firstUrlSegment === "contact" }
+							)}
 						/>
-					}
-					text={`Contact`}
-				></Li>
-
-				<li
-					className={cls(
-						`mt-auto bg-accent w-auto sm:w-full px-3 py-2 h-full sm:h-auto relative`
-					)}
-				>
-					<ThemeButton />
-				</li>
-			</ul>
+						<span
+							className={cls(
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								{
+									"bg-purple-500":
+										firstUrlSegment === "contact",
+								}
+							)}
+						>
+							Contact
+						</span>
+					</button>
+				</Link>
+			</div>
+			<div
+				className={cls(
+					`w-40 bg-accent absolute top-0 left-full h-full -z-10`,
+					style.textSpace
+				)}
+			></div>
 		</nav>
 	);
 }
