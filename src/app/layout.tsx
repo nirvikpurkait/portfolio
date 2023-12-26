@@ -4,8 +4,18 @@ import { cls } from "@/utils/tailwind/cls";
 import Navbar from "@/components/nav/Navbar";
 
 export const metadata: Metadata = {
-	title: "Portfolio | Nirvik Purkait",
-	description: "This is a portfolio of NIrvik Purkait",
+	title: {
+		default: "Nirvik Purkait - Portfolio",
+		template: "Nirvik Purkait - %s",
+	},
+	description: "This is a portfolio of Nirvik Purkait",
+	authors: [
+		{ name: "Nirvik Purkait", url: "http://github.com/nirvikpurkait" },
+	],
+	applicationName: "Nirvik Purkait - Portfolio",
+	creator: "Nirvik Purkait",
+	bookmarks: "nirvik, purkait, portfolio",
+	robots: "index, about, contact, project ",
 };
 
 export default function RootLayout({
