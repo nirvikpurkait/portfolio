@@ -36,6 +36,7 @@ export default function Card(props: CardProps) {
 				<img
 					src={thumbnailUrl}
 					className={cls(`object-cover aspect-video w-full`)}
+					alt="image-for-card"
 				/>
 			</Link>
 			<Link href={sourceLink} target="_blank">

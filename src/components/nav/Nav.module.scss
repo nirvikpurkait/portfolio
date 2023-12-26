@@ -1,34 +1,26 @@
 @media (min-width: 640px) {
 	.nav {
-		&::after {
-			content: "";
-			position: absolute;
-			width: 10rem;
-			height: 100%;
-			top: 0;
-			right: 0;
-			// background: green;
-			transform: translateX(0%);
-			z-index: -2;
+		img {
 			transition: all 150ms linear;
 		}
 
-		li {
-			span {
-				transform: translate(-100%, -50%);
-				transition: all 150ms linear;
-				z-index: -1;
-			}
+		span {
+			transform: translateX(0%);
+			z-index: -1;
+			transition: all 150ms linear;
+		}
+
+		.textSpace {
+			transform: translateX(-100%);
+			transition: all 150ms linear;
 		}
 
 		&:hover {
-			li {
-				span {
-					transform: translate(0%, -50%);
-				}
-			}
-			&::after {
+			span {
 				transform: translateX(100%);
+			}
+			.textSpace {
+				transform: translateX(0%);
 			}
 		}
 	}
