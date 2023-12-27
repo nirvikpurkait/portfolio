@@ -9,6 +9,7 @@
 		--primary: #4c5138;
 		--secondary: #f77d6a;
 		--accent: #9c1ddc;
+		--footer: #dddddd;
 	}
 
 	@media (prefers-color-scheme: dark) {
@@ -18,6 +19,7 @@
 			--primary: #c1c6ad;
 			--secondary: #f77d6a;
 			--accent: #9c1ddc;
+			--footer: #1e1e1e;
 		}
 	}
 }

@@ -14,7 +14,7 @@ export default function NavUl() {
 	return (
 		<nav
 			className={cls(
-				`fixed w-screen h-14 left-0 bottom-0 bg-red-500 sm:w-14 sm:h-screen bg-accent text-white z-[999999] font-rajdhani font-semibold`,
+				`fixed w-screen h-14 left-0 bottom-0 sm:w-16 sm:h-screen bg-accent text-white z-[999999] font-rajdhani font-semibold`,
 				style.nav
 			)}
 		>
@@ -42,7 +42,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
 								{ "bg-purple-500": firstUrlSegment === "" }
 							)}
 						>
@@ -69,7 +69,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
 								{ "bg-purple-500": firstUrlSegment === "about" }
 							)}
 						>
@@ -96,7 +96,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
 								{
 									"bg-purple-500":
 										firstUrlSegment === "project",
@@ -126,7 +126,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-1 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
 								{
 									"bg-purple-500":
 										firstUrlSegment === "contact",
@@ -140,7 +140,7 @@ export default function NavUl() {
 			</div>
 			<div
 				className={cls(
-					`w-40 bg-accent absolute top-0 left-full h-full -z-10`,
+					`w-40 bg-accent absolute top-0 right-0 h-full -z-10`,
 					style.textSpace
 				)}
 			></div>

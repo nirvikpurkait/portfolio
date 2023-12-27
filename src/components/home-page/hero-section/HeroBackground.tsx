@@ -4,16 +4,14 @@ import circle_purple from "@/assets/gradient-circle-purple.svg";
 import blob from "@/assets/blob.svg";
 import Image from "next/image";
 import { cls } from "@/utils/tailwind/cls";
-import style from "./bg.module.scss";
+import style from "./hero-section.module.scss";
 
 export default function HeroBackground() {
 	return (
 		<div
 			aria-hidden
 			data-content="background-image"
-			className={cls(
-				`top-0 left-0 w-full h-full absolute overflow-hidden -z-10`
-			)}
+			className={cls(`top-0 left-0 w-full h-full absolute -z-10`)}
 		>
 			<Image
 				src={circle_blue}

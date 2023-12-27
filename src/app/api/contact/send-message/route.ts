@@ -1,6 +1,6 @@
 import { contactFormSchema } from "@/components/contact/form/contact-form.utils";
 import { prisma } from "@/database/prisma";
-import { validateEmail } from "@/utils/email/email";
+import { validateEmail } from "@/utils/email";
 import { NextRequest, NextResponse } from "next/server";
 import { ZodError } from "zod";
 

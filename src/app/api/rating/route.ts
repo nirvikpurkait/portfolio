@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { ratingSchema } from "@/components/footer/rating/RatingForm.utils";
 import { ZodError } from "zod";
 import { prisma } from "@/database/prisma";
-import { validateEmail } from "@/utils";
+import { validateEmail } from "@/utils/email/";
 
 export async function POST(req: NextRequest) {
 	try {

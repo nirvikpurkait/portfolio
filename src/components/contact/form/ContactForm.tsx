@@ -145,7 +145,7 @@ export default function ContactForm() {
 				</div>
 			</form>
 
-			<Toaster />
+			{/* <Toaster /> */}
 		</>
 	);
 }

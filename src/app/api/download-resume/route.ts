@@ -8,7 +8,7 @@ export async function GET(req: NextRequest) {
 	const headers = new Headers();
 	headers.append(
 		"Content-Disposition",
-		'attachment; filename="Nirvik Purkait Resume.pdf"'
+		'attachment; filename="Nirvik-Purkait-Resume.pdf"'
 	);
 	headers.append("Content-Type", "application/pdf");
 

@@ -55,7 +55,9 @@ export default function RatingForm({
 		<>
 			<form
 				onSubmit={handleSubmit(onSubmit, onError)}
-				className={cls(`w-full max-w-2xs flex flex-col gap-3`)}
+				className={cls(
+					`w-full max-w-2xs flex flex-col gap-3 font-amaranth`
+				)}
 				noValidate
 			>
 				{/* email field start */}
@@ -177,7 +179,7 @@ export default function RatingForm({
 					</button>
 				</div>
 			</form>
-			<Toaster />
+			{/* <Toaster /> */}
 		</>
 	);
 }

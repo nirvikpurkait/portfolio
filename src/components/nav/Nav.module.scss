@@ -11,7 +11,7 @@
 		}
 
 		.textSpace {
-			transform: translateX(-100%);
+			transform: translateX(0%);
 			transition: all 150ms linear;
 		}
 
@@ -19,8 +19,9 @@
 			span {
 				transform: translateX(100%);
 			}
+
 			.textSpace {
-				transform: translateX(0%);
+				transform: translateX(100%);
 			}
 		}
 	}

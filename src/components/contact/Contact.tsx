@@ -8,7 +8,9 @@ export default function Contact() {
 	return (
 		<div className={cls(`@container`)}>
 			<div
-				className={cls(`flex gap-4 flex-col px-8 @2xl:flex-row mt-10`)}
+				className={cls(
+					`flex gap-4 flex-col px-8 @2xl:flex-row mt-10 pb-12`
+				)}
 			>
 				<div
 					className={cls(

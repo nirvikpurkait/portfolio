@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { cls } from "@/utils/tailwind/cls";
 import Navbar from "@/components/nav/Navbar";
+import Footer from "@/components/footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 export const metadata: Metadata = {
 	title: {
@@ -33,14 +35,19 @@ export default function RootLayout({
 			</head>
 			<body
 				className={cls(
-					`text-text bg-background min-h-screen flex flex-col pl-0 pb-14 sm:pl-14 sm:pb-0`
+					`text-text bg-background min-h-screen flex flex-col pl-0 pb-14 sm:pl-16 sm:pb-0`
 				)}
 			>
 				<header>
 					<Navbar />
 				</header>
-				<main className={cls(`flex-grow`)}>{children}</main>
-				<footer></footer>
+				<main className={cls(`flex-grow overflow-clip`)}>
+					{children}
+				</main>
+				<footer>
+					<Footer />
+				</footer>
+				<Toaster />
 			</body>
 		</html>
 	);
