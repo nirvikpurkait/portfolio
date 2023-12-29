@@ -19,7 +19,7 @@ export default function SocialIcons() {
 					)}
 				>
 					<Image
-						src={`icons/connect/facebook.svg`}
+						src={`/icons/connect/facebook.svg`}
 						alt="facebook-icon"
 						width={100}
 						height={100}
@@ -34,7 +34,7 @@ export default function SocialIcons() {
 					)}
 				>
 					<Image
-						src={`icons/connect/github.svg`}
+						src={`/icons/connect/github.svg`}
 						alt="github-icon"
 						width={100}
 						height={100}
@@ -49,7 +49,7 @@ export default function SocialIcons() {
 					)}
 				>
 					<Image
-						src={`icons/connect/linkedin.svg`}
+						src={`/icons/connect/linkedin.svg`}
 						alt="linked-in-icon"
 						width={100}
 						height={100}
@@ -64,7 +64,7 @@ export default function SocialIcons() {
 					)}
 				>
 					<Image
-						src={`icons/connect/whatsapp.svg`}
+						src={`/icons/connect/whatsapp.svg`}
 						alt="whats-app-icon"
 						width={100}
 						height={100}

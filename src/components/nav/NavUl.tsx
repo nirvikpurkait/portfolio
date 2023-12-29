@@ -7,7 +7,12 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 
-export default function NavUl() {
+export type NavUlProps = {
+	isAuthorized?: boolean;
+};
+
+export default function NavUl(props: NavUlProps) {
+	const { isAuthorized = false } = props;
 	const pathname = usePathname();
 	const firstUrlSegment = pathname.split("/")[1];
 
@@ -31,7 +36,7 @@ export default function NavUl() {
 						)}
 					>
 						<Image
-							src={`icons/nav/home.svg`}
+							src={`/icons/nav/home.svg`}
 							alt="home-icon"
 							width={100}
 							height={100}
@@ -42,7 +47,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-[0.55rem] pt-[0.7rem] hidden sm:inline-block pl-2`,
 								{ "bg-purple-500": firstUrlSegment === "" }
 							)}
 						>
@@ -58,7 +63,7 @@ export default function NavUl() {
 						)}
 					>
 						<Image
-							src={`icons/nav/about.svg`}
+							src={`/icons/nav/about.svg`}
 							alt="about-icon"
 							width={100}
 							height={100}
@@ -69,7 +74,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-[0.55rem] pt-[0.7rem] hidden sm:inline-block pl-2`,
 								{ "bg-purple-500": firstUrlSegment === "about" }
 							)}
 						>
@@ -85,7 +90,7 @@ export default function NavUl() {
 						)}
 					>
 						<Image
-							src={`icons/nav/experience.svg`}
+							src={`/icons/nav/experience.svg`}
 							alt="experience-icon"
 							width={100}
 							height={100}
@@ -96,7 +101,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-[0.5rem] pt-[0.7rem] hidden sm:inline-block pl-2`,
 								{
 									"bg-purple-500":
 										firstUrlSegment === "project",
@@ -115,7 +120,7 @@ export default function NavUl() {
 						)}
 					>
 						<Image
-							src={`icons/nav/contact.svg`}
+							src={`/icons/nav/contact.svg`}
 							alt="contact-icon"
 							width={100}
 							height={100}
@@ -126,7 +131,7 @@ export default function NavUl() {
 						/>
 						<span
 							className={cls(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-3 pt-2 hidden sm:inline-block pl-2`,
+								`absolute top-0 right-0 text-3xl w-40 text-left pb-[0.5rem] pt-[0.7rem] hidden sm:inline-block pl-2`,
 								{
 									"bg-purple-500":
 										firstUrlSegment === "contact",
@@ -137,6 +142,38 @@ export default function NavUl() {
 						</span>
 					</button>
 				</Link>
+
+				{props.isAuthorized && (
+					<Link href={`/chat`}>
+						<button
+							className={cls(
+								`relative flex items-center justify-center`
+							)}
+						>
+							<Image
+								src={`/icons/nav/chat.svg`}
+								alt="contact-icon"
+								width={100}
+								height={100}
+								className={cls(
+									`bg-accent w-auto sm:w-full px-3 py-1 sm:py-2 h-full sm:h-auto relative`,
+									{ "bg-white": firstUrlSegment === "chat" }
+								)}
+							/>
+							<span
+								className={cls(
+									`absolute top-0 right-0 text-3xl w-40 text-left pb-[0.5rem] pt-[0.7rem] hidden sm:inline-block pl-2`,
+									{
+										"bg-purple-500":
+											firstUrlSegment === "chat",
+									}
+								)}
+							>
+								Chat
+							</span>
+						</button>
+					</Link>
+				)}
 			</div>
 			<div
 				className={cls(

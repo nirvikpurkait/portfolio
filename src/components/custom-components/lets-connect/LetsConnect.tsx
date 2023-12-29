@@ -16,6 +16,7 @@ export default function LetsConnect(props: LetsConnectProps) {
 				style.btn
 			)}
 			href={`/chat`}
+			target="_blank"
 		>
 			Lets connect <OpenInNewTab />
 		</Link>

@@ -4,6 +4,7 @@ import { cls } from "@/utils/tailwind/cls";
 import React from "react";
 import { DownloadResumeButton, LetsConnect } from "../../custom-components";
 import Image from "next/image";
+import HeroImage from "./HeroImage";
 
 export default function Heading() {
 	return (
@@ -12,13 +13,8 @@ export default function Heading() {
 				`flex flex-col gap-4 justify-center items-center text-center pt-8 px-8`
 			)}
 		>
-			<Image
-				src="https://res.cloudinary.com/dpohasqoa/image/upload/v1703691918/portfolio/profile-picture.svg"
-				alt=""
-				className="w-40 sm:w-60 lg:w-80"
-				height={400}
-				width={400}
-			/>
+			<HeroImage />
+
 			<h1>
 				<span
 					className={cls(
