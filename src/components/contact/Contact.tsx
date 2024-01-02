@@ -10,7 +10,7 @@ export default function Contact() {
 		<div className={cls(`@container`)}>
 			<div
 				className={cls(
-					`flex gap-4 gap-y-12 flex-col px-8 @2xl:flex-row mt-10 pb-12`
+					`flex gap-4 gap-y-12 flex-col px-8 @2xl:flex-row mt-10 pb-12 @lg:px-16 @2xl:px-24`
 				)}
 			>
 				<div
