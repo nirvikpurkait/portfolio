@@ -15,6 +15,7 @@ export default function Modal(props: ModalProps) {
 	const [open, setOpen] = useState(true);
 	const modalRef = useRef({} as HTMLDialogElement);
 
+	// function to run when the modal has to close
 	function close() {
 		modalRef.current.close();
 		setOpen(!open);
@@ -26,8 +27,37 @@ export default function Modal(props: ModalProps) {
 			window.addEventListener(
 				"click",
 				(e) => {
-					if (modalRef.current?.open && e.target !== modalRef.current)
+					/**
+					 * if the modal is open and when clicking outside
+					 * the target is the modal or it's children
+					 * execute the block of code
+					 */
+					if (
+						modalRef.current?.open &&
+						!validNode(modalRef.current, e.target as HTMLElement)
+					) {
 						close();
+					}
+
+					/**
+					 * checks if the clicked target has the modal as a
+					 * parent or not
+					 */
+					function validNode(
+						finalParent: HTMLElement,
+						currentNode: HTMLElement
+					) {
+						if (currentNode === undefined) return false;
+
+						if (currentNode === finalParent) return true;
+
+						if (currentNode?.parentElement === finalParent)
+							return true;
+
+						currentNode = currentNode?.parentElement!;
+
+						return validNode(finalParent, currentNode);
+					}
 				},
 				true
 			);
