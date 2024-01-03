@@ -7,11 +7,11 @@ export const metadata: Metadata = {
 	title: "Project",
 };
 
-export default function ProjectPage() {
+export default async function ProjectPage() {
 	return (
 		<>
 			<Heading />
-			{/* <ProjectCardList />; */}
+			<ProjectCardList />
 		</>
 	);
 }

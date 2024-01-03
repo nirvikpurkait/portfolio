@@ -50,3 +50,13 @@ model ContactMessage {
   message   String
   createdAt DateTime? @default(now())
 }
+
+model ProjectDetails {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  heading           String
+  sourceLink        String
+  thumbnailImageUrl String
+  liveLink          String
+  description       String?
+  imageDescription  String?
+}
