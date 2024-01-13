@@ -12,14 +12,14 @@
 		--footer: #dddddd;
 	}
 
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--text: #f1f3ea;
-			--background: #070704;
-			--primary: #c1c6ad;
-			--secondary: #f77d6a;
-			--accent: #9c1ddc;
-			--footer: #1e1e1e;
-		}
+	/* @media (prefers-color-scheme: dark) { */
+	:root.dark {
+		--text: #f1f3ea;
+		--background: #070704;
+		--primary: #c1c6ad;
+		--secondary: #f77d6a;
+		--accent: #9c1ddc;
+		--footer: #1e1e1e;
 	}
+	/* } */
 }

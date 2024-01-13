@@ -52,11 +52,12 @@ model ContactMessage {
 }
 
 model ProjectDetails {
-  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
   heading           String
   sourceLink        String
   thumbnailImageUrl String
   liveLink          String
   description       String?
   imageDescription  String?
+  technologies      String[]
 }

@@ -4,6 +4,7 @@ import { cls } from "@/utils/tailwind/cls";
 import Navbar from "@/components/nav/Navbar";
 import Footer from "@/components/footer/Footer";
 import { Toaster } from "react-hot-toast";
+import { ThemeProvider } from "@/theme/theme-provider";
 
 export const metadata: Metadata = {
 	title: {
@@ -26,7 +27,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang="en">
+		<html lang="en" suppressHydrationWarning>
 			<head>
 				<link
 					href="https://fonts.googleapis.com/css2?family=Amaranth:wght@400;700&family=Rajdhani:wght@400;700&display=swap"
@@ -38,16 +39,23 @@ export default function RootLayout({
 					`text-text bg-background min-h-screen flex flex-col pl-0 pb-14 sm:pl-16 sm:pb-0`
 				)}
 			>
-				<header>
-					<Navbar />
-				</header>
-				<main className={cls(`flex-grow overflow-clip`)}>
-					{children}
-				</main>
-				<footer>
-					<Footer />
-				</footer>
-				<Toaster />
+				<ThemeProvider
+					attribute="class"
+					defaultTheme="system"
+					enableSystem
+					disableTransitionOnChange
+				>
+					<header>
+						<Navbar />
+					</header>
+					<main className={cls(`flex-grow overflow-clip`)}>
+						{children}
+					</main>
+					<footer>
+						<Footer />
+					</footer>
+					<Toaster />
+				</ThemeProvider>
 			</body>
 		</html>
 	);
