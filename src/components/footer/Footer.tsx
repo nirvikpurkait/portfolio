@@ -4,7 +4,7 @@ import { cls } from "@/utils/tailwind/cls";
 import Rating from "./rating/Rating";
 import style from "./Footer.module.scss";
 import TechStack from "./tech-stack-used/TechStack";
-import { ModeToggle } from "./theme-button/ThemeButton";
+import Theme from "./theme/theme";
 
 export default function Footer() {
 	return (
@@ -14,7 +14,8 @@ export default function Footer() {
 				<SocialIcons />
 			</div>
 			<TechStack />
-			<ModeToggle />
+
+			<Theme />
 		</div>
 	);
 }

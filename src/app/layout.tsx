@@ -39,12 +39,7 @@ export default function RootLayout({
 					`text-text bg-background min-h-screen flex flex-col pl-0 pb-14 sm:pl-16 sm:pb-0`
 				)}
 			>
-				<ThemeProvider
-					attribute="class"
-					defaultTheme="system"
-					enableSystem
-					disableTransitionOnChange
-				>
+				<ThemeProvider>
 					<header>
 						<Navbar />
 					</header>
