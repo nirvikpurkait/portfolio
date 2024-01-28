@@ -2,10 +2,10 @@
 
 import React from "react";
 import { FieldErrors, useForm } from "react-hook-form";
-import style from "./Rating.module.scss";
-import { cls } from "@/utils/tailwind/cls";
-import { RatingSchema, validateRatingForm } from "./RatingForm.utils";
+import style from "./rating.module.scss";
+import { RatingSchema, validateRatingForm } from "./rating-form.utils";
 import toast, { Toaster } from "react-hot-toast";
+import { cn } from "@/lib/utils";
 
 export default function RatingForm({
 	starAsLabel,
@@ -55,21 +55,21 @@ export default function RatingForm({
 		<>
 			<form
 				onSubmit={handleSubmit(onSubmit, onError)}
-				className={cls(
+				className={cn(
 					`w-full max-w-2xs flex flex-col gap-3 font-amaranth`
 				)}
 				noValidate
 			>
 				{/* email field start */}
-				<div className={cls(`flex gap-0.5 flex-col`)}>
-					<label htmlFor="rating-email" className={cls(`text-lg`)}>
+				<div className={cn(`flex gap-0.5 flex-col`)}>
+					<label htmlFor="rating-email" className={cn(`text-lg`)}>
 						Email:
 					</label>
 					<input
 						type="email"
 						id="rating-email"
 						{...register("email", validateRatingForm("email"))}
-						className={cls(
+						className={cn(
 							`px-4 py-2 bg-black/10 dark:bg-white/20 rounded-md focus:outline-none`
 						)}
 						placeholder="Enter your email"
@@ -77,7 +77,7 @@ export default function RatingForm({
 				</div>
 				{/* email field end */}
 
-				<div className={cls(`flex items-center`)}>
+				<div className={cn(`flex items-center`)}>
 					{/* ########## DO NOT CHANGE ID AND VALUE ########## */}
 					{/* id and value are different intentionally in field below,
 					because of css `~` selector and css `flex direction` combination */}
@@ -166,7 +166,7 @@ export default function RatingForm({
 
 					<button
 						type="submit"
-						className={cls(
+						className={cn(
 							`bg-purple-500 ml-auto px-4 py-2 rounded-md text-lg text-white transition shadow-md shadow-black/30 dark:shadow-white/20`,
 							{
 								"opacity-20 cursor-not-allowed":

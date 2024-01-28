@@ -1,6 +1,6 @@
-import { cls } from "@/utils/tailwind/cls";
 import Image from "next/image";
 import React from "react";
+import { cn } from "@/lib/utils";
 
 const iconsName: string[] = [
 	"bootstrap",
@@ -30,7 +30,7 @@ export default async function IconsList() {
 			{iconsName.map((icon, index) => (
 				<li
 					key={`${icon}${index}`}
-					className={cls(
+					className={cn(
 						`max-w-[40px] sm:max-w-[45px] md:max-w-[50px] lg:max-w-[55px]`
 					)}
 				>

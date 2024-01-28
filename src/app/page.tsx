@@ -1,4 +1,4 @@
-import Home from "@/components/home-page/Home";
+import Home from "@/components/home-page";
 import { Metadata } from "next";
 import React from "react";
 

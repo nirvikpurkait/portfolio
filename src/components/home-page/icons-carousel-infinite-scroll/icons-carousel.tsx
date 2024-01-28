@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useEffect, useRef } from "react";
-import { cls } from "@/utils/tailwind/cls";
-import style from "./IconsCarousel.module.scss";
+import style from "./icons-carousel.module.scss";
+import { cn } from "@/lib/utils";
 
 export default function IconsCarousel({
 	children,
@@ -28,19 +28,19 @@ export default function IconsCarousel({
 
 	return (
 		<div
-			className={cls(
+			className={cn(
 				`max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl m-auto mt-8`,
 				style.scroller
 			)}
 		>
 			<div
-				className={cls(
+				className={cn(
 					`text-center pb-6 underline decoration-purple-500 decoration-4 underline-offset-[12px] text-2xl px-3 `
 				)}
 			>
 				Experience in
 			</div>
-			<ul className={cls(``)} ref={scrollerRef}>
+			<ul className={cn(``)} ref={scrollerRef}>
 				{children}
 			</ul>
 		</div>

@@ -1,15 +1,15 @@
-import { cls } from "@/utils/tailwind/cls";
 import React from "react";
-import RatingForm from "./RatingForm";
+import RatingForm from "./rating-form";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { FooterHeading } from "../Footer";
+import { FooterHeading } from "..";
+import { cn } from "@/lib/utils";
 
 export type RatingProps = React.ComponentProps<"div">;
 
 export default function Rating(props: RatingProps) {
 	return (
-		<div className={cls(``, props.className)}>
+		<div className={cn(``, props.className)}>
 			<FooterHeading>Liked this project?</FooterHeading>
 			<RatingForm starAsLabel={<FontAwesomeIcon icon={faStar} />} />
 		</div>

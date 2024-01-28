@@ -1,7 +1,6 @@
 "use client";
 
-import { Skeleton } from "@/components/custom-components";
-import { cls } from "@/utils/tailwind/cls";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -10,9 +9,7 @@ export default function HeroImage() {
 
 	return (
 		<div
-			className={cls(
-				`relative w-40 sm:w-60 lg:w-80 h-40 sm:h-60 lg:h-80`
-			)}
+			className={cn(`relative w-40 sm:w-60 lg:w-80 h-40 sm:h-60 lg:h-80`)}
 		>
 			<Image
 				src={`https://res.cloudinary.com/dpohasqoa/image/upload/v1703691918/portfolio/profile-picture.svg`}

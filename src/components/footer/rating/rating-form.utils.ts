@@ -1,4 +1,4 @@
-import { number, z } from "zod";
+import { z } from "zod";
 import { RegisterOptions } from "react-hook-form";
 
 export const ratingSchema = z.object({ email: z.string(), rating: z.number() });

@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ratingSchema } from "@/components/footer/rating/RatingForm.utils";
+import { ratingSchema } from "@/components/footer/rating/rating-form.utils";
 import { ZodError } from "zod";
 import { prisma } from "@/database/prisma";
 import { validateEmail } from "@/utils/email/";

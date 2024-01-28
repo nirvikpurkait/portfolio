@@ -1,4 +1,4 @@
-import Contact from "@/components/contact/Contact";
+import Contact from "@/components/contact";
 import { Metadata } from "next";
 import React from "react";
 

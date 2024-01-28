@@ -1,4 +1,4 @@
-import NotReadyYet from "@/components/not-ready-yet/NotReadyYet";
+import NotReadyYet from "@/components/not-ready-yet/not-ready-yet";
 import { Metadata } from "next";
 import React from "react";
 

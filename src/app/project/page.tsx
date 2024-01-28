@@ -1,5 +1,4 @@
-import Heading from "@/components/project/Heading";
-import ProjectCardList from "@/components/project/card/ProjectCardList";
+import Heading from "@/components/project/heading";
 import { Metadata } from "next";
 import React from "react";
 
