@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import style from "./nav.module.scss";
+import style from "./nav-ui.module.scss";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import Link from "next/link";

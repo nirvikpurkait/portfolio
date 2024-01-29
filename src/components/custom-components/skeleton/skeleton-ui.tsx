@@ -1,5 +1,5 @@
 import React from "react";
-import style from "./skeleton.module.scss";
+import style from "./skeleton-ui.module.scss";
 import { cn } from "@/lib/utils";
 
 export default function Skeleton(props: { className?: string }) {

@@ -2,9 +2,9 @@
 
 import React from "react";
 import { FieldErrors, useForm } from "react-hook-form";
-import style from "./rating.module.scss";
+import style from "./rating-ui.module.scss";
 import { RatingSchema, validateRatingForm } from "./rating-form.utils";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { cn } from "@/lib/utils";
 
 export default function RatingForm({
