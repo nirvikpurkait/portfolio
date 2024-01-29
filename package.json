@@ -3,12 +3,13 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "next dev",
+		"dev": "next dev --turbo",
 		"postinstall": "npm run prisma",
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"prisma": "prisma generate --schema=./src/database/prisma/schema.prisma"
+		"prisma": "prisma generate --schema=./src/database/prisma/schema.prisma",
+		"build-start": "npm run build && npm start"
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^6.5.1",
