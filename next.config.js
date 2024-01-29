@@ -12,6 +12,9 @@ const nextConfig = {
 				hostname: "res.cloudinary.com",
 				pathname: "/dpohasqoa/image/upload/**",
 			},
+			{
+				hostname: "images.pexels.com",
+			},
 		],
 	},
 };

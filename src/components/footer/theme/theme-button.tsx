@@ -28,6 +28,7 @@ export function ThemeSwitchButton() {
 		<Switch
 			onClick={() => chnageTheme()}
 			defaultChecked={theme === "dark"}
+			aria-label="theme-button"
 		/>
 	);
 }

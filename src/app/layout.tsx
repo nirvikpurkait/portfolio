@@ -18,7 +18,10 @@ export const metadata: Metadata = {
 	applicationName: "Nirvik Purkait - Portfolio",
 	creator: "Nirvik Purkait",
 	bookmarks: "nirvik, purkait, portfolio",
-	robots: "index, about, contact, project ",
+	robots: "index, about, contact, project",
+	other: {
+		"theme-color": "#9c1ddc",
+	},
 };
 
 export default function RootLayout({
