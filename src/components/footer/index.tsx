@@ -1,7 +1,7 @@
 import React from "react";
 import SocialIcons from "./social/social-icons";
 import Rating from "./rating/rating";
-import style from "./footer.module.scss";
+import style from "./footer-section.module.scss";
 import TechStack from "./tech-stack-used/tech-stack";
 import Theme from "./theme/theme";
 import { cn } from "@/lib/utils";
