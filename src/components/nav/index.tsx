@@ -56,33 +56,6 @@ export default function Navbar(props: NavbarProps) {
 					</button>
 				</Link>
 
-				<Link href={`/about`}>
-					<button
-						className={cn(
-							`relative flex items-center justify-center`
-						)}
-					>
-						<Image
-							src={`/icons/nav/about.svg`}
-							alt="about-icon"
-							width={100}
-							height={100}
-							className={cn(
-								`bg-accent w-auto sm:w-full px-3 py-1 sm:py-2 h-full sm:h-auto relative`,
-								{ "bg-white": firstUrlSegment === "about" }
-							)}
-						/>
-						<span
-							className={cn(
-								`absolute top-0 right-0 text-3xl w-40 text-left pb-[0.55rem] pt-[0.7rem] hidden sm:inline-block pl-2`,
-								{ "bg-purple-500": firstUrlSegment === "about" }
-							)}
-						>
-							About
-						</span>
-					</button>
-				</Link>
-
 				<Link href={`/project`}>
 					<button
 						className={cn(
