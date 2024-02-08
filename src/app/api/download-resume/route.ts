@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 // import { MyResumePdf } from "./Resume.react-pdf";
 import { generatePdfFrom } from "./Resume.react-pdf";
+import { unstable_noStore as noStore } from "next/cache";
 
 export async function GET(req: NextRequest) {
 	const headers = new Headers();
@@ -12,7 +13,7 @@ export async function GET(req: NextRequest) {
 	);
 	headers.append("Content-Type", "application/pdf");
 
-	const pdf = await generatePdfFrom(req.nextUrl.origin);
+	const pdf = await generatePdfFrom();
 
 	const buffer = await renderToBuffer(pdf());
 
