@@ -18,16 +18,13 @@ type ToolsAndTechData = { skill: string; special: boolean; id: string }[];
 type EducationTableData = [string, string, number, string, boolean?][];
 
 const timeZone = "Asia/Kolkata";
+const accent = "#c561f5";
+const accentLight = "#eae0f6";
+const helvetica_bold = "Helvetica-Bold";
 
-export async function generatePdfFrom(urlOrigin: string) {
-	// tools and tech data type assign
-	let toolsAndTechData: ToolsAndTechData;
-	// get tools and technology data from server
-	const toolsAndTechRes = await fetch(`${urlOrigin}/api/tools-technologies`);
-
-	if (toolsAndTechRes.status >= 200 && toolsAndTechRes.status < 300) {
-		toolsAndTechData = await toolsAndTechRes.json();
-	}
+export async function generatePdfFrom() {
+	// get tools and technology data from database
+	const toolsAndTechData = await prisma.toolsTechnologies.findMany();
 
 	// education table type assign and initialization
 	let educationTableData: EducationTableData = [
@@ -41,36 +38,31 @@ export async function generatePdfFrom(urlOrigin: string) {
 	] as unknown as EducationTableData;
 
 	// get education table data from the server
-	const educationTableDataRes = await fetch(`${urlOrigin}/api/education`);
+	const data = await prisma.education.findMany({
+		orderBy: [
+			{
+				yearOfPassing: "desc",
+			},
+		],
+	});
 
-	if (
-		educationTableDataRes.status >= 200 &&
-		educationTableDataRes.status < 300
-	) {
-		// define res type
-		type TEducationTableDataRes = Awaited<
-			ReturnType<typeof prisma.education.findMany>
-		>;
+	type EachItem = Awaited<
+		ReturnType<typeof prisma.education.findMany>
+	>[number];
 
-		// assign the resposne
-		const data: TEducationTableDataRes = await educationTableDataRes.json();
+	// format the response data to desire type
+	const newData: EducationTableData = data.map((eachItem: EachItem) => [
+		eachItem.course,
+		eachItem.institute,
+		eachItem.yearOfPassing,
+		(eachItem.percentage && `${eachItem.percentage}%`) ||
+			(eachItem.GPA && `${eachItem.GPA.toFixed(1)}`) ||
+			`unvailable`,
+		Boolean(eachItem.special),
+	]);
 
-		// format the response data to desire type
-		const newData: EducationTableData = data.map(
-			(eachItem: TEducationTableDataRes[number]) => [
-				eachItem.course,
-				eachItem.institute,
-				eachItem.yearOfPassing,
-				(eachItem.percentage && `${eachItem.percentage}%`) ||
-					(eachItem.GPA && `${eachItem.GPA.toFixed(1)}`) ||
-					`unvailable`,
-				Boolean(eachItem.special),
-			]
-		);
-
-		// merge both data for using later
-		educationTableData = [...educationTableData, ...newData];
-	}
+	// merge both data for using later
+	educationTableData = [...educationTableData, ...newData];
 
 	// languages array
 	const languages = ["English", "Hindi", "Bengali (native)"];
@@ -82,7 +74,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 	const styles = StyleSheet.create({
 		page: {
 			flexDirection: "column",
-			fontFamily: "Times-Roman",
+			fontFamily: "Helvetica",
 		},
 		sectionHeading: {
 			fontSize: 16,
@@ -91,20 +83,26 @@ export async function generatePdfFrom(urlOrigin: string) {
 			left: 0,
 			transform: "translateY(4)",
 			fontWeight: "bold",
+			fontFamily: helvetica_bold,
+			color: accent,
 		},
 		th: {
-			backgroundColor: "#595959",
+			backgroundColor: accent,
 			color: "white",
 			display: "flex",
 			textAlign: "center",
+			justifyContent: "center",
 			alignItems: "center",
+			fontFamily: helvetica_bold,
 		},
 		colCommon: {
 			paddingLeft: 5,
 			paddingRight: 5,
-			border: "0.5 solid #999",
+			paddingBottom: 5,
+			border: "1 solid white",
+			borderBottomWidth: 2,
 			flexGrow: 1,
-			backgroundColor: "white",
+			backgroundColor: accentLight,
 		},
 		col1: {
 			width: 164,
@@ -115,14 +113,19 @@ export async function generatePdfFrom(urlOrigin: string) {
 		col3: {
 			width: 72,
 			textAlign: "center",
+			display: "flex",
+			justifyContent: "center",
+			alignItems: "center",
 		},
 		col4: {
 			width: 80,
 			textAlign: "center",
+			display: "flex",
+			justifyContent: "center",
+			alignItems: "center",
 		},
 		toolsAndTech: {
 			width: 170,
-			// border: "1px solid red",
 			flexDirection: "row",
 			marginTop: "-10",
 		},
@@ -184,17 +187,6 @@ export async function generatePdfFrom(urlOrigin: string) {
 								Tools / Technologies
 							</HeadingBackground>
 							<ToolsTechnologies />
-							<Text
-								style={{
-									fontSize: 8,
-									paddingLeft: 10,
-									marginTop: -10,
-								}}
-							>
-								<Star /> just started learning about these
-								fields or have very basic knowledge, not very
-								much fluent in those fields
-							</Text>
 						</View>
 						{/* tools-technologies end */}
 
@@ -264,12 +256,11 @@ export async function generatePdfFrom(urlOrigin: string) {
 								top: "100%",
 								left: "100%",
 								fontSize: 7,
-								transform: "translateX(-175%)",
-								// border: "1px solid red",
+								transform: "translateX(-180%) translateY(1)",
 							}}
 						>
 							<Text>
-								Created on{" "}
+								Generated on{" "}
 								{new Intl.DateTimeFormat("en-IN", {
 									dateStyle: "full",
 									timeStyle: "long",
@@ -287,11 +278,9 @@ export async function generatePdfFrom(urlOrigin: string) {
 								left: "-10%",
 								transform:
 									"translateX(-50%) translateY(-50%) rotate(-60 deg)",
-								// backgroundColor: "blue",
 								fontSize: 100,
 								width: 800,
 								opacity: 0.03,
-								// opacity: 1,
 								letterSpacing: 10,
 							}}
 						>
@@ -317,7 +306,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 							y1={0}
 							y2={0}
 						>
-							<Stop offset="5%" stopColor="#a6a6a6" />
+							<Stop offset="5%" stopColor={accentLight} />
 							<Stop offset="5%" stopColor="#ffffff" />
 						</LinearGradient>
 					</Defs>
@@ -350,7 +339,6 @@ export async function generatePdfFrom(urlOrigin: string) {
 					style={{
 						flexDirection: "row",
 						marginTop: -6,
-						// border: "1px solid red",
 					}}
 				>
 					<View>
@@ -373,7 +361,6 @@ export async function generatePdfFrom(urlOrigin: string) {
 					style={{
 						flexDirection: "row",
 						marginTop: -6,
-						// border: "1px solid red",
 					}}
 				>
 					<View>
@@ -395,8 +382,6 @@ export async function generatePdfFrom(urlOrigin: string) {
 				<View
 					style={{
 						flexDirection: "row",
-						// marginTop: -6,
-						// border: "1px solid red",
 					}}
 				>
 					<BulletPoint />
@@ -437,31 +422,45 @@ export async function generatePdfFrom(urlOrigin: string) {
 				}}
 			>
 				<View style={{ flexDirection: "row" }}>
-					{/* name, email, ph-no start */}
+					{/* name, email, ph-no, website start */}
 					<View
 						style={{
 							flexGrow: 1,
-							// border: "1px solid red"
 						}}
 					>
-						<Text style={{ fontSize: 39, marginTop: -2 }}>
+						<Text
+							style={{
+								fontSize: 39,
+								marginTop: -10,
+								color: accent,
+								fontFamily: helvetica_bold,
+							}}
+						>
 							Nirvik Purkait
 						</Text>
-						<Link
-							src="mailto:nirvikpurkait@gmail.com"
-							style={{ fontSize: 12 }}
-						>
-							nirvikpurkait@gmail.com
-						</Link>
-						<Text style={{ fontSize: 13 }}>+91-8145149700</Text>
+						<View style={{ gap: 4 }}>
+							<Link
+								src="mailto:nirvikpurkait@gmail.com"
+								style={{ fontSize: 10 }}
+							>
+								nirvikpurkait@gmail.com
+							</Link>
+							<Link
+								href="https://nirvikpurkait.vercel.app/"
+								style={{ fontSize: 10 }}
+							>
+								https://nirvikpurkait.vercel.app
+							</Link>
+							<Text style={{ fontSize: 11 }}>+91-8145149700</Text>
+						</View>
 					</View>
-					{/* name, email, ph-no end */}
+					{/* name, email, ph-no, website end */}
 					{/* address start*/}
 					<View
 						style={{
 							textAlign: "right",
 							fontSize: 12,
-							width: 160,
+							width: 170,
 							lineHeight: 1.3,
 							// border: "1px solid red",
 						}}
@@ -514,19 +513,19 @@ export async function generatePdfFrom(urlOrigin: string) {
 	}
 
 	// compopnent for bullet point for skills in pdf
-	function ToolsTechBulletPoint() {
-		return (
-			<Text
-				style={{
-					paddingRight: 2,
-					fontSize: 24,
-					marginTop: -6,
-				}}
-			>
-				&#8226;
-			</Text>
-		);
-	}
+	// function ToolsTechBulletPoint() {
+	// 	return (
+	// 		<Text
+	// 			style={{
+	// 				paddingRight: 2,
+	// 				fontSize: 24,
+	// 				marginTop: -6,
+	// 			}}
+	// 		>
+	// 			&#8226;
+	// 		</Text>
+	// 	);
+	// }
 
 	// education table compopnent for pdf
 	function EducationTable() {
@@ -548,7 +547,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 							>
 								{eachRow.map(
 									(
-										eachColl: EducationTableData[number][number],
+										eachCell: EducationTableData[number][number],
 										colIndex
 									) => {
 										let colStyle = {};
@@ -587,7 +586,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 															width: "100%",
 														}}
 													>
-														{eachColl}
+														{eachCell}
 													</Text>
 												)}
 												{colIndex === 2 && (
@@ -596,7 +595,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 															width: "100%",
 														}}
 													>
-														{eachColl}
+														{eachCell}
 														{eachRow[4] && <Star />}
 													</Text>
 												)}
@@ -630,35 +629,27 @@ export async function generatePdfFrom(urlOrigin: string) {
 					flexDirection: "row",
 					marginLeft: 6,
 					marginRight: 6,
-					marginTop: 14,
-					gap: 2,
+					marginTop: 6,
+					columnGap: 8,
+					rowGap: 4,
 					// border: "1 solid blue",
 				}}
 			>
 				{toolsAndTechData.map((eachItem: ToolsAndTechData[number]) => {
 					return (
-						<View style={styles.toolsAndTech} key={eachItem.id}>
-							<View>
-								<ToolsTechBulletPoint />
-							</View>
-							<View
-								style={{
-									// border: "1px solid blue",
-									flexGrow: 1,
-									width: "10",
-								}}
-							>
-								<Text
-									style={{
-										width: "100%",
-										marginBottom: "10",
-										// border: "1px solid red"
-									}}
-								>
-									{eachItem.skill}
-									{eachItem.special && <Star />}
-								</Text>
-							</View>
+						<View
+							key={eachItem.id}
+							style={{
+								paddingHorizontal: 4,
+								paddingVertical: 2,
+								borderRadius: 3,
+								backgroundColor: accent,
+								color: "white",
+								fontFamily: helvetica_bold,
+								fontSize: 12,
+							}}
+						>
+							<Text>{eachItem.skill}</Text>
 						</View>
 					);
 				})}
@@ -691,7 +682,7 @@ export async function generatePdfFrom(urlOrigin: string) {
 					</Text>
 					<View
 						style={{
-							width: "60%",
+							width: "70%",
 							// border: "1 solid blue",
 							flexGrow: 1,
 						}}
