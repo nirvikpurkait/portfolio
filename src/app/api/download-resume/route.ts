@@ -4,20 +4,20 @@ import { NextRequest, NextResponse } from "next/server";
 import { generatePdfFrom } from "./Resume.react-pdf";
 
 export async function GET(req: NextRequest) {
-	const headers = new Headers();
-	try {
-		const pdf = await generatePdfFrom();
-		const buffer = await renderToBuffer(pdf());
+  const headers = new Headers();
+  try {
+    const pdf = await generatePdfFrom();
+    const buffer = await renderToBuffer(pdf());
 
-		headers.append(
-			"Content-Disposition",
-			'attachment; filename="Nirvik-Purkait-Resume.pdf"'
-		);
-		headers.append("Content-Type", "application/pdf");
-		return new NextResponse(buffer, { headers, status: 200 });
-	} catch (error) {
-		return new NextResponse("Error while generating pdf", { status: 500 });
-	}
+    headers.append(
+      "Content-Disposition",
+      'attachment; filename="Nirvik-Purkait-Resume.pdf"'
+    );
+    headers.append("Content-Type", "application/pdf");
+    return new NextResponse(buffer, { headers, status: 200 });
+  } catch (error) {
+    return new NextResponse("Error while generating pdf", { status: 500 });
+  }
 }
 
 export const dynamic = "force-dynamic";

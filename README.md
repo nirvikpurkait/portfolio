@@ -23,28 +23,13 @@ To see the production version of this website go to: [https://nirvikpurkait.verc
 ## 📃 Tech Stack
 ![NextJs](https://img.shields.io/badge/Next%2ejs-000000?style=for-the-badge&logo=nextdotjs&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%2347A248.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Prisma](https://img.shields.io/badge/Prisma-2D3748?style=for-the-badge&logo=prisma&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%233178C6.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![TaiwindCss](https://img.shields.io/badge/tailwindcss-%2336b6f2?style=for-the-badge&logo=tailwindcss&logoColor=white) ![Shadcn-ui](https://img.shields.io/badge/shadcn--ui-black?style=for-the-badge&logo=shadcnui&logoColor=white) ![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white) ![Github](https://img.shields.io/badge/github-181717?style=for-the-badge&logo=github&logoColor=white) ![React-hook-form](https://img.shields.io/badge/react--hook--form-EC5990?style=for-the-badge&logo=reacthookform&logoColor=white) ![CSS](https://img.shields.io/badge/css-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![NodeJs](https://img.shields.io/badge/Node%2ejs-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
 
-## 🏷️ Acknowledgements
-
-To build this project I took help form these sources also:
-
- - For [icons](https://icons8.com/icons)
- - For [badges](https://simpleicons.org/)
- - README\.md [template](https://readme.so/)
-
 ## 🤝 Contributing
 
 Contributions are always welcome!
+
 See [contribution guideline](./CONTRIBUTION.md) for ways to get started.
 
 ## 📌 Deployment
 
 The project is deployed on Vercel, for the easiest deployment of a Next.Js app. 
 
-## 👁️ Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!

@@ -6,6 +6,7 @@ import style from "./rating-ui.module.scss";
 import { RatingSchema, validateRatingForm } from "./rating-form.utils";
 import toast from "react-hot-toast";
 import { cn } from "@/lib/utils";
+import { addRatingDetails } from "@/app/api/rating/rating.server-action";
 
 export default function RatingForm({
   starAsLabel,
@@ -16,7 +17,6 @@ export default function RatingForm({
     register,
     handleSubmit,
     formState: { isValid, isSubmitting },
-    reset,
   } = useForm<RatingSchema>();
 
   // function to run when the form submits
@@ -24,24 +24,19 @@ export default function RatingForm({
     // change the data type for storing the data
     formData.rating = Number(formData.rating);
 
-    // send data to backend
-    const res = await fetch("/api/rating", {
-      method: "POST",
-      body: JSON.stringify(formData),
-      headers: {
-        "content-type": "application/json",
-      },
-    });
+    const res = await addRatingDetails(formData);
 
-    if (res.status >= 200 && res.status < 300) {
-      // rest form after saving data and push toast notification
-      reset();
-      toast.success(`Rating stored successfully`);
-    } else if (res.status >= 400 && res.status < 500) {
-      const err = await res.json();
-      console.error(err.message);
+    if (res?.status === "fail") {
+      toast.error(res.message);
+    }
 
-      toast.error(err.message);
+    if (res?.status === "success") {
+      toast.success(
+        `Your rating ${
+          (res.type === "add" && "added") ||
+          (res.type === "update" && "updated")
+        } successfully`
+      );
     }
   };
 
