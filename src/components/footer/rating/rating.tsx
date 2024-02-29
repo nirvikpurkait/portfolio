@@ -3,7 +3,7 @@ import RatingForm from "./rating-form";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FooterHeading } from "..";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/shadcn-ui/utils";
 
 export type RatingProps = React.ComponentProps<"div">;
 

@@ -1,54 +1,49 @@
 import React from "react";
 import { DownloadResumeButton, LetsConnect } from "../../custom-components";
 import HeroImage from "./hero-image";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/shadcn-ui/utils";
 
 export default function Heading() {
-	return (
-		<div
-			className={cn(
-				`flex flex-col gap-4 justify-center items-center text-center pt-8 px-8`
-			)}
-		>
-			<HeroImage />
+  return (
+    <div
+      className={cn(
+        `flex flex-col items-center justify-center gap-4 px-8 pt-8 text-center`
+      )}
+    >
+      <HeroImage />
 
-			<h1>
-				<span
-					className={cn(
-						`text-gray-500 dark:text-gray-400 text-3xl sm:text-4xl font-amaranth`
-					)}
-				>
-					Hi!,&#x1F44B; I&apos;m
-				</span>{" "}
-				<span
-					className={cn(
-						`text-accent text-4xl sm:text-5xl font-amaranth`
-					)}
-				>
-					Nirvik Purkait
-				</span>
-			</h1>
-			<h2
-				className={cn(
-					`text-2xl sm:text-3xl font-bold bg-gradient-to-br from-purple-700 to-[#f67e6a] bg-clip-text text-transparent`
-				)}
-			>
-				Full-stack developer
-			</h2>
+      <h1>
+        <span
+          className={cn(
+            `font-amaranth text-3xl text-gray-500 dark:text-gray-400 sm:text-4xl`
+          )}
+        >
+          Hi!,&#x1F44B; I&apos;m
+        </span>{" "}
+        <span className={cn(`font-amaranth text-4xl text-accent sm:text-5xl`)}>
+          Nirvik Purkait
+        </span>
+      </h1>
+      <h2
+        className={cn(
+          `bg-gradient-to-br from-purple-700 to-[#f67e6a] bg-clip-text text-2xl font-bold text-transparent sm:text-3xl`
+        )}
+      >
+        Full-stack developer
+      </h2>
 
-			<h3 className={cn(`text-lg max-w-lg sm:text-xl`)}>
-				I am a full-stack developer, based in India. My main interest
-				lies on back-end development. Currently, I&apos;m living in West
-				Bengal, India.
-			</h3>
-			<div
-				className={cn(
-					`flex flex-wrap gap-x-6 gap-y-2 justify-center items-center pt-4`
-				)}
-			>
-				<DownloadResumeButton />
-				<LetsConnect />
-			</div>
-		</div>
-	);
+      <h3 className={cn(`max-w-lg text-lg sm:text-xl`)}>
+        I am a full-stack developer, based in India. My main interest lies on
+        back-end development. Currently, I&apos;m living in West Bengal, India.
+      </h3>
+      <div
+        className={cn(
+          `flex flex-wrap items-center justify-center gap-x-6 gap-y-2 pt-4`
+        )}
+      >
+        <DownloadResumeButton />
+        <LetsConnect />
+      </div>
+    </div>
+  );
 }

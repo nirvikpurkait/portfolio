@@ -3,33 +3,27 @@ import ContactPageBackground from "@/components/contact/contact-page-background"
 import Intro from "@/components/contact/intro/contact-intro";
 import React from "react";
 import Info from "./info/public-info";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/shadcn-ui/utils";
 
 export default function Contact() {
-	return (
-		<div className={cn(`@container`)}>
-			<div
-				className={cn(
-					`flex gap-4 gap-y-12 flex-col px-8 @2xl:flex-row mt-10 pb-12 @lg:px-16 @2xl:px-24`
-				)}
-			>
-				<div
-					className={cn(
-						`basis-full flex flex-col justify-center items-start`
-					)}
-				>
-					<Intro />
-					<Info />
-				</div>
-				<div
-					className={cn(
-						`basis-full flex justify-center items-center`
-					)}
-				>
-					<ContactForm />
-				</div>
-				<ContactPageBackground />
-			</div>
-		</div>
-	);
+  return (
+    <div className={cn(`@container`)}>
+      <div
+        className={cn(
+          `mt-10 flex flex-col gap-4 gap-y-12 px-8 pb-12 @lg:px-16 @2xl:flex-row @2xl:px-24`
+        )}
+      >
+        <div
+          className={cn(`flex basis-full flex-col items-start justify-center`)}
+        >
+          <Intro />
+          <Info />
+        </div>
+        <div className={cn(`flex basis-full items-center justify-center`)}>
+          <ContactForm />
+        </div>
+        <ContactPageBackground />
+      </div>
+    </div>
+  );
 }
