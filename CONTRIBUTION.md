@@ -2,10 +2,9 @@
 
 <h4>
 
- Anykind of contribution is welcomed, but before contributing to this project we are setting some rules to follow.
+Anykind of contribution is welcomed, but before contributing to this project we are setting some rules to follow.
 
 </h4>
-
 
 ## 📝 Rules for commiting or making a PR
 
@@ -13,32 +12,32 @@ Before you commit or make a PR, you should use one of the below format, which ev
 
 #### Addition of new features:
 
-➕ `add:` `<your-message>`
+➕ add: `<your-message>`
 
 #### General fix:
 
-🔧 `fix:` `<your-message>`
+🔧 fix: `<your-message>`
 
 #### Bug fix:
 
-🐛 `bug-fix:` `<your-message>`
+🐛 bug-fix: `<your-message>`
 
 #### Deletion of existing features:
 
-🗑️ `del:` `<your-message>`
+🗑️ del: `<your-message>`
 
 #### Refractoring codebase:
 
-♻️ `ref:` `<your-message>`
+♻️ ref: `<your-message>`
 
 #### Experiment:
 
-🧪 `exp:` `<your-message>`
+🧪 exp: `<your-message>`
 
 #### Announcement:
 
-📣 `announce:` `<your-message>`
+📣 announce: `<your-message>`
 
 #### Target achieving:
 
-🎯 `target:` `<your-message>`
+🎯 target: `<your-message>`

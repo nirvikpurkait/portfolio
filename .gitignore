@@ -37,8 +37,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# vscode
+# workspace
 .vscode
+*.drawio
+*.dio
+*.drawio*
 
 # database
 */database/static/

@@ -4,7 +4,8 @@ import Navbar from "@/components/nav";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/theme/theme-provider";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/shadcn-ui/utils";
+import NextAuthSessionProvider from "@/lib/auth/session-provider";
 
 export const metadata: Metadata = {
   title: {
@@ -49,16 +50,18 @@ export default function RootLayout({
           `flex min-h-screen flex-col bg-background pb-14 pl-0 text-text sm:pb-0 sm:pl-16`
         )}
       >
-        <ThemeProvider>
-          <header>
-            <Navbar />
-          </header>
-          <main className={cn(`flex-grow overflow-clip`)}>{children}</main>
-          <footer>
-            <Footer />
-          </footer>
-          <Toaster />
-        </ThemeProvider>
+        <NextAuthSessionProvider>
+          <ThemeProvider>
+            <header>
+              <Navbar />
+            </header>
+            <main className={cn(`flex-grow overflow-clip`)}>{children}</main>
+            <footer>
+              <Footer />
+            </footer>
+            <Toaster />
+          </ThemeProvider>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );
