@@ -11,11 +11,28 @@
     --accent: 156 29 220;
     --footer: 221 221 221;
   }
+  ::-webkit-scrollbar {
+    background: rgb(var(--background));
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+  }
 
   :root.dark {
     --text: 241 243 234;
     --background: 7 7 4;
     --primary: 193 198 173;
     --footer: 30 30 30;
+  }
+
+  ::-webkit-scrollbar {
+    background: rgb(var(--background));
+    border-radius: 20px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
   }
 }
