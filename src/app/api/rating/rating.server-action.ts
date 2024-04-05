@@ -5,6 +5,7 @@ import {
   ratingSchema,
 } from "@/components/footer/rating/rating-form.utils";
 import { prisma } from "@/database/prisma";
+import { id } from "@/lib/id-generator/id";
 import { validateEmail } from "@/utils/email";
 import mailchecker from "mailchecker";
 
@@ -94,6 +95,7 @@ export async function addRatingDetails(formData: RatingSchema) {
       const newData = await prisma.rating.upsert({
         create: {
           email: data.email,
+          id: id(),
           rating: data.rating,
         },
         update: {

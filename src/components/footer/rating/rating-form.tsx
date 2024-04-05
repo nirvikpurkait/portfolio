@@ -17,6 +17,7 @@ export default function RatingForm({
     register,
     handleSubmit,
     formState: { isValid, isSubmitting },
+    reset,
   } = useForm<RatingSchema>();
 
   // function to run when the form submits
@@ -37,6 +38,7 @@ export default function RatingForm({
           (res.type === "update" && "updated")
         } successfully`
       );
+      reset();
     }
   };
 

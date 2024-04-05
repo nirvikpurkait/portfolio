@@ -3,7 +3,7 @@ import "@/styles/globals.css";
 import Navbar from "@/components/nav";
 import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
-import { ThemeProvider } from "@/theme/theme-provider";
+import { ThemeProvider } from "@/lib/theme/theme-provider";
 import { cn } from "@/lib/shadcn-ui/utils";
 import NextAuthSessionProvider from "@/lib/auth/session-provider";
 
