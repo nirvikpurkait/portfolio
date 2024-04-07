@@ -13,6 +13,7 @@ const iconsName: string[] = [
   "material-ui",
   "mongodb",
   "mongoose",
+  "mysql",
   "nextjs",
   "nodejs",
   "prisma-orm",

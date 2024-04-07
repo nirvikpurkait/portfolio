@@ -3,11 +3,12 @@
 import {
   RatingSchema,
   ratingSchema,
-} from "@/components/footer/rating/rating-form.utils";
+} from "@/components/footer/rating/rating-input/rating-form.utils";
 import { prisma } from "@/database/prisma";
 import { id } from "@/lib/id-generator/id";
 import { validateEmail } from "@/utils/email";
 import mailchecker from "mailchecker";
+import { revalidateTag } from "next/cache";
 
 type Success = {
   status: "success";
@@ -107,6 +108,8 @@ export async function addRatingDetails(formData: RatingSchema) {
         },
       });
 
+      revalidateTag("revalidate-rating-details");
+
       return (res = {
         status: "success",
         type: newData.updatedAt ? "update" : "add",
@@ -129,4 +132,16 @@ export async function addRatingDetails(formData: RatingSchema) {
       });
     }
   }
+}
+
+export async function getRatingDetails() {
+  const ratingDetails = await prisma.rating.groupBy({
+    by: ["rating"],
+    _count: true,
+    orderBy: {
+      rating: "asc",
+    },
+  });
+
+  return ratingDetails;
 }

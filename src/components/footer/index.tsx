@@ -1,21 +1,27 @@
 import React from "react";
 import SocialIcons from "./social/social-icons";
-import Rating from "./rating/rating";
-import style from "./footer-section.module.scss";
+import Rating from "./rating/rating-input/rating";
 import TechStack from "./tech-stack-used/tech-stack";
 import Theme from "./theme/theme";
 import { cn } from "@/lib/shadcn-ui/utils";
+import RatingOutput from "./rating/rating-output/rating-output";
+import style from "@/components/footer/footer.module.scss";
 
 export default function Footer() {
   return (
-    <div className={cn(`bg-footer px-6 py-8`, style.footer)}>
-      <div className={cn(`flex flex-col gap-4`)}>
-        <Rating />
-        <SocialIcons />
+    <div className={cn(``, style.container)}>
+      <div
+        className={cn(
+          `grid gap-x-6 gap-y-10 bg-footer px-6 py-8 @[500px]:px-[10vw]`,
+          style.gridTemplateArea
+        )}
+      >
+        <Theme className={cn(``, style.theme)} />
+        <Rating className={cn(``, style.ratingInput)} />
+        <SocialIcons className={cn(``, style.socialIcons)} />
+        <TechStack className={cn(``, style.techStack)} />
+        <RatingOutput className={cn(``, style.ratingOutput)} />
       </div>
-      <TechStack />
-
-      <Theme />
     </div>
   );
 }
