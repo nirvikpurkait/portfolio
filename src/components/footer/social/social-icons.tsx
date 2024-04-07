@@ -6,17 +6,15 @@ import { cn } from "@/lib/shadcn-ui/utils";
 
 export type SocialIconsProps = React.ComponentProps<"div">;
 
-export default function SocialIcons() {
+export default function SocialIcons(props: SocialIconsProps) {
   return (
-    <div>
+    <div {...props}>
       <FooterHeading>Follow me</FooterHeading>
       <div className={cn(`flex w-max gap-2`)}>
         <Link
           href={`https://facebook.com/nirvikpurkait`}
           target="_blank"
-          className={cn(
-            `inline-block max-w-[20px] sm:max-w-[25px] md:max-w-[30px] lg:max-w-[35px]`
-          )}
+          className={cn(`inline-block max-w-[30px] md:max-w-[35px]`)}
         >
           <Image
             src={`/icons/connect/facebook.svg`}
@@ -29,9 +27,7 @@ export default function SocialIcons() {
         <Link
           href={`https://github.com/nirvikpurkait`}
           target="_blank"
-          className={cn(
-            `inline-block max-w-[20px] sm:max-w-[25px] md:max-w-[30px] lg:max-w-[35px]`
-          )}
+          className={cn(`inline-block max-w-[30px] md:max-w-[35px]`)}
         >
           <Image
             src={`/icons/connect/github.svg`}
@@ -44,9 +40,7 @@ export default function SocialIcons() {
         <Link
           href={`https://www.linkedin.com/in/nirvikpurkait/`}
           target="_blank"
-          className={cn(
-            `inline-block max-w-[20px] sm:max-w-[25px] md:max-w-[30px] lg:max-w-[35px]`
-          )}
+          className={cn(`inline-block max-w-[30px] md:max-w-[35px]`)}
         >
           <Image
             src={`/icons/connect/linkedin.svg`}
@@ -59,9 +53,7 @@ export default function SocialIcons() {
         <Link
           href={`https://wa.me/+918145149700`}
           target="_blank"
-          className={cn(
-            `inline-block max-w-[20px] sm:max-w-[25px] md:max-w-[30px] lg:max-w-[35px]`
-          )}
+          className={cn(`inline-block max-w-[30px] md:max-w-[35px]`)}
         >
           <Image
             src={`/icons/connect/whatsapp.svg`}

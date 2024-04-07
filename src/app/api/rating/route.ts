@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { addRatingDetails } from "./rating.server-action";
-import { RatingSchema } from "@/components/footer/rating/rating-form.utils";
+import { RatingSchema } from "@/components/footer/rating/rating-input/rating-form.utils";
 
 export async function GET(req: NextRequest) {
   const res = await addRatingDetails(req as unknown as RatingSchema);
