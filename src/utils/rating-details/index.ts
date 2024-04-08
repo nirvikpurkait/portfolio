@@ -14,8 +14,6 @@ export const ratingDetails = async function () {
     };
   });
 
-  // console.log(eachRatingDetails);
-
   const totalRatingAmount = details.reduce((accumulator, currentvalue) => {
     return accumulator + currentvalue._count * currentvalue.rating;
   }, 0);

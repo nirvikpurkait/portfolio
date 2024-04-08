@@ -9,7 +9,7 @@ export default async function RatingAmountBar() {
 
   return (
     <div className={cn(`space-y-2`)}>
-      {eachRatingDetails.reverse().map((eachRating) => {
+      {eachRatingDetails.map((eachRating) => {
         return (
           <div className={cn(`space-y-1`)} key={eachRating.rating}>
             <div className={cn(`flex items-center justify-between`)}>
