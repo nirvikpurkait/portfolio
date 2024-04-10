@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "build-start": "npx run-s prisma-build build start",
+    "build-start": "npx run-s prisma-build prisma-generate build start",
     "postinstall": "npx run-s prisma-build prisma-generate",
     "prisma-build": "npx prisma migrate deploy",
     "prisma-dev": "npx prisma migrate dev",

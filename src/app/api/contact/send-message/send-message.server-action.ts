@@ -28,7 +28,6 @@ export async function sendMessage(messageData: ContactFormSchema) {
 
     if (!result.success) {
       const error = result.error.flatten().fieldErrors;
-      console.log(error.name![0]);
 
       // check if required fields are filled or not
       if (error.name && error.name[0].includes("Required")) {

@@ -12,8 +12,8 @@ import {
   Stop,
   Rect,
 } from "@react-pdf/renderer";
-import { cachedToolsAndTechnologiesData } from "@/app/api/tools-technologies/tools-technologies.server-action";
-import { cachedEducationData } from "@/app/api/education/education.server-action";
+import { cachedToolsAndTechnologiesData } from "@/cache/cached-tools-tech-data";
+import { cachedEducationData } from "@/cache/cached-education";
 
 const timeZone = "Asia/Kolkata";
 const accent = "#c561f5";
