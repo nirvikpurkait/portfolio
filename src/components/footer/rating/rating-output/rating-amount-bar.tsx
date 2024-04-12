@@ -7,9 +7,48 @@ import React from "react";
 export default async function RatingAmountBar() {
   const { eachRatingDetails, totalCount } = await ratingDetails();
 
+  type EachRatingDetails = typeof eachRatingDetails;
+
+  /**
+   * reverse the array so that we can map the array
+   * as an increasing order
+   */
+  eachRatingDetails.reverse();
+
+  // pick the first element of the array to compare
+  let currentIndex = 0;
+
+  /**
+   * compare the rating details elements for each of the `key`,
+   * if the element matches return the count as it is, if not
+   * return the count as "0"
+   *
+   * at last reverse the array again, so that it shows the
+   * details as decreasing order
+   */
+  const formatedEachRatingDetails: EachRatingDetails = Array.from(
+    Array(5).keys()
+  )
+    .map((key) => {
+      if (eachRatingDetails[currentIndex]?.rating === key + 1) {
+        const thisIndex = currentIndex;
+        currentIndex++;
+        return {
+          rating: key + 1,
+          count: eachRatingDetails[thisIndex].count,
+        };
+      } else {
+        return {
+          rating: key + 1,
+          count: 0,
+        };
+      }
+    })
+    .reverse();
+
   return (
     <div className={cn(`space-y-2`)}>
-      {eachRatingDetails.map((eachRating) => {
+      {formatedEachRatingDetails.map((eachRating) => {
         return (
           <div className={cn(`space-y-1`)} key={eachRating.rating}>
             <div className={cn(`flex items-center justify-between`)}>
