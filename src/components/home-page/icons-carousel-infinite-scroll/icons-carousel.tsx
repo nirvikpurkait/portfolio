@@ -24,7 +24,7 @@ export default function IconsCarousel({
     });
     scrollerRef.current?.parentNode instanceof HTMLDivElement &&
       scrollerRef.current.parentNode.setAttribute("data-animate", "true");
-  });
+  }, []);
 
   return (
     <div

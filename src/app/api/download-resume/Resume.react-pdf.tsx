@@ -12,65 +12,76 @@ import {
   Stop,
   Rect,
 } from "@react-pdf/renderer";
-import { prisma } from "@/database/prisma";
-
-type ToolsAndTechData = { skill: string; special: boolean; id: string }[];
-type EducationTableData = [string, string, number, string, boolean?][];
+import { cachedToolsAndTechnologiesData } from "@/cache/cached-tools-tech-data";
+import { cachedEducationData } from "@/cache/cached-education";
 
 const timeZone = "Asia/Kolkata";
 const accent = "#c561f5";
 const accentLight = "#eae0f6";
 const helvetica_bold = "Helvetica-Bold";
 
-export async function generatePdfFrom() {
-  // get tools and technology data from database
-  const toolsAndTechData = await prisma.toolsTechnologies.findMany({
-    orderBy: {
-      id: "asc",
-    },
-  });
+/**
+ * static data related to pdf
+ */
+// languages array
+const languages = ["English", "Hindi", "Bengali (native)"];
+// hobbies array
+const hobbies = ["Playing games", "Listening music", "Watching movies"];
 
-  // education table type assign and initialization
-  let educationTableData: EducationTableData = [
+export async function generatePdf() {
+  // get tools and technology data from database
+  const toolsAndTechData = await cachedToolsAndTechnologiesData();
+
+  // get education table data from the database
+  const educationTableDataFromDatabase = await cachedEducationData();
+
+  type FormatedEducationTableData = [
+    string, // degree/diploma
+    string, // institute/university
+    number, // year of passing
+    string, // percentage/CGPA
+    boolean, // currently enrolled?
+    string | null, // any details
+  ][];
+
+  // format the education table data as needed
+
+  const formatedEducationTableData: FormatedEducationTableData =
+    educationTableDataFromDatabase.map((data) => {
+      const {
+        GPA,
+        course,
+        currentlyEnroled,
+        institute,
+        percentage,
+        shortDescription,
+        yearOfPassing,
+      } = data;
+
+      // return the data as needed
+      return [
+        course,
+        institute,
+        yearOfPassing,
+        (percentage && `${percentage}%`) ||
+          (GPA && `${GPA.toFixed(1)}`) ||
+          `unavailable`,
+        currentlyEnroled,
+        shortDescription,
+      ];
+    });
+
+  const formatedEducationTableDataWithHeading = [
+    // heading content
     [
       "Degree/Diploma",
       "Institute/University",
       "Year of passing",
       "Percentage (%) / CGPA",
-      false,
     ],
-  ] as unknown as EducationTableData;
-
-  // get education table data from the server
-  const data = await prisma.education.findMany({
-    orderBy: [
-      {
-        yearOfPassing: "desc",
-      },
-    ],
-  });
-
-  type EachItem = Awaited<ReturnType<typeof prisma.education.findMany>>[number];
-
-  // format the response data to desire type
-  const newData: EducationTableData = data.map((eachItem: EachItem) => [
-    eachItem.course,
-    eachItem.institute,
-    eachItem.yearOfPassing,
-    (eachItem.percentage && `${eachItem.percentage}%`) ||
-      (eachItem.GPA && `${eachItem.GPA.toFixed(1)}`) ||
-      `unvailable`,
-    Boolean(eachItem.special),
-  ]);
-
-  // merge both data for using later
-  educationTableData = [...educationTableData, ...newData];
-
-  // languages array
-  const languages = ["English", "Hindi", "Bengali (native)"];
-
-  // hobbies array
-  const hobbies = ["Playing games", "Listening music", "Watching movies"];
+    // rest of the data
+    ...formatedEducationTableData,
+  ];
 
   // Create styles
   const styles = StyleSheet.create({
@@ -477,21 +488,6 @@ export async function generatePdfFrom() {
     );
   }
 
-  // compopnent for bullet point for skills in pdf
-  // function ToolsTechBulletPoint() {
-  // 	return (
-  // 		<Text
-  // 			style={{
-  // 				paddingRight: 2,
-  // 				fontSize: 24,
-  // 				marginTop: -6,
-  // 			}}
-  // 		>
-  // 			&#8226;
-  // 		</Text>
-  // 	);
-  // }
-
   // education table compopnent for pdf
   function EducationTable() {
     return (
@@ -502,74 +498,69 @@ export async function generatePdfFrom() {
           marginTop: "1",
         }}
       >
-        {educationTableData.map(
-          (eachRow: EducationTableData[number], rowIndex) => {
-            const rowStyle = rowIndex === 0 ? styles.th : {};
-            return (
-              <View style={{ flexDirection: "row" }} key={rowIndex}>
-                {eachRow.map(
-                  (eachCell: EducationTableData[number][number], colIndex) => {
-                    let colStyle = {};
-                    if (colIndex === 0)
-                      colStyle = {
-                        ...styles.col1,
-                        ...styles.colCommon,
-                        ...rowStyle,
-                      };
-                    if (colIndex === 1)
-                      colStyle = {
-                        ...styles.col2,
-                        ...styles.colCommon,
-                        ...rowStyle,
-                      };
-                    if (colIndex === 2)
-                      colStyle = {
-                        ...styles.col3,
-                        ...styles.colCommon,
-                        ...rowStyle,
-                      };
-                    if (colIndex === 3)
-                      colStyle = {
-                        ...styles.col4,
-                        ...styles.colCommon,
-                        ...rowStyle,
-                      };
-                    return (
-                      <View style={colStyle} key={colIndex}>
-                        {colIndex !== 2 && (
+        {formatedEducationTableDataWithHeading.map((eachRow, rowIndex) => {
+          const rowStyle = rowIndex === 0 ? styles.th : {};
+          return (
+            <View key={rowIndex} style={{ flexDirection: "row" }}>
+              {eachRow.map((eachCellContent, cellIndex) => {
+                let colStyle = {};
+                if (cellIndex === 0)
+                  colStyle = {
+                    ...styles.col1,
+                    ...styles.colCommon,
+                    ...rowStyle,
+                  };
+                if (cellIndex === 1)
+                  colStyle = {
+                    ...styles.col2,
+                    ...styles.colCommon,
+                    ...rowStyle,
+                  };
+                if (cellIndex === 2)
+                  colStyle = {
+                    ...styles.col3,
+                    ...styles.colCommon,
+                    ...rowStyle,
+                  };
+                if (cellIndex === 3)
+                  colStyle = {
+                    ...styles.col4,
+                    ...styles.colCommon,
+                    ...rowStyle,
+                  };
+                if (cellIndex >= 4) return null;
+                return (
+                  <View key={`${rowIndex}${cellIndex}`} style={colStyle}>
+                    {cellIndex === 2 && (
+                      <Text>
+                        {eachCellContent} {eachRow[4] && <Star />}
+                      </Text>
+                    )}
+                    {cellIndex === 3 && (
+                      <View
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                        }}
+                      >
+                        <Text>{eachCellContent}</Text>
+                        {eachRow[5]?.length && (
                           <Text
-                            style={{
-                              width: "100%",
-                            }}
-                          >
-                            {eachCell}
-                          </Text>
+                            style={{ fontSize: "8" }}
+                          >{`(${eachRow[5]})`}</Text>
                         )}
-                        {colIndex === 2 && (
-                          <Text
-                            style={{
-                              width: "100%",
-                            }}
-                          >
-                            {eachCell}
-                            {eachRow[4] && <Star />}
-                          </Text>
-                        )}
-                        {/* {colIndex === 3 && (
-													<Text
-														style={{ fontSize: 10 }}
-													>
-														{`(${eachRow[colIndex]})`}
-													</Text>
-												)} */}
                       </View>
-                    );
-                  }
-                )}
-              </View>
-            );
-          }
-        )}
+                    )}
+                    {cellIndex !== 2 && cellIndex !== 3 && (
+                      <Text>{eachCellContent}</Text>
+                    )}
+                  </View>
+                );
+              })}
+            </View>
+          );
+        })}
       </View>
     );
   }
@@ -591,7 +582,7 @@ export async function generatePdfFrom() {
           // border: "1 solid blue",
         }}
       >
-        {toolsAndTechData.map((eachItem: ToolsAndTechData[number]) => {
+        {toolsAndTechData.map((eachItem) => {
           return (
             <View
               key={eachItem.id}

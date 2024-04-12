@@ -8,4 +8,4 @@ Anykind of contribution is welcomed, but before contributing to this project we 
 
 ## 📝 Rules for commiting or making a PR
 
-Before you commit or make a PR, you should use one of the below [format](./COMMIT.md), which ever is most relevant.
+Before you commit or make a PR, you should use one of the below [format](./docs/COMMIT.md), which ever is most relevant.

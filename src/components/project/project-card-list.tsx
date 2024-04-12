@@ -5,11 +5,42 @@ import { prisma } from "@/database/prisma";
 
 // fetch project list for card from database
 async function cardList() {
-  return await prisma.projectDetails.findMany();
+  return await prisma.projectDetails.findMany({
+    include: {
+      technologiesUsed: {
+        select: { skill: true },
+      },
+    },
+  });
 }
 
 export default async function ProjectCardList() {
-  const projectList = await cardList();
+  // fetch project card list data from server
+  const projectListFormServer = await cardList();
+
+  // format them as needed for the component
+  const projectList = projectListFormServer.map((eachProject) => {
+    const {
+      id,
+      description,
+      heading,
+      imageDescription,
+      liveLink,
+      sourceLink,
+      thumbnailImageUrl,
+      technologiesUsed,
+    } = eachProject;
+    return {
+      id,
+      description,
+      heading,
+      imageDescription,
+      liveLink,
+      sourceLink,
+      thumbnailImageUrl,
+      technologiesUsed: technologiesUsed.map((eachTech) => eachTech.skill),
+    };
+  });
 
   return (
     <div
@@ -23,7 +54,7 @@ export default async function ProjectCardList() {
           heading={project.heading}
           id={project.id}
           imageDescription={project.imageDescription}
-          technologies={project.technologies}
+          technologies={project.technologiesUsed}
           thumbnailImageSource={project.thumbnailImageUrl}
         />
       ))}

@@ -5,6 +5,7 @@ import { useForm, FieldErrors } from "react-hook-form";
 import { validate, ContactFormSchema } from "./contact-form.utils";
 import toast from "react-hot-toast";
 import { cn } from "@/lib/shadcn-ui/utils";
+import { sendMessage } from "@/app/api/contact/send-message/send-message.server-action";
 
 export default function ContactForm() {
   const {
@@ -17,17 +18,14 @@ export default function ContactForm() {
   const onSubmit = async (formData: ContactFormSchema) => {
     // do task for submitiing the form data
     try {
-      const res = await fetch("/api/contact/send-message", {
-        method: "POST",
-        body: JSON.stringify(formData),
-      });
+      const res = await sendMessage(formData);
 
-      //
-      if (res.status >= 400 && res.status < 500) {
-        const errObj = await res.json();
-        throw new Error(errObj.message);
-      } else if (res.status >= 200 && res.status < 300) {
-        toast.success(`Message sent successfully`);
+      if (res?.status === "fail") {
+        toast.error(res.errorMessage);
+      }
+
+      if (res?.status === "success") {
+        toast.success("Your message is sent succesfully.");
         reset();
       }
     } catch (error: any) {
@@ -65,7 +63,7 @@ export default function ContactForm() {
             placeholder="Enter your name"
             id="name"
             className={cn(
-              `rounded-md px-3 py-1 text-base text-black placeholder:text-base sm:text-lg lg:text-xl`
+              `rounded-md px-3 py-1 text-base text-black placeholder:text-base dark:text-white/50 sm:text-lg lg:text-xl`
             )}
             {...register("name", validate("name"))}
           />
@@ -89,7 +87,7 @@ export default function ContactForm() {
             placeholder="Enter your email"
             id="email"
             className={cn(
-              `rounded-md px-3 py-1 text-base text-black placeholder:text-base sm:text-lg lg:text-xl`
+              `rounded-md px-3 py-1 text-base text-black placeholder:text-base dark:text-white/50 sm:text-lg lg:text-xl`
             )}
             {...register("email", validate("email"))}
           />
@@ -113,7 +111,7 @@ export default function ContactForm() {
             placeholder="Enter your message"
             id="message"
             className={cn(
-              `rounded-md px-3 py-1 text-base text-black placeholder:text-base sm:text-lg lg:text-xl`
+              `rounded-md px-3 py-1 text-base text-black placeholder:text-base dark:text-white/50 sm:text-lg lg:text-xl`
             )}
             {...register("message", validate("message"))}
           />
@@ -129,12 +127,10 @@ export default function ContactForm() {
         <div className={cn(`relative flex flex-col gap-1`)}>
           <button
             type="submit"
-            disabled={isSubmitting}
+            disabled={isSubmitting || !isValid}
             className={cn(
-              `ml-auto mt-2 transform rounded-md bg-purple-500 px-4 py-2 text-base duration-150 sm:text-lg lg:text-xl`,
+              `ml-auto mt-2 transform rounded-md bg-purple-500 px-4 py-2 text-base duration-150 disabled:cursor-not-allowed disabled:bg-purple-500 disabled:opacity-25 sm:text-lg lg:text-xl`,
               {
-                "cursor-not-allowed bg-purple-500 opacity-25":
-                  !isValid || isSubmitting,
                 "text-white shadow-md shadow-black/20 active:scale-95 dark:shadow-white/20":
                   isValid && !isSubmitting,
               }

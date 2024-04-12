@@ -1,12 +1,12 @@
 import { renderToBuffer } from "@react-pdf/renderer";
 import { NextRequest, NextResponse } from "next/server";
 
-import { generatePdfFrom } from "./Resume.react-pdf";
+import { generatePdf } from "./Resume.react-pdf";
 
 export async function GET(req: NextRequest) {
   const headers = new Headers();
   try {
-    const pdf = await generatePdfFrom();
+    const pdf = await generatePdf();
     const buffer = await renderToBuffer(pdf());
 
     headers.append(

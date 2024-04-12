@@ -7,7 +7,7 @@ export type TechStackProps = React.ComponentProps<"div">;
 const technologies: string[] = [
   "Next.js",
   "React JS",
-  "MongoDB",
+  "MySQL",
   "Prisma ORM",
   "TypeScript",
   "Tailwind CSS",

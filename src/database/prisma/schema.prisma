@@ -6,37 +6,33 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-model Icon {
-  id           String  @id @default(auto()) @map("_id") @db.ObjectId
-  link         String
-  special      Boolean @default(false)
-  icon_details String?
-  key          String
-}
-
+// applying on resume pdf tool and technology list
 model ToolsTechnologies {
-  id      String  @id @default(auto()) @map("_id") @db.ObjectId
-  skill   String
-  special Boolean @default(false)
+  id                String           @id @unique @db.Char(24)
+  skill             String
+  currentlyLearning Boolean          @default(false)
+  order             Int?
+  projectDetails    ProjectDetails[]
 }
 
+// applying on resume Education table
 model Education {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  course        String
-  institute     String
-  yearOfPassing Int
-  percentage    Float?
-  GPA           Float?
-  special       Boolean? @default(false)
-  data          String?
+  id               String  @id @unique @db.Char(24)
+  course           String
+  institute        String
+  yearOfPassing    Int
+  percentage       Float?  @db.Float()
+  GPA              Float?  @db.Float()
+  currentlyEnroled Boolean @default(false)
+  shortDescription String? @db.VarChar(50)
 }
 
 model Rating {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  id        String    @id @unique @db.Char(24)
   email     String    @unique
   rating    Int
   createdAt DateTime? @default(now())
@@ -44,20 +40,20 @@ model Rating {
 }
 
 model ContactMessage {
-  id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  email     String
+  id        String    @id @unique @db.Char(24)
+  email     String    @unique
   name      String
-  message   String
+  message   String    @db.LongText()
   createdAt DateTime? @default(now())
 }
 
 model ProjectDetails {
-  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  id                String              @id @unique @db.Char(24)
   heading           String
   sourceLink        String
   thumbnailImageUrl String
-  liveLink          String
+  liveLink          String?
   description       String?
   imageDescription  String?
-  technologies      String[]
+  technologiesUsed  ToolsTechnologies[]
 }

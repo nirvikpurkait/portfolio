@@ -4,9 +4,11 @@ import { ThemeSwitchButton } from "./theme-button";
 import { Moon, Sun } from "lucide-react";
 import { cn } from "@/lib/shadcn-ui/utils";
 
-export default function Theme() {
+type ThemeProps = React.ComponentProps<"div">;
+
+export default function Theme(props: ThemeProps) {
   return (
-    <div>
+    <div {...props}>
       <FooterHeading>Theme</FooterHeading>
       <span className={cn(`flex gap-4`)}>
         <Sun className={cn(`text-yellow-500`)} />

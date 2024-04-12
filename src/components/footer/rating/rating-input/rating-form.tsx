@@ -7,6 +7,8 @@ import { RatingSchema, validateRatingForm } from "./rating-form.utils";
 import toast from "react-hot-toast";
 import { cn } from "@/lib/shadcn-ui/utils";
 import { addRatingDetails } from "@/app/api/rating/rating.server-action";
+import { getCookieValueOf } from "@/utils/cookie/cookie-utils";
+import { rating } from "@/utils/cookie/cookie-variable-names";
 
 export default function RatingForm({
   starAsLabel,
@@ -17,10 +19,24 @@ export default function RatingForm({
     register,
     handleSubmit,
     formState: { isValid, isSubmitting },
+    reset,
   } = useForm<RatingSchema>();
 
   // function to run when the form submits
   const onSubmit = async (formData: RatingSchema) => {
+    // check if the user has added/updated a rating within last 24 hours,
+    // if yes block them from adding/updating again
+    const cookieValue = getCookieValueOf(rating);
+
+    if (cookieValue === "true") {
+      toast.error(
+        "You have recently added/updated your rating, please try again later."
+      );
+      // return form function otherwise it will call next block too
+      // and server will hit with an extra request
+      return;
+    }
+
     // change the data type for storing the data
     formData.rating = Number(formData.rating);
 
@@ -37,6 +53,7 @@ export default function RatingForm({
           (res.type === "update" && "updated")
         } successfully`
       );
+      reset();
     }
   };
 
