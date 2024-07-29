@@ -7,7 +7,7 @@ import { RatingSchema, validateRatingForm } from "./rating-form.utils";
 import toast from "react-hot-toast";
 import { cn } from "@/lib/shadcn-ui/utils";
 import { addRatingDetails } from "@/app/api/rating/rating.server-action";
-import { getCookieValueOf } from "@/utils/cookie/cookie-utils";
+import { getCookieValueOf } from "@/utils/cookie/client";
 import { rating } from "@/utils/cookie/cookie-variable-names";
 
 export default function RatingForm({
@@ -30,7 +30,7 @@ export default function RatingForm({
 
     if (cookieValue === "true") {
       toast.error(
-        "You have recently added/updated your rating, please try again later."
+        "You have recently added/updated your rating, please try again after 24 hours."
       );
       // return form function otherwise it will call next block too
       // and server will hit with an extra request
@@ -48,9 +48,8 @@ export default function RatingForm({
 
     if (res?.status === "success") {
       toast.success(
-        `Your rating ${
-          (res.type === "add" && "added") ||
-          (res.type === "update" && "updated")
+        `Your rating ${(res.type === "add" && "added") ||
+        (res.type === "update" && "updated")
         } successfully`
       );
       reset();
@@ -168,7 +167,7 @@ export default function RatingForm({
             )}
             disabled={!isValid || isSubmitting}
           >
-            Add rating
+            {isSubmitting ? <>Adding rating</> : <>Add rating</>}
           </button>
         </div>
       </form>

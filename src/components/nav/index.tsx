@@ -2,10 +2,11 @@ import React from "react";
 import style from "./nav-ui.module.scss";
 import { cn } from "@/lib/shadcn-ui/utils";
 import NavItems from "./nav-items";
+import { MotionNav } from "./nav.motion-ui";
 
 export default async function Navbar() {
   return (
-    <nav
+    <MotionNav
       className={cn(
         `fixed bottom-0 left-0 z-[999999] h-14 w-screen bg-accent font-rajdhani font-semibold text-white sm:h-screen sm:w-16`,
         style.nav
@@ -25,6 +26,6 @@ export default async function Navbar() {
           style.textSpace
         )}
       ></div>
-    </nav>
+    </MotionNav>
   );
 }

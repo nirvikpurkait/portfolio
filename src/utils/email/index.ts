@@ -1,11 +1,6 @@
 import dnsProm from "node:dns/promises";
 import mailchecker from "mailchecker";
 
-/**
- * @param
- * @returns `true`
- * @throws
- */
 export async function validateEmail(email: string, pattern?: RegExp) {
   const emailRegex =
     pattern ||

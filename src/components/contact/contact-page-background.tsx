@@ -11,6 +11,7 @@ export default function ContactPageBackground() {
         `absolute left-0 top-0 -z-10 h-full w-full overflow-x-clip`
       )}
     >
+      {/* for large screen */}
       <Image
         src={`https://res.cloudinary.com/dpohasqoa/image/upload/v1703221354/portfolio/contact-form-bg-lg.png`}
         alt="image"
@@ -20,6 +21,8 @@ export default function ContactPageBackground() {
           `absolute bottom-0 left-2/4 right-0 top-2/4 -z-10 hidden w-[200rem] -translate-x-2/4 -translate-y-2/4 dark:opacity-20 md:block`
         )}
       />
+
+      {/* for small screen */}
       <Image
         src={`https://res.cloudinary.com/dpohasqoa/image/upload/v1703221356/portfolio/contact-form-bg-sm.png`}
         alt="image"

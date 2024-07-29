@@ -9,6 +9,7 @@ export default function Info() {
         `flex max-w-xs flex-col items-start gap-4 pt-8 font-amaranth tracking-wide`
       )}
     >
+      {/* whatsapp details start */}
       <div className={cn(`flex items-start justify-center`)}>
         <a
           className={cn(`inline-block w-12 pt-1`)}
@@ -27,7 +28,9 @@ export default function Info() {
           <p>+91-81451 49700</p>
         </span>
       </div>
+      {/* whatsapp details end */}
 
+      {/* gmail details start */}
       <div className={cn(`flex max-w-sm items-start justify-center`)}>
         <a
           className={cn(`inline-block w-12 pt-1`)}
@@ -46,7 +49,9 @@ export default function Info() {
           <p>nirvikpurkait@gmail.com</p>
         </span>
       </div>
+      {/* gmail details end */}
 
+      {/* address details start */}
       <div className={cn(`flex max-w-sm items-start justify-center`)}>
         <span className={cn(`inline-block w-12 pt-1`)}>
           <Image
@@ -64,6 +69,7 @@ export default function Info() {
           </p>
         </span>
       </div>
+      {/* address details end */}
     </div>
   );
 }

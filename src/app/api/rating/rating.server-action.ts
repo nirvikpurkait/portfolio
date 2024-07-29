@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidateRatingDetails } from "@/cache/cached-rating";
 import {
   RatingSchema,
   ratingSchema,
@@ -110,7 +111,7 @@ export async function addRatingDetails(formData: RatingSchema) {
         },
       });
 
-      revalidateTag("revalidate-rating-details");
+      revalidateTag(revalidateRatingDetails);
 
       cookies().set(rating, "true", { maxAge: 60 * 60 * 24 });
       return (res = {
