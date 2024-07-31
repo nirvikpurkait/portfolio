@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn } from "@/lib/auth/signing/methods";
+import { signIn } from "@/lib/next-auth/signing-methods";
 import { cn } from "@/lib/shadcn-ui/utils";
 import Image from "next/image";
 import React from "react";

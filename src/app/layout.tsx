@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/lib/theme/theme-provider";
 import { cn } from "@/lib/shadcn-ui/utils";
-import NextAuthSessionProvider from "@/lib/auth/session-provider";
+import NextAuthSessionProvider from "@/lib/next-auth/session-provider";
 
 export const metadata: Metadata = {
   title: {
