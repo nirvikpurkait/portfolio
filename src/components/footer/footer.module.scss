@@ -35,20 +35,19 @@
 @container (min-width: 500px) {
   .gridTemplateArea {
     grid-template-areas:
-      "theme rating-input"
-      "rating-output rating-input"
-      "rating-output tech-stack"
-      "rating-output tech-stack"
-      "social-icons tech-stack"
-      "social-icons tech-stack";
+      "theme           rating-input"
+      "rating-output   rating-input"
+      "rating-output   tech-stack"
+      "rating-output   tech-stack"
+      "social-icons    tech-stack";
   }
 }
 
 @container (min-width: 1000px) {
   .gridTemplateArea {
     grid-template-areas:
-      "theme tech-stack rating-output"
-      "rating-input tech-stack rating-output"
-      "social-icons tech-stack rating-output";
+      "theme          tech-stack   rating-output"
+      "rating-input   tech-stack   rating-output"
+      "social-icons   tech-stack   rating-output";
   }
 }

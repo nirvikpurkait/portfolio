@@ -12,7 +12,9 @@
 
 # Server-action convention
 
-Try to send object as `form-data` to the `server-action`. If we cannot send object as `form-data` to the `server-action`, (i.e - form data consist of file), try to get the pure `form-data` from the `form` as **`FormData`**, send the data to `server-action` and convert them to object inside the `server-action`.
+- For `server-action`s place them in `src/api/[file-name].server-action.ts` file. The file has to end with an extension of `*.server-action.ts`.
+
+- Try to send object as `form-data` to the `server-action`. If we cannot send object as `form-data` to the `server-action`, (i.e - form data consist of file), try to get the pure `form-data` from the `form` as **`FormData`**, send the data to `server-action` and convert them to object inside the `server-action`.
 
 [^1]:
     Kebab-casing - `kebab-case`

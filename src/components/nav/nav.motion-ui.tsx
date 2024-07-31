@@ -27,7 +27,7 @@ function LargeNav(props: React.ComponentProps<typeof motion.nav>) {
       {...props}
       initial={{ x: "-100%" }}
       animate={{ x: "0%" }}
-      transition={{ type: "spring", stiffness: 200 }}
+      transition={{ type: "tween" }}
     >
       {props.children}
     </motion.nav>
@@ -40,7 +40,7 @@ function SmallNav(props: React.ComponentProps<typeof motion.nav>) {
       {...props}
       initial={{ y: "100%" }}
       animate={{ y: "0%" }}
-      transition={{ type: "spring", stiffness: 200 }}
+      transition={{ type: "tween" }}
     >
       {props.children}
     </motion.nav>

@@ -1,15 +1,16 @@
-import NotReadyYet from "@/components/not-ready-yet/not-ready-yet";
+import NotReadyYet from "@/components/not-ready-yet";
+import { cn } from "@/lib/shadcn-ui/utils";
 import { Metadata } from "next";
 import React from "react";
 
 export const metadata: Metadata = {
-	title: "Chat",
+  title: "Chat",
 };
 
 export default function ChatPage() {
-	return (
-		<div>
-			<NotReadyYet />
-		</div>
-	);
+  return (
+    <div className={cn(`flex justify-center`)}>
+      <NotReadyYet />
+    </div>
+  );
 }
