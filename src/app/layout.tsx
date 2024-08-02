@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import { ThemeProvider } from "@/lib/theme/theme-provider";
 import { cn } from "@/lib/shadcn-ui/utils";
 import NextAuthSessionProvider from "@/lib/next-auth/session-provider";
+import { URL } from "node:url";
 
 export const metadata: Metadata = {
   title: {
@@ -30,6 +31,15 @@ export const metadata: Metadata = {
     "Nirvik's Portfolio",
     "nirvik's portfolio",
   ],
+  openGraph: {
+    type: "website",
+    title: "Nirvik Purkait - Portfolio",
+    description: "This is a portfolio of Nirvik Purkait",
+    url: "https://nirvikpurkait.vercel.app",
+    images:
+      "	https://res.cloudinary.com/dpohasqoa/image/upload/v1703691918/portfolio/profile-picture.svg",
+  },
+  metadataBase: new URL("https://nirvikpurkait.vercel.app"),
 };
 
 export default function RootLayout({
