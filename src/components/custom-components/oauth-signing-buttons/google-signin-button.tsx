@@ -1,26 +1,25 @@
-"use client";
-
-import { signIn } from "@/lib/next-auth/signing-methods";
+import { signIn } from "@/lib/next-auth/auth";
 import { cn } from "@/lib/shadcn-ui/utils";
 import Image from "next/image";
 import React from "react";
 
 export default function GoogleSigninButton(
-  props: Omit<React.ComponentProps<"button">, "onClick">
+  props: React.ComponentProps<"button">
 ) {
-  const signinWithGoogle = async () => {
-    await signIn("google");
-  };
-
   return (
-    <>
+    <form
+      action={async () => {
+        "use server";
+        await signIn("google");
+      }}
+    >
       <button
         {...props}
         className={cn(
           `flex items-center justify-center overflow-hidden rounded-md bg-white text-white`,
           props.className
         )}
-        onClick={signinWithGoogle}
+        type="submit"
       >
         <span
           className={cn(
@@ -42,6 +41,6 @@ export default function GoogleSigninButton(
           Sign in with Google
         </span>
       </button>
-    </>
+    </form>
   );
 }

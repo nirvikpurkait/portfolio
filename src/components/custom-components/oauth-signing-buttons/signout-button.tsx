@@ -1,27 +1,24 @@
-"use client";
-
-import { signOut } from "@/lib/next-auth/signing-methods";
+import { signOut } from "@/lib/next-auth/auth";
 import { cn } from "@/lib/shadcn-ui/utils";
 import { faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-export default function SignoutButton(
-  props: Omit<React.ComponentProps<"button">, "onClick">
-) {
-  const signingOut = async () => {
-    await signOut();
-  };
-
+export default function SignoutButton(props: React.ComponentProps<"button">) {
   return (
-    <>
+    <form
+      action={async () => {
+        "use server";
+        await signOut();
+      }}
+    >
       <button
         {...props}
         className={cn(
           `flex items-center justify-center overflow-hidden rounded-md bg-white text-white`,
           props.className
         )}
-        onClick={signingOut}
+        type="submit"
       >
         <span
           className={cn(
@@ -30,7 +27,7 @@ export default function SignoutButton(
         >
           <FontAwesomeIcon
             icon={faRightFromBracket}
-            className={cn(`text-4xl`)}
+            className={cn(`w-9 text-4xl`)}
           />
         </span>
         <span
@@ -41,6 +38,6 @@ export default function SignoutButton(
           Sign out
         </span>
       </button>
-    </>
+    </form>
   );
 }

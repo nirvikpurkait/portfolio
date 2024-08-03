@@ -1,26 +1,26 @@
-"use client";
-
-import { signIn } from "@/lib/next-auth/signing-methods";
+import { signIn } from "@/lib/next-auth/auth";
 import { cn } from "@/lib/shadcn-ui/utils";
 import Image from "next/image";
 import React from "react";
 
 export default function LinkedInSigninButton(
-  props: Omit<React.ComponentProps<"button">, "onClick">
+  props: React.ComponentProps<"button">
 ) {
-  const signinWithLinkedIn = async () => {
-    signIn("linkedin");
-  };
-
   return (
-    <>
+    <form
+      action={async () => {
+        "use server";
+        await signIn("linkedin");
+      }}
+    >
       <button
         {...props}
         className={cn(
           `flex items-center justify-center overflow-hidden rounded-md bg-white text-white`,
           props.className
         )}
-        onClick={signinWithLinkedIn}
+        type="submit"
+        // onClick={signinWithLinkedIn}
       >
         <span
           className={cn(
@@ -36,12 +36,12 @@ export default function LinkedInSigninButton(
         </span>
         <span
           className={cn(
-            `inline-block w-60 rounded-br-md rounded-tr-md border-2 border-l-0 border-gray-300 bg-[#006699] p-3 px-6 pt-[13px] text-xl`
+            `inline-block w-60 rounded-br-md rounded-tr-md border-2 border-l-0 border-gray-300 bg-[#0a66c2] p-3 px-6 pt-[13px] text-xl`
           )}
         >
           Sign in with LinkedIn
         </span>
       </button>
-    </>
+    </form>
   );
 }
