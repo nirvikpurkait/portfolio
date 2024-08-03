@@ -5,7 +5,9 @@ import { cn } from "@/lib/shadcn-ui/utils";
 import Image from "next/image";
 import React from "react";
 
-export default function GoogleSigninButton() {
+export default function GoogleSigninButton(
+  props: Omit<React.ComponentProps<"button">, "onClick">
+) {
   const signinWithGoogle = async () => {
     await signIn("google");
   };
@@ -13,8 +15,10 @@ export default function GoogleSigninButton() {
   return (
     <>
       <button
+        {...props}
         className={cn(
-          `flex items-center justify-center overflow-hidden rounded-md bg-white text-white `
+          `flex items-center justify-center overflow-hidden rounded-md bg-white text-white`,
+          props.className
         )}
         onClick={signinWithGoogle}
       >

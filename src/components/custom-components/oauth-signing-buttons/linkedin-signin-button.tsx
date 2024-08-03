@@ -5,7 +5,9 @@ import { cn } from "@/lib/shadcn-ui/utils";
 import Image from "next/image";
 import React from "react";
 
-export default function LinkedInSigninButton() {
+export default function LinkedInSigninButton(
+  props: Omit<React.ComponentProps<"button">, "onClick">
+) {
   const signinWithLinkedIn = async () => {
     signIn("linkedin");
   };
@@ -13,8 +15,10 @@ export default function LinkedInSigninButton() {
   return (
     <>
       <button
+        {...props}
         className={cn(
-          `flex items-center justify-center overflow-hidden rounded-md bg-white text-white `
+          `flex items-center justify-center overflow-hidden rounded-md bg-white text-white`,
+          props.className
         )}
         onClick={signinWithLinkedIn}
       >
