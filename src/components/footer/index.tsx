@@ -6,6 +6,7 @@ import Theme from "./theme/theme";
 import { cn } from "@/lib/shadcn-ui/utils";
 import RatingOutput from "./rating/rating-output/rating-output";
 import style from "@/components/footer/footer.module.scss";
+import ConditionalSignInOutButton from "@/components/signing-in-out/conditional-button";
 
 export default function Footer() {
   return (
@@ -21,6 +22,7 @@ export default function Footer() {
         <SocialIcons className={cn(``, style.socialIcons)} />
         <TechStack className={cn(``, style.techStack)} />
         <RatingOutput className={cn(``, style.ratingOutput)} />
+        <ConditionalSignInOutButton className={cn(``, style.signInOut)} />
       </div>
     </div>
   );

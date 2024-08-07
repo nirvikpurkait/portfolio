@@ -22,6 +22,10 @@
   grid-area: rating-output;
 }
 
+.signInOut {
+  grid-area: sign-in-out;
+}
+
 .gridTemplateArea {
   grid-auto-columns: 1fr;
   grid-template-areas:
@@ -29,6 +33,7 @@
     "rating-input"
     "social-icons"
     "tech-stack"
+    "sign-in-out"
     "rating-output";
 }
 
@@ -39,15 +44,15 @@
       "rating-output   rating-input"
       "rating-output   tech-stack"
       "rating-output   tech-stack"
-      "social-icons    tech-stack";
+      "social-icons    sign-in-out";
   }
 }
 
 @container (min-width: 1000px) {
   .gridTemplateArea {
     grid-template-areas:
-      "theme          tech-stack   rating-output"
-      "rating-input   tech-stack   rating-output"
-      "social-icons   tech-stack   rating-output";
+      "theme          tech-stack    rating-output"
+      "rating-input   tech-stack    rating-output"
+      "social-icons   sign-in-out   rating-output";
   }
 }
