@@ -2,16 +2,11 @@ import { cn } from "@/lib/shadcn-ui/utils";
 import React from "react";
 import ProjectCard from "./project-card";
 import { prisma } from "@/database/prisma";
+import { cachedProjectDetails } from "@/cache/cached-project-details";
 
 // fetch project list for card from database
 async function cardList() {
-  return await prisma.projectDetails.findMany({
-    include: {
-      technologiesUsed: {
-        select: { skill: true },
-      },
-    },
-  });
+  return await cachedProjectDetails();
 }
 
 export default async function ProjectCardList() {
